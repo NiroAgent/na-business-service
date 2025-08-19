@@ -1,0 +1,43 @@
+{
+  "document_id": "dd-20250818-140224-test-p",
+  "session_id": "test-progress-001",
+  "title": "Untitled Project",
+  "overview": "Business objectives: Deliver business value through technology.",
+  "objectives": [
+    "Deliver business value through technology"
+  ],
+  "functional_requirements": [],
+  "non_functional_requirements": [],
+  "technical_constraints": [],
+  "user_stories": [],
+  "acceptance_criteria": [
+    "System functions as designed",
+    "All tests pass successfully",
+    "Documentation is complete"
+  ],
+  "success_metrics": [
+    {
+      "metric": "User Adoption",
+      "target": "80% within 3 months",
+      "measurement": "Active users"
+    },
+    {
+      "metric": "Performance",
+      "target": "<200ms response time",
+      "measurement": "API latency"
+    },
+    {
+      "metric": "Reliability",
+      "target": "99.9% uptime",
+      "measurement": "System availability"
+    }
+  ],
+  "business_context": {
+    "domain": "general",
+    "users": [],
+    "integration_points": []
+  },
+  "created_at": "2025-08-18T14:02:24.492844",
+  "submitted_at": null,
+  "pipeline_status": "pending"
+}

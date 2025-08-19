@@ -1,0 +1,67 @@
+# Page snapshot
+
+```yaml
+- banner:
+  - heading "NiroAgent Dashboard" [level=1]
+  - paragraph: Real-time AWS Infrastructure Monitoring
+  - img
+  - text: Open
+  - button:
+    - img
+- complementary:
+  - navigation:
+    - link "Dashboard Overview and real-time monitoring":
+      - /url: /dashboard
+      - img
+      - text: Dashboard Overview and real-time monitoring
+    - link "EC2 Instances EC2 instance monitoring across environments":
+      - /url: /instances
+      - img
+      - text: EC2 Instances EC2 instance monitoring across environments
+    - link "Cost Analysis Cost breakdown and optimization":
+      - /url: /costs
+      - img
+      - text: Cost Analysis Cost breakdown and optimization
+    - link "Real-time Monitoring Live alerts and system health":
+      - /url: /monitoring
+      - img
+      - text: Real-time Monitoring Live alerts and system health
+  - heading "Environments" [level=3]
+  - text: VF-DevActive VF-StagingMonitor VF-ProductionCritical
+- main:
+  - heading "Dashboard" [level=1]
+  - paragraph: Real-time AWS infrastructure monitoring across all environments
+  - text: "LIVE Last updated: 5:30:22 PM"
+  - paragraph: Total Instances
+  - paragraph: ...
+  - paragraph:
+    - img
+    - text: 0 running
+  - img
+  - paragraph: Monthly Cost
+  - paragraph: ...
+  - paragraph:
+    - img
+    - text: 0% savings
+  - img
+  - paragraph: Active Alerts
+  - paragraph: ...
+  - paragraph:
+    - img
+    - text: Last 24h
+  - img
+  - paragraph: System Health
+  - paragraph: ...
+  - paragraph:
+    - img
+    - text: All systems operational
+  - img
+  - heading "VF-Development" [level=3]
+  - text: Active Account ID:319040880702 Instances:0 Status:Healthy Cost (Est.):$0.00
+  - heading "VF-Staging" [level=3]
+  - text: Monitoring Account ID:275057778147 Instances:0 Status:Monitoring Cost (Est.):$0.00
+  - heading "VF-Production" [level=3]
+  - text: Critical Account ID:229742714212 Instances:0 Status:Attention Required Cost (Est.):$0.00
+  - heading "Recent Activity" [level=3]
+  - text: Loading recent activity...
+```

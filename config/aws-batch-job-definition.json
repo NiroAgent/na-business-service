@@ -1,0 +1,51 @@
+{
+  "jobDefinitionName": "ai-agent-processor",
+  "type": "container",
+  "platformCapabilities": ["FARGATE"],
+  "containerProperties": {
+    "image": "public.ecr.aws/lambda/python:3.11",
+    "jobRoleArn": "arn:aws:iam::ACCOUNT_ID:role/ai-agent-batch-role",
+    "executionRoleArn": "arn:aws:iam::ACCOUNT_ID:role/ai-agent-batch-execution-role",
+    "resourceRequirements": [
+      {
+        "type": "VCPU",
+        "value": "0.25"
+      },
+      {
+        "type": "MEMORY",
+        "value": "512"
+      }
+    ],
+    "environment": [
+      {
+        "name": "GITHUB_TOKEN",
+        "value": "WILL_BE_SET_FROM_SECRETS"
+      },
+      {
+        "name": "AWS_DEFAULT_REGION",
+        "value": "us-east-1"
+      }
+    ],
+    "logConfiguration": {
+      "logDriver": "awslogs",
+      "options": {
+        "awslogs-group": "/aws/batch/ai-agent-processor",
+        "awslogs-region": "us-east-1",
+        "awslogs-stream-prefix": "agent"
+      }
+    },
+    "fargatePlatformConfiguration": {
+      "platformVersion": "LATEST"
+    },
+    "ephemeralStorage": {
+      "sizeInGiB": 21
+    }
+  },
+  "propagateTags": true,
+  "timeout": {
+    "attemptDurationSeconds": 300
+  },
+  "retryStrategy": {
+    "attempts": 2
+  }
+}

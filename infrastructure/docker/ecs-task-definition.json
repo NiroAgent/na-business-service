@@ -1,0 +1,42 @@
+{
+  "family": "vf-dev-multi-agents",
+  "networkMode": "awsvpc",
+  "requiresCompatibilities": [
+    "FARGATE"
+  ],
+  "cpu": "2048",
+  "memory": "4096",
+  "executionRoleArn": "arn:aws:iam::816454053517:role/ecsTaskExecutionRole",
+  "taskRoleArn": "arn:aws:iam::816454053517:role/vf-dev-agent-task-role",
+  "containerDefinitions": [
+    {
+      "name": "multi-agent-container",
+      "image": "816454053517.dkr.ecr.us-east-1.amazonaws.com/vf-dev-agents:latest",
+      "portMappings": [
+        {
+          "containerPort": 8080,
+          "protocol": "tcp"
+        }
+      ],
+      "essential": true,
+      "logConfiguration": {
+        "logDriver": "awslogs",
+        "options": {
+          "awslogs-group": "/ecs/vf-dev-agents",
+          "awslogs-region": "us-east-1",
+          "awslogs-stream-prefix": "ecs"
+        }
+      },
+      "environment": [
+        {
+          "name": "ENVIRONMENT",
+          "value": "vf-dev"
+        },
+        {
+          "name": "AGENT_COUNT",
+          "value": "50"
+        }
+      ]
+    }
+  ]
+}

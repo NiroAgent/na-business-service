@@ -1,0 +1,734 @@
+<testsuites id="" name="" tests="47" failures="17" skipped="0" errors="0" time="166.09246599999997">
+<testsuite name="e2e\dashboard.spec.ts" timestamp="2025-08-19T21:28:30.514Z" hostname="chromium" tests="8" failures="1" skipped="0" time="17.813" errors="0">
+<testcase name="Dashboard Navigation › should load the dashboard homepage" classname="e2e\dashboard.spec.ts" time="1.914">
+</testcase>
+<testcase name="Dashboard Navigation › should navigate to all main sections" classname="e2e\dashboard.spec.ts" time="0.496">
+</testcase>
+<testcase name="Dashboard Navigation › should show connection status" classname="e2e\dashboard.spec.ts" time="0.281">
+</testcase>
+<testcase name="Dashboard Data Loading › should load and display instance metrics" classname="e2e\dashboard.spec.ts" time="1.474">
+</testcase>
+<testcase name="Dashboard Data Loading › should load and display cost metrics" classname="e2e\dashboard.spec.ts" time="1.499">
+</testcase>
+<testcase name="Dashboard Data Loading › should show environment status" classname="e2e\dashboard.spec.ts" time="1.515">
+</testcase>
+<testcase name="Responsive Design › should work on mobile devices" classname="e2e\dashboard.spec.ts" time="10.299">
+<failure message="dashboard.spec.ts:96:7 should work on mobile devices" type="FAILURE">
+<![CDATA[  [chromium] › e2e\dashboard.spec.ts:96:7 › Responsive Design › should work on mobile devices ──────
+
+    TimeoutError: page.click: Timeout 10000ms exceeded.
+    Call log:
+      - waiting for locator('[data-testid="mobile-menu-button"]')
+
+
+       99 |     
+      100 |     // Check mobile navigation works
+    > 101 |     await page.click('[data-testid="mobile-menu-button"]');
+          |                ^
+      102 |     await expect(page.locator('[data-testid="mobile-nav"]')).toBeVisible();
+      103 |   });
+      104 |
+        at E:\Projects\na-dashboard\tests\e2e\dashboard.spec.ts:101:16
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ..\test-results\e2e-dashboard-Responsive-D-bda17-ould-work-on-mobile-devices-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ..\test-results\e2e-dashboard-Responsive-D-bda17-ould-work-on-mobile-devices-chromium\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ..\test-results\e2e-dashboard-Responsive-D-bda17-ould-work-on-mobile-devices-chromium\error-context.md
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|e2e-dashboard-Responsive-D-bda17-ould-work-on-mobile-devices-chromium\test-failed-1.png]]
+
+[[ATTACHMENT|e2e-dashboard-Responsive-D-bda17-ould-work-on-mobile-devices-chromium\video.webm]]
+
+[[ATTACHMENT|e2e-dashboard-Responsive-D-bda17-ould-work-on-mobile-devices-chromium\error-context.md]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Responsive Design › should work on tablet devices" classname="e2e\dashboard.spec.ts" time="0.335">
+</testcase>
+</testsuite>
+<testsuite name="e2e\pages.spec.ts" timestamp="2025-08-19T21:28:30.514Z" hostname="chromium" tests="10" failures="9" skipped="0" time="77.121" errors="0">
+<testcase name="Instances Page › should display instances table" classname="e2e\pages.spec.ts" time="1.32">
+<failure message="pages.spec.ts:9:7 should display instances table" type="FAILURE">
+<![CDATA[  [chromium] › e2e\pages.spec.ts:9:7 › Instances Page › should display instances table ─────────────
+
+    Error: expect.toContainText: Error: strict mode violation: locator('h1') resolved to 2 elements:
+        1) <h1 class="text-2xl font-bold text-gray-900">NiroAgent Dashboard</h1> aka getByRole('heading', { name: 'NiroAgent Dashboard' })
+        2) <h1 class="text-3xl font-bold text-gray-900">EC2 Instances</h1> aka getByRole('heading', { name: 'EC2 Instances' })
+
+    Call log:
+      - Expect "toContainText" with timeout 5000ms
+      - waiting for locator('h1')
+
+
+       9 |   test('should display instances table', async ({ page }) => {
+      10 |     // Check page title
+    > 11 |     await expect(page.locator('h1')).toContainText('Instances');
+         |                                      ^
+      12 |     
+      13 |     // Check instances table or empty state
+      14 |     const instancesTable = page.locator('[data-testid="instances-table"]');
+        at E:\Projects\na-dashboard\tests\e2e\pages.spec.ts:11:38
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ..\test-results\e2e-pages-Instances-Page-should-display-instances-table-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ..\test-results\e2e-pages-Instances-Page-should-display-instances-table-chromium\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ..\test-results\e2e-pages-Instances-Page-should-display-instances-table-chromium\error-context.md
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|e2e-pages-Instances-Page-should-display-instances-table-chromium\test-failed-1.png]]
+
+[[ATTACHMENT|e2e-pages-Instances-Page-should-display-instances-table-chromium\video.webm]]
+
+[[ATTACHMENT|e2e-pages-Instances-Page-should-display-instances-table-chromium\error-context.md]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Instances Page › should filter instances by environment" classname="e2e\pages.spec.ts" time="11.617">
+<failure message="pages.spec.ts:21:7 should filter instances by environment" type="FAILURE">
+<![CDATA[  [chromium] › e2e\pages.spec.ts:21:7 › Instances Page › should filter instances by environment ────
+
+    TimeoutError: page.selectOption: Timeout 10000ms exceeded.
+    Call log:
+      - waiting for locator('[data-testid="environment-filter"]')
+
+
+      21 |   test('should filter instances by environment', async ({ page }) => {
+      22 |     // Test environment filter
+    > 23 |     await page.selectOption('[data-testid="environment-filter"]', 'vf-dev');
+         |                ^
+      24 |     
+      25 |     // Wait for filter to apply
+      26 |     await page.waitForTimeout(1000);
+        at E:\Projects\na-dashboard\tests\e2e\pages.spec.ts:23:16
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ..\test-results\e2e-pages-Instances-Page-s-d666a-er-instances-by-environment-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ..\test-results\e2e-pages-Instances-Page-s-d666a-er-instances-by-environment-chromium\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ..\test-results\e2e-pages-Instances-Page-s-d666a-er-instances-by-environment-chromium\error-context.md
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|e2e-pages-Instances-Page-s-d666a-er-instances-by-environment-chromium\test-failed-1.png]]
+
+[[ATTACHMENT|e2e-pages-Instances-Page-s-d666a-er-instances-by-environment-chromium\video.webm]]
+
+[[ATTACHMENT|e2e-pages-Instances-Page-s-d666a-er-instances-by-environment-chromium\error-context.md]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Instances Page › should refresh instances data" classname="e2e\pages.spec.ts" time="11.745">
+<failure message="pages.spec.ts:32:7 should refresh instances data" type="FAILURE">
+<![CDATA[  [chromium] › e2e\pages.spec.ts:32:7 › Instances Page › should refresh instances data ─────────────
+
+    TimeoutError: page.click: Timeout 10000ms exceeded.
+    Call log:
+      - waiting for locator('[data-testid="refresh-instances"]')
+
+
+      32 |   test('should refresh instances data', async ({ page }) => {
+      33 |     // Click refresh button
+    > 34 |     await page.click('[data-testid="refresh-instances"]');
+         |                ^
+      35 |     
+      36 |     // Check loading state appears
+      37 |     await expect(page.locator('[data-testid="loading-instances"]')).toBeVisible();
+        at E:\Projects\na-dashboard\tests\e2e\pages.spec.ts:34:16
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ..\test-results\e2e-pages-Instances-Page-should-refresh-instances-data-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ..\test-results\e2e-pages-Instances-Page-should-refresh-instances-data-chromium\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ..\test-results\e2e-pages-Instances-Page-should-refresh-instances-data-chromium\error-context.md
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|e2e-pages-Instances-Page-should-refresh-instances-data-chromium\test-failed-1.png]]
+
+[[ATTACHMENT|e2e-pages-Instances-Page-should-refresh-instances-data-chromium\video.webm]]
+
+[[ATTACHMENT|e2e-pages-Instances-Page-should-refresh-instances-data-chromium\error-context.md]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Instances Page › should show instance details on click" classname="e2e\pages.spec.ts" time="1.367">
+</testcase>
+<testcase name="Costs Page › should display cost breakdown" classname="e2e\pages.spec.ts" time="6.565">
+<failure message="pages.spec.ts:62:7 should display cost breakdown" type="FAILURE">
+<![CDATA[  [chromium] › e2e\pages.spec.ts:62:7 › Costs Page › should display cost breakdown ─────────────────
+
+    Error: Timed out 5000ms waiting for expect(locator).toContainText(expected)
+
+    Locator: locator('h1')
+    Expected string: "Costs"
+    Received: <element(s) not found>
+    Call log:
+      - Expect "toContainText" with timeout 5000ms
+      - waiting for locator('h1')
+
+
+      61 |
+      62 |   test('should display cost breakdown', async ({ page }) => {
+    > 63 |     await expect(page.locator('h1')).toContainText('Costs');
+         |                                      ^
+      64 |     
+      65 |     // Check cost charts are present
+      66 |     const pieChart = page.locator('[data-testid="cost-pie-chart"]');
+        at E:\Projects\na-dashboard\tests\e2e\pages.spec.ts:63:38
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ..\test-results\e2e-pages-Costs-Page-should-display-cost-breakdown-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ..\test-results\e2e-pages-Costs-Page-should-display-cost-breakdown-chromium\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|e2e-pages-Costs-Page-should-display-cost-breakdown-chromium\test-failed-1.png]]
+
+[[ATTACHMENT|e2e-pages-Costs-Page-should-display-cost-breakdown-chromium\video.webm]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Costs Page › should switch between environments" classname="e2e\pages.spec.ts" time="11.841">
+<failure message="pages.spec.ts:72:7 should switch between environments" type="FAILURE">
+<![CDATA[  [chromium] › e2e\pages.spec.ts:72:7 › Costs Page › should switch between environments ────────────
+
+    TimeoutError: page.selectOption: Timeout 10000ms exceeded.
+    Call log:
+      - waiting for locator('[data-testid="cost-environment-select"]')
+
+
+      72 |   test('should switch between environments', async ({ page }) => {
+      73 |     // Test environment selector
+    > 74 |     await page.selectOption('[data-testid="cost-environment-select"]', 'vf-staging');
+         |                ^
+      75 |     
+      76 |     // Wait for data to update
+      77 |     await page.waitForTimeout(1000);
+        at E:\Projects\na-dashboard\tests\e2e\pages.spec.ts:74:16
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ..\test-results\e2e-pages-Costs-Page-should-switch-between-environments-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ..\test-results\e2e-pages-Costs-Page-should-switch-between-environments-chromium\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|e2e-pages-Costs-Page-should-switch-between-environments-chromium\test-failed-1.png]]
+
+[[ATTACHMENT|e2e-pages-Costs-Page-should-switch-between-environments-chromium\video.webm]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Costs Page › should export cost data" classname="e2e\pages.spec.ts" time="11.796">
+<failure message="pages.spec.ts:83:7 should export cost data" type="FAILURE">
+<![CDATA[  [chromium] › e2e\pages.spec.ts:83:7 › Costs Page › should export cost data ───────────────────────
+
+    TimeoutError: page.waitForEvent: Timeout 10000ms exceeded while waiting for event "download"
+    =========================== logs ===========================
+    waiting for event "download"
+    ============================================================
+
+      83 |   test('should export cost data', async ({ page }) => {
+      84 |     // Click export button
+    > 85 |     const downloadPromise = page.waitForEvent('download');
+         |                                  ^
+      86 |     await page.click('[data-testid="export-costs"]');
+      87 |     
+      88 |     // Wait for download to start
+        at E:\Projects\na-dashboard\tests\e2e\pages.spec.ts:85:34
+
+    TimeoutError: page.click: Timeout 10000ms exceeded.
+    Call log:
+      - waiting for locator('[data-testid="export-costs"]')
+
+
+      84 |     // Click export button
+      85 |     const downloadPromise = page.waitForEvent('download');
+    > 86 |     await page.click('[data-testid="export-costs"]');
+         |                ^
+      87 |     
+      88 |     // Wait for download to start
+      89 |     const download = await downloadPromise;
+        at E:\Projects\na-dashboard\tests\e2e\pages.spec.ts:86:16
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ..\test-results\e2e-pages-Costs-Page-should-export-cost-data-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ..\test-results\e2e-pages-Costs-Page-should-export-cost-data-chromium\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|e2e-pages-Costs-Page-should-export-cost-data-chromium\test-failed-1.png]]
+
+[[ATTACHMENT|e2e-pages-Costs-Page-should-export-cost-data-chromium\video.webm]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Monitoring Page › should display monitoring status" classname="e2e\pages.spec.ts" time="1.911">
+<failure message="pages.spec.ts:100:7 should display monitoring status" type="FAILURE">
+<![CDATA[  [chromium] › e2e\pages.spec.ts:100:7 › Monitoring Page › should display monitoring status ────────
+
+    Error: expect.toContainText: Error: strict mode violation: locator('h1') resolved to 2 elements:
+        1) <h1 class="text-2xl font-bold text-gray-900">NiroAgent Dashboard</h1> aka getByRole('heading', { name: 'NiroAgent Dashboard' })
+        2) <h1 class="text-3xl font-bold text-gray-900">Real-time Monitoring</h1> aka getByRole('heading', { name: 'Real-time Monitoring' })
+
+    Call log:
+      - Expect "toContainText" with timeout 5000ms
+      - waiting for locator('h1')
+
+
+       99 |
+      100 |   test('should display monitoring status', async ({ page }) => {
+    > 101 |     await expect(page.locator('h1')).toContainText('Monitoring');
+          |                                      ^
+      102 |     
+      103 |     // Check monitoring cards
+      104 |     await expect(page.locator('[data-testid="monitoring-status"]')).toBeVisible();
+        at E:\Projects\na-dashboard\tests\e2e\pages.spec.ts:101:38
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ..\test-results\e2e-pages-Monitoring-Page-should-display-monitoring-status-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ..\test-results\e2e-pages-Monitoring-Page-should-display-monitoring-status-chromium\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ..\test-results\e2e-pages-Monitoring-Page-should-display-monitoring-status-chromium\error-context.md
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|e2e-pages-Monitoring-Page-should-display-monitoring-status-chromium\test-failed-1.png]]
+
+[[ATTACHMENT|e2e-pages-Monitoring-Page-should-display-monitoring-status-chromium\video.webm]]
+
+[[ATTACHMENT|e2e-pages-Monitoring-Page-should-display-monitoring-status-chromium\error-context.md]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Monitoring Page › should start/stop real-time monitoring" classname="e2e\pages.spec.ts" time="12.057">
+<failure message="pages.spec.ts:107:7 should start/stop real-time monitoring" type="FAILURE">
+<![CDATA[  [chromium] › e2e\pages.spec.ts:107:7 › Monitoring Page › should start/stop real-time monitoring ──
+
+    TimeoutError: page.click: Timeout 10000ms exceeded.
+    Call log:
+      - waiting for locator('[data-testid="start-monitoring"]')
+
+
+      107 |   test('should start/stop real-time monitoring', async ({ page }) => {
+      108 |     // Start monitoring
+    > 109 |     await page.click('[data-testid="start-monitoring"]');
+          |                ^
+      110 |     
+      111 |     // Check monitoring is active
+      112 |     await expect(page.locator('[data-testid="monitoring-active"]')).toBeVisible();
+        at E:\Projects\na-dashboard\tests\e2e\pages.spec.ts:109:16
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ..\test-results\e2e-pages-Monitoring-Page--01132-t-stop-real-time-monitoring-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ..\test-results\e2e-pages-Monitoring-Page--01132-t-stop-real-time-monitoring-chromium\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ..\test-results\e2e-pages-Monitoring-Page--01132-t-stop-real-time-monitoring-chromium\error-context.md
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|e2e-pages-Monitoring-Page--01132-t-stop-real-time-monitoring-chromium\test-failed-1.png]]
+
+[[ATTACHMENT|e2e-pages-Monitoring-Page--01132-t-stop-real-time-monitoring-chromium\video.webm]]
+
+[[ATTACHMENT|e2e-pages-Monitoring-Page--01132-t-stop-real-time-monitoring-chromium\error-context.md]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Monitoring Page › should display alerts" classname="e2e\pages.spec.ts" time="6.902">
+<failure message="pages.spec.ts:121:7 should display alerts" type="FAILURE">
+<![CDATA[  [chromium] › e2e\pages.spec.ts:121:7 › Monitoring Page › should display alerts ───────────────────
+
+    Error: Timed out 5000ms waiting for expect(locator).toBeVisible()
+
+    Locator: locator('[data-testid="alerts-section"]')
+    Expected: visible
+    Received: <element(s) not found>
+    Call log:
+      - Expect "toBeVisible" with timeout 5000ms
+      - waiting for locator('[data-testid="alerts-section"]')
+
+
+      122 |     // Check alerts section
+      123 |     const alertsSection = page.locator('[data-testid="alerts-section"]');
+    > 124 |     await expect(alertsSection).toBeVisible();
+          |                                 ^
+      125 |     
+      126 |     // Check for alerts or empty state
+      127 |     const alertsList = page.locator('[data-testid="alerts-list"]');
+        at E:\Projects\na-dashboard\tests\e2e\pages.spec.ts:124:33
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ..\test-results\e2e-pages-Monitoring-Page-should-display-alerts-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ..\test-results\e2e-pages-Monitoring-Page-should-display-alerts-chromium\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ..\test-results\e2e-pages-Monitoring-Page-should-display-alerts-chromium\error-context.md
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|e2e-pages-Monitoring-Page-should-display-alerts-chromium\test-failed-1.png]]
+
+[[ATTACHMENT|e2e-pages-Monitoring-Page-should-display-alerts-chromium\video.webm]]
+
+[[ATTACHMENT|e2e-pages-Monitoring-Page-should-display-alerts-chromium\error-context.md]]
+]]>
+</system-out>
+</testcase>
+</testsuite>
+<testsuite name="e2e\realtime.spec.ts" timestamp="2025-08-19T21:28:30.514Z" hostname="chromium" tests="10" failures="5" skipped="0" time="49.574" errors="0">
+<testcase name="WebSocket Real-time Updates › should establish WebSocket connection" classname="e2e\realtime.spec.ts" time="0.339">
+</testcase>
+<testcase name="WebSocket Real-time Updates › should receive real-time updates" classname="e2e\realtime.spec.ts" time="10.35">
+<failure message="realtime.spec.ts:15:7 should receive real-time updates" type="FAILURE">
+<![CDATA[  [chromium] › e2e\realtime.spec.ts:15:7 › WebSocket Real-time Updates › should receive real-time updates 
+
+    TimeoutError: page.click: Timeout 10000ms exceeded.
+    Call log:
+      - waiting for locator('[data-testid="start-monitoring"]')
+
+
+      17 |     
+      18 |     // Start real-time monitoring
+    > 19 |     await page.click('[data-testid="start-monitoring"]');
+         |                ^
+      20 |     
+      21 |     // Check for real-time update indicators
+      22 |     await expect(page.locator('[data-testid="live-indicator"]')).toBeVisible();
+        at E:\Projects\na-dashboard\tests\e2e\realtime.spec.ts:19:16
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ..\test-results\e2e-realtime-WebSocket-Rea-5874f-d-receive-real-time-updates-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ..\test-results\e2e-realtime-WebSocket-Rea-5874f-d-receive-real-time-updates-chromium\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ..\test-results\e2e-realtime-WebSocket-Rea-5874f-d-receive-real-time-updates-chromium\error-context.md
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|e2e-realtime-WebSocket-Rea-5874f-d-receive-real-time-updates-chromium\test-failed-1.png]]
+
+[[ATTACHMENT|e2e-realtime-WebSocket-Rea-5874f-d-receive-real-time-updates-chromium\video.webm]]
+
+[[ATTACHMENT|e2e-realtime-WebSocket-Rea-5874f-d-receive-real-time-updates-chromium\error-context.md]]
+]]>
+</system-out>
+</testcase>
+<testcase name="API Error Handling › should handle API timeouts gracefully" classname="e2e\realtime.spec.ts" time="10.434">
+<failure message="realtime.spec.ts:33:7 should handle API timeouts gracefully" type="FAILURE">
+<![CDATA[  [chromium] › e2e\realtime.spec.ts:33:7 › API Error Handling › should handle API timeouts gracefully 
+
+    Error: Timed out 10000ms waiting for expect(locator).toBeVisible()
+
+    Locator: locator('[data-testid="api-error"]')
+    Expected: visible
+    Received: <element(s) not found>
+    Call log:
+      - Expect "toBeVisible" with timeout 10000ms
+      - waiting for locator('[data-testid="api-error"]')
+
+
+      41 |     
+      42 |     // Check error state is displayed
+    > 43 |     await expect(page.locator('[data-testid="api-error"]')).toBeVisible({ timeout: 10000 });
+         |                                                             ^
+      44 |   });
+      45 |
+      46 |   test('should show appropriate error messages', async ({ page }) => {
+        at E:\Projects\na-dashboard\tests\e2e\realtime.spec.ts:43:61
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ..\test-results\e2e-realtime-API-Error-Han-a9c7a-dle-API-timeouts-gracefully-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ..\test-results\e2e-realtime-API-Error-Han-a9c7a-dle-API-timeouts-gracefully-chromium\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ..\test-results\e2e-realtime-API-Error-Han-a9c7a-dle-API-timeouts-gracefully-chromium\error-context.md
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|e2e-realtime-API-Error-Han-a9c7a-dle-API-timeouts-gracefully-chromium\test-failed-1.png]]
+
+[[ATTACHMENT|e2e-realtime-API-Error-Han-a9c7a-dle-API-timeouts-gracefully-chromium\video.webm]]
+
+[[ATTACHMENT|e2e-realtime-API-Error-Han-a9c7a-dle-API-timeouts-gracefully-chromium\error-context.md]]
+]]>
+</system-out>
+</testcase>
+<testcase name="API Error Handling › should show appropriate error messages" classname="e2e\realtime.spec.ts" time="5.26">
+<failure message="realtime.spec.ts:46:7 should show appropriate error messages" type="FAILURE">
+<![CDATA[  [chromium] › e2e\realtime.spec.ts:46:7 › API Error Handling › should show appropriate error messages 
+
+    Error: Timed out 5000ms waiting for expect(locator).toBeVisible()
+
+    Locator: locator('[data-testid="instances-error"]')
+    Expected: visible
+    Received: <element(s) not found>
+    Call log:
+      - Expect "toBeVisible" with timeout 5000ms
+      - waiting for locator('[data-testid="instances-error"]')
+
+
+      57 |     
+      58 |     // Check error message is displayed
+    > 59 |     await expect(page.locator('[data-testid="instances-error"]')).toBeVisible();
+         |                                                                   ^
+      60 |   });
+      61 |
+      62 |   test('should retry failed requests', async ({ page }) => {
+        at E:\Projects\na-dashboard\tests\e2e\realtime.spec.ts:59:67
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ..\test-results\e2e-realtime-API-Error-Han-e1efe--appropriate-error-messages-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ..\test-results\e2e-realtime-API-Error-Han-e1efe--appropriate-error-messages-chromium\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ..\test-results\e2e-realtime-API-Error-Han-e1efe--appropriate-error-messages-chromium\error-context.md
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|e2e-realtime-API-Error-Han-e1efe--appropriate-error-messages-chromium\test-failed-1.png]]
+
+[[ATTACHMENT|e2e-realtime-API-Error-Han-e1efe--appropriate-error-messages-chromium\video.webm]]
+
+[[ATTACHMENT|e2e-realtime-API-Error-Han-e1efe--appropriate-error-messages-chromium\error-context.md]]
+]]>
+</system-out>
+</testcase>
+<testcase name="API Error Handling › should retry failed requests" classname="e2e\realtime.spec.ts" time="15.518">
+<failure message="realtime.spec.ts:62:7 should retry failed requests" type="FAILURE">
+<![CDATA[  [chromium] › e2e\realtime.spec.ts:62:7 › API Error Handling › should retry failed requests ───────
+
+    Error: Timed out 15000ms waiting for expect(locator).toBeVisible()
+
+    Locator: locator('[data-testid="monitoring-status"]')
+    Expected: visible
+    Received: <element(s) not found>
+    Call log:
+      - Expect "toBeVisible" with timeout 15000ms
+      - waiting for locator('[data-testid="monitoring-status"]')
+
+
+      75 |     
+      76 |     // Should eventually succeed after retries
+    > 77 |     await expect(page.locator('[data-testid="monitoring-status"]')).toBeVisible({ timeout: 15000 });
+         |                                                                     ^
+      78 |   });
+      79 | });
+      80 |
+        at E:\Projects\na-dashboard\tests\e2e\realtime.spec.ts:77:69
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ..\test-results\e2e-realtime-API-Error-Handling-should-retry-failed-requests-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ..\test-results\e2e-realtime-API-Error-Handling-should-retry-failed-requests-chromium\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ..\test-results\e2e-realtime-API-Error-Handling-should-retry-failed-requests-chromium\error-context.md
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|e2e-realtime-API-Error-Handling-should-retry-failed-requests-chromium\test-failed-1.png]]
+
+[[ATTACHMENT|e2e-realtime-API-Error-Handling-should-retry-failed-requests-chromium\video.webm]]
+
+[[ATTACHMENT|e2e-realtime-API-Error-Handling-should-retry-failed-requests-chromium\error-context.md]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Performance › should load dashboard within performance budget" classname="e2e\realtime.spec.ts" time="1.589">
+</testcase>
+<testcase name="Performance › should have good Lighthouse performance score" classname="e2e\realtime.spec.ts" time="0.277">
+</testcase>
+<testcase name="Accessibility › should be keyboard navigable" classname="e2e\realtime.spec.ts" time="0.265">
+</testcase>
+<testcase name="Accessibility › should have proper ARIA labels" classname="e2e\realtime.spec.ts" time="5.186">
+<failure message="realtime.spec.ts:124:7 should have proper ARIA labels" type="FAILURE">
+<![CDATA[  [chromium] › e2e\realtime.spec.ts:124:7 › Accessibility › should have proper ARIA labels ─────────
+
+    Error: Timed out 5000ms waiting for expect(locator).toBeVisible()
+
+    Locator: locator('nav[role="navigation"]')
+    Expected: visible
+    Received: <element(s) not found>
+    Call log:
+      - Expect "toBeVisible" with timeout 5000ms
+      - waiting for locator('nav[role="navigation"]')
+
+
+      126 |     
+      127 |     // Check navigation has proper ARIA
+    > 128 |     await expect(page.locator('nav[role="navigation"]')).toBeVisible();
+          |                                                          ^
+      129 |     
+      130 |     // Check buttons have labels
+      131 |     const buttons = page.locator('button');
+        at E:\Projects\na-dashboard\tests\e2e\realtime.spec.ts:128:58
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ..\test-results\e2e-realtime-Accessibility-should-have-proper-ARIA-labels-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ..\test-results\e2e-realtime-Accessibility-should-have-proper-ARIA-labels-chromium\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ..\test-results\e2e-realtime-Accessibility-should-have-proper-ARIA-labels-chromium\error-context.md
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|e2e-realtime-Accessibility-should-have-proper-ARIA-labels-chromium\test-failed-1.png]]
+
+[[ATTACHMENT|e2e-realtime-Accessibility-should-have-proper-ARIA-labels-chromium\video.webm]]
+
+[[ATTACHMENT|e2e-realtime-Accessibility-should-have-proper-ARIA-labels-chromium\error-context.md]]
+]]>
+</system-out>
+</testcase>
+<testcase name="Accessibility › should have sufficient color contrast" classname="e2e\realtime.spec.ts" time="0.356">
+</testcase>
+</testsuite>
+<testsuite name="integration\api-health.spec.ts" timestamp="2025-08-19T21:28:30.514Z" hostname="chromium" tests="4" failures="0" skipped="0" time="2.128" errors="0">
+<testcase name="API Health Checks › should have API server running" classname="integration\api-health.spec.ts" time="0.014">
+</testcase>
+<testcase name="API Health Checks › should return AWS instances data" classname="integration\api-health.spec.ts" time="0.591">
+</testcase>
+<testcase name="API Health Checks › should return cost data" classname="integration\api-health.spec.ts" time="0.709">
+</testcase>
+<testcase name="API Health Checks › should return monitoring status" classname="integration\api-health.spec.ts" time="0.814">
+</testcase>
+</testsuite>
+<testsuite name="integration\api.spec.ts" timestamp="2025-08-19T21:28:30.514Z" hostname="chromium" tests="15" failures="2" skipped="0" time="5.572" errors="0">
+<testcase name="API Health Checks › should return healthy status" classname="integration\api.spec.ts" time="0.004">
+</testcase>
+<testcase name="API Health Checks › should have proper response headers" classname="integration\api.spec.ts" time="0.003">
+</testcase>
+<testcase name="AWS Instances API › should return instances data structure" classname="integration\api.spec.ts" time="0.79">
+</testcase>
+<testcase name="AWS Instances API › should include AWS access information in development" classname="integration\api.spec.ts" time="0.597">
+</testcase>
+<testcase name="AWS Instances API › should handle environment filtering" classname="integration\api.spec.ts" time="0.597">
+</testcase>
+<testcase name="Cost Breakdown API › should return cost data structure" classname="integration\api.spec.ts" time="0.73">
+</testcase>
+<testcase name="Cost Breakdown API › should have valid cost calculations" classname="integration\api.spec.ts" time="0.694">
+</testcase>
+<testcase name="Monitoring Status API › should return monitoring data structure" classname="integration\api.spec.ts" time="0.706">
+</testcase>
+<testcase name="Monitoring Status API › should have valid monitoring status values" classname="integration\api.spec.ts" time="0.739">
+</testcase>
+<testcase name="API Error Handling › should return 404 for unknown endpoints" classname="integration\api.spec.ts" time="0.005">
+</testcase>
+<testcase name="API Error Handling › should handle malformed requests gracefully" classname="integration\api.spec.ts" time="0.009">
+<failure message="api.spec.ts:162:7 should handle malformed requests gracefully" type="FAILURE">
+<![CDATA[  [chromium] › integration\api.spec.ts:162:7 › API Error Handling › should handle malformed requests gracefully 
+
+    Error: expect(received).toContain(expected) // indexOf
+
+    Expected value: 404
+    Received array: [400, 405]
+
+      166 |     
+      167 |     // Should return method not allowed or bad request
+    > 168 |     expect([400, 405]).toContain(response.status());
+          |                        ^
+      169 |   });
+      170 |
+      171 |   test('should have CORS headers', async ({ request }) => {
+        at E:\Projects\na-dashboard\tests\integration\api.spec.ts:168:24
+]]>
+</failure>
+</testcase>
+<testcase name="API Error Handling › should have CORS headers" classname="integration\api.spec.ts" time="0.006">
+<failure message="api.spec.ts:171:7 should have CORS headers" type="FAILURE">
+<![CDATA[  [chromium] › integration\api.spec.ts:171:7 › API Error Handling › should have CORS headers ───────
+
+    TypeError: request.options is not a function
+
+      170 |
+      171 |   test('should have CORS headers', async ({ request }) => {
+    > 172 |     const response = await request.options(`${API_BASE_URL}/api/aws/instances`);
+          |                                    ^
+      173 |     
+      174 |     const headers = response.headers();
+      175 |     expect(headers['access-control-allow-origin']).toBeDefined();
+        at E:\Projects\na-dashboard\tests\integration\api.spec.ts:172:36
+]]>
+</failure>
+</testcase>
+<testcase name="API Performance › should respond within reasonable time" classname="integration\api.spec.ts" time="0.02">
+</testcase>
+<testcase name="API Performance › should handle concurrent requests" classname="integration\api.spec.ts" time="0.018">
+</testcase>
+<testcase name="API Data Consistency › should maintain data consistency across endpoints" classname="integration\api.spec.ts" time="0.654">
+</testcase>
+</testsuite>
+</testsuites>

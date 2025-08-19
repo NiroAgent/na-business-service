@@ -1,0 +1,116 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: 'Scheduled Start/Stop Agent System for Dev Environment'
+
+Resources:
+  # Lambda function to start/stop instances
+  SchedulerFunction:
+    Type: AWS::Lambda::Function
+    Properties:
+      FunctionName: vf-dev-agent-scheduler
+      Runtime: python3.9
+      Handler: index.lambda_handler
+      Role: !GetAtt SchedulerRole.Arn
+      Code:
+        ZipFile: |
+          import boto3
+          import json
+          
+          ec2 = boto3.client('ec2')
+          
+          def lambda_handler(event, context):
+              action = event.get('action', 'start')
+              instance_ids = event.get('instance_ids', [])
+              
+              if action == 'start':
+                  response = ec2.start_instances(InstanceIds=instance_ids)
+                  print(f"Started instances: {instance_ids}")
+              elif action == 'stop':
+                  response = ec2.stop_instances(InstanceIds=instance_ids)
+                  print(f"Stopped instances: {instance_ids}")
+              
+              return {
+                  'statusCode': 200,
+                  'body': json.dumps(f'Successfully {action}ed instances')
+              }
+
+  SchedulerRole:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service: lambda.amazonaws.com
+            Action: sts:AssumeRole
+      ManagedPolicyArns:
+        - arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole
+      Policies:
+        - PolicyName: EC2Control
+          PolicyDocument:
+            Version: '2012-10-17'
+            Statement:
+              - Effect: Allow
+                Action:
+                  - ec2:StartInstances
+                  - ec2:StopInstances
+                  - ec2:DescribeInstances
+                Resource: '*'
+
+  # Start agents at 8 AM EST (Monday-Friday)
+  StartSchedule:
+    Type: AWS::Events::Rule
+    Properties:
+      Description: Start agent instances for business hours
+      ScheduleExpression: 'cron(0 13 ? * MON-FRI *)'  # 8 AM EST = 1 PM UTC
+      State: ENABLED
+      Targets:
+        - Arn: !GetAtt SchedulerFunction.Arn
+          Id: StartTarget
+          Input: |
+            {
+              "action": "start",
+              "instance_ids": ["i-1234567890abcdef0"]
+            }
+
+  # Stop agents at 6 PM EST (Monday-Friday)
+  StopSchedule:
+    Type: AWS::Events::Rule
+    Properties:
+      Description: Stop agent instances after business hours
+      ScheduleExpression: 'cron(0 23 ? * MON-FRI *)'  # 6 PM EST = 11 PM UTC
+      State: ENABLED
+      Targets:
+        - Arn: !GetAtt SchedulerFunction.Arn
+          Id: StopTarget
+          Input: |
+            {
+              "action": "stop",
+              "instance_ids": ["i-1234567890abcdef0"]
+            }
+
+  # Permissions for EventBridge to invoke Lambda
+  StartSchedulePermission:
+    Type: AWS::Lambda::Permission
+    Properties:
+      FunctionName: !Ref SchedulerFunction
+      Action: lambda:InvokeFunction
+      Principal: events.amazonaws.com
+      SourceArn: !GetAtt StartSchedule.Arn
+
+  StopSchedulePermission:
+    Type: AWS::Lambda::Permission
+    Properties:
+      FunctionName: !Ref SchedulerFunction
+      Action: lambda:InvokeFunction
+      Principal: events.amazonaws.com
+      SourceArn: !GetAtt StopSchedule.Arn
+
+Outputs:
+  SchedulerFunction:
+    Description: Lambda function for scheduling
+    Value: !Ref SchedulerFunction
+  
+  CostSavings:
+    Description: Cost savings with 10-hour daily operation
+    Value: 'Approximately 60% savings - runs only business hours'

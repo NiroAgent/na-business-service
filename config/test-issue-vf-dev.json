@@ -1,0 +1,11 @@
+{
+  "title": "[Manager] Test AI Agent System - VF-DEV",
+  "body": "## AI Agent System Test - VF-DEV\n\nThis is a test issue to verify the AI agent assignment system is working correctly in the vf-dev environment.\n\n**Environment:** vf-dev\n**Test Type:** Deployment Verification  \n**Priority:** P2\n**Labels:** test, manager, vf-dev\n\n**Expected Behavior:**\n1. GitHub webhook should trigger Lambda function\n2. Issue should be routed to Manager agent\n3. Manager should create appropriate sub-tasks\n4. Status should be updated in real-time\n5. Issue should be closed when complete\n\n**Test Steps:**\n- [ ] Verify webhook receives the issue\n- [ ] Confirm agent routing logic\n- [ ] Check CloudWatch logs for processing\n- [ ] Validate SQS message handling\n- [ ] Monitor task completion\n\n**Created:** 2025-08-19T00:05:03.350098\n**Agent System Version:** v2.0.0\n\nPlease process this test issue and report results.\n",
+  "labels": [
+    "test",
+    "manager",
+    "vf-dev",
+    "deployment-verification"
+  ],
+  "assignee": "manager"
+}

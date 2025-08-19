@@ -1,0 +1,29 @@
+{
+  "_comment": "AWS Cost Monitor Configuration - Copy this file to aws-cost-config.json and fill in your settings",
+  "aws": {
+    "profile": "default",
+    "region": "us-east-1",
+    "cost_explorer_enabled": true
+  },
+  "monitoring": {
+    "cost_threshold_percent": 1.0,
+    "time_window_minutes": 60,
+    "check_interval_seconds": 300,
+    "emergency_shutdown_enabled": true
+  },
+  "agents": {
+    "monitored_processes": [
+      "monitorable-agent.py",
+      "gh-copilot-orchestrator.py", 
+      "local-orchestrator.py",
+      "run-gh-copilot-tests.py"
+    ],
+    "docker_shutdown_enabled": true
+  },
+  "notifications": {
+    "email_enabled": false,
+    "email_addresses": [],
+    "slack_webhook": "",
+    "log_level": "INFO"
+  }
+}

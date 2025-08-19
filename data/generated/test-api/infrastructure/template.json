@@ -1,0 +1,12 @@
+{
+  "AWSTemplateFormatVersion": "2010-09-09",
+  "Description": "Infrastructure for test-api",
+  "Resources": {
+    "ECSCluster": {
+      "Type": "AWS::ECS::Cluster",
+      "Properties": {
+        "ClusterName": "test-api"
+      }
+    }
+  }
+}

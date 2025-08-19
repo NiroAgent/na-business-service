@@ -1,0 +1,102 @@
+# Agent Orchestration System - Docker Compose Configuration
+version: '3.8'
+
+services:
+  # Main Dashboard Service
+  dashboard:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.dashboard
+    ports:
+      - "5000:5000"
+    environment:
+      - PROJECTS_DIR=/workspace/Projects
+    volumes:
+      - .:/workspace/Projects
+      - agent_results:/workspace/results
+    depends_on:
+      - redis
+    restart: unless-stopped
+
+  # Redis for inter-service communication
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+    restart: unless-stopped
+
+  # GitHub Copilot Orchestrator Agent
+  copilot-orchestrator:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.agent
+    environment:
+      - AGENT_TYPE=copilot-orchestrator
+      - PROJECTS_DIR=/workspace/Projects
+      - REDIS_URL=redis://redis:6379
+    volumes:
+      - .:/workspace/Projects
+      - agent_results:/workspace/results
+      - ${HOME}/.config/gh:/root/.config/gh:ro  # GitHub CLI config
+    depends_on:
+      - redis
+      - dashboard
+    restart: unless-stopped
+
+  # Local Health Check Agent
+  local-orchestrator:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.agent
+    environment:
+      - AGENT_TYPE=local-orchestrator
+      - PROJECTS_DIR=/workspace/Projects
+      - REDIS_URL=redis://redis:6379
+    volumes:
+      - .:/workspace/Projects
+      - agent_results:/workspace/results
+    depends_on:
+      - redis
+      - dashboard
+    restart: unless-stopped
+
+  # Automated Test Runner Agent
+  test-runner:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.agent
+    environment:
+      - AGENT_TYPE=test-runner
+      - PROJECTS_DIR=/workspace/Projects
+      - REDIS_URL=redis://redis:6379
+    volumes:
+      - .:/workspace/Projects
+      - agent_results:/workspace/results
+    depends_on:
+      - redis
+      - dashboard
+    restart: unless-stopped
+
+  # System Monitor Agent
+  system-monitor:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.monitor
+    environment:
+      - REDIS_URL=redis://redis:6379
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - /proc:/host/proc:ro
+      - /sys:/host/sys:ro
+    depends_on:
+      - redis
+    restart: unless-stopped
+    privileged: true
+
+volumes:
+  agent_results:
+    driver: local
+
+networks:
+  default:
+    name: agent-network

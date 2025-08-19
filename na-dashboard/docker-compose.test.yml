@@ -1,0 +1,69 @@
+version: '3.8'
+
+services:
+  # Dashboard API Service for Testing
+  dashboard-api-test:
+    build:
+      context: ./services/dashboard-api
+      dockerfile: Dockerfile
+    ports:
+      - "4001:4000"
+    environment:
+      - NODE_ENV=test
+      - PORT=4000
+      - CORS_ORIGIN=http://localhost:3001
+      - AWS_REGION=us-east-1
+      - AWS_PROFILE=test
+    volumes:
+      - ./services/dashboard-api/src:/app/src
+    networks:
+      - test-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:4000/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
+
+  # Dashboard Frontend Service for Testing
+  dashboard-mfe-test:
+    build:
+      context: ./services/dashboard-mfe
+      dockerfile: Dockerfile
+    ports:
+      - "3001:3000"
+    environment:
+      - NODE_ENV=test
+      - VITE_API_URL=http://localhost:4001
+      - VITE_WS_URL=ws://localhost:4001
+    volumes:
+      - ./services/dashboard-mfe/src:/app/src
+    networks:
+      - test-network
+    depends_on:
+      dashboard-api-test:
+        condition: service_healthy
+
+  # Playwright Test Runner
+  playwright-tests:
+    build:
+      context: .
+      dockerfile: tests/Dockerfile
+    volumes:
+      - ./tests:/app/tests
+      - ./test-results:/app/test-results
+      - ./playwright-report:/app/playwright-report
+    environment:
+      - NODE_ENV=test
+      - BASE_URL=http://dashboard-mfe-test:3000
+      - API_URL=http://dashboard-api-test:4000
+    networks:
+      - test-network
+    depends_on:
+      dashboard-mfe-test:
+        condition: service_started
+    command: npm run test:e2e
+
+networks:
+  test-network:
+    driver: bridge

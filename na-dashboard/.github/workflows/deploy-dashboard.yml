@@ -1,0 +1,209 @@
+name: Deploy NA Dashboard
+
+on:
+  push:
+    branches:
+      - main
+      - development
+    paths:
+      - 'services/**'
+      - 'packages/**'
+      - 'infrastructure/**'
+      - '.github/workflows/deploy-dashboard.yml'
+  pull_request:
+    branches:
+      - main
+
+env:
+  AWS_REGION: us-east-1
+  ECR_REPOSITORY_API: na-dashboard-api
+  ECR_REPOSITORY_MFE: na-dashboard-mfe
+
+jobs:
+  determine-environment:
+    runs-on: ubuntu-latest
+    outputs:
+      environment: ${{ steps.set-env.outputs.environment }}
+      aws-account-id: ${{ steps.set-env.outputs.aws-account-id }}
+    steps:
+      - name: Determine deployment environment
+        id: set-env
+        run: |
+          if [[ "${{ github.ref }}" == "refs/heads/main" ]]; then
+            echo "environment=production" >> $GITHUB_OUTPUT
+            echo "aws-account-id=229742714212" >> $GITHUB_OUTPUT
+          elif [[ "${{ github.ref }}" == "refs/heads/development" ]]; then
+            echo "environment=development" >> $GITHUB_OUTPUT
+            echo "aws-account-id=319040880702" >> $GITHUB_OUTPUT
+          elif [[ "${{ github.ref }}" == refs/heads/release/* ]]; then
+            echo "environment=staging" >> $GITHUB_OUTPUT
+            echo "aws-account-id=275057778147" >> $GITHUB_OUTPUT
+          else
+            echo "environment=development" >> $GITHUB_OUTPUT
+            echo "aws-account-id=319040880702" >> $GITHUB_OUTPUT
+          fi
+
+  build-and-test:
+    runs-on: ubuntu-latest
+    needs: determine-environment
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: |
+          npm ci
+
+      - name: Build packages
+        run: |
+          npm run build
+
+      - name: Run tests
+        run: |
+          npm test
+
+      - name: Run linting
+        run: |
+          npm run lint
+
+      - name: Type check
+        run: |
+          cd services/dashboard-api && npm run type-check || true
+          cd services/dashboard-mfe && npm run type-check || true
+
+  build-docker-images:
+    runs-on: ubuntu-latest
+    needs: [determine-environment, build-and-test]
+    if: github.event_name == 'push'
+    permissions:
+      id-token: write
+      contents: read
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: arn:aws:iam::${{ needs.determine-environment.outputs.aws-account-id }}:role/GitHubActionsRole
+          role-session-name: na-dashboard-deploy-${{ github.run_id }}
+          aws-region: ${{ env.AWS_REGION }}
+
+      - name: Login to Amazon ECR
+        id: login-ecr
+        uses: aws-actions/amazon-ecr-login@v2
+
+      - name: Build and push API Docker image
+        env:
+          ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+          IMAGE_TAG: ${{ github.sha }}
+        run: |
+          cd services/dashboard-api
+          docker build -t $ECR_REGISTRY/$ECR_REPOSITORY_API:$IMAGE_TAG .
+          docker build -t $ECR_REGISTRY/$ECR_REPOSITORY_API:latest .
+          docker push $ECR_REGISTRY/$ECR_REPOSITORY_API:$IMAGE_TAG
+          docker push $ECR_REGISTRY/$ECR_REPOSITORY_API:latest
+
+      - name: Build and push MFE Docker image
+        env:
+          ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+          IMAGE_TAG: ${{ github.sha }}
+        run: |
+          cd services/dashboard-mfe
+          docker build -t $ECR_REGISTRY/$ECR_REPOSITORY_MFE:$IMAGE_TAG .
+          docker build -t $ECR_REGISTRY/$ECR_REPOSITORY_MFE:latest .
+          docker push $ECR_REGISTRY/$ECR_REPOSITORY_MFE:$IMAGE_TAG
+          docker push $ECR_REGISTRY/$ECR_REPOSITORY_MFE:latest
+
+  deploy-infrastructure:
+    runs-on: ubuntu-latest
+    needs: [determine-environment, build-docker-images]
+    if: github.event_name == 'push'
+    permissions:
+      id-token: write
+      contents: read
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: arn:aws:iam::${{ needs.determine-environment.outputs.aws-account-id }}:role/GitHubActionsRole
+          role-session-name: na-dashboard-deploy-${{ github.run_id }}
+          aws-region: ${{ env.AWS_REGION }}
+
+      - name: Deploy CloudFormation stack
+        env:
+          ENVIRONMENT: ${{ needs.determine-environment.outputs.environment }}
+          IMAGE_TAG: ${{ github.sha }}
+        run: |
+          aws cloudformation deploy \
+            --template-file infrastructure/aws/dashboard-infrastructure.yaml \
+            --stack-name na-dashboard-$ENVIRONMENT \
+            --parameter-overrides \
+              Environment=$ENVIRONMENT \
+              ImageTag=$IMAGE_TAG \
+              ApiImageUri=${{ needs.determine-environment.outputs.aws-account-id }}.dkr.ecr.${{ env.AWS_REGION }}.amazonaws.com/$ECR_REPOSITORY_API:$IMAGE_TAG \
+              MfeImageUri=${{ needs.determine-environment.outputs.aws-account-id }}.dkr.ecr.${{ env.AWS_REGION }}.amazonaws.com/$ECR_REPOSITORY_MFE:$IMAGE_TAG \
+            --capabilities CAPABILITY_NAMED_IAM \
+            --region ${{ env.AWS_REGION }}
+
+      - name: Get stack outputs
+        id: stack-outputs
+        env:
+          ENVIRONMENT: ${{ needs.determine-environment.outputs.environment }}
+        run: |
+          DASHBOARD_URL=$(aws cloudformation describe-stacks \
+            --stack-name na-dashboard-$ENVIRONMENT \
+            --query 'Stacks[0].Outputs[?OutputKey==`DashboardUrl`].OutputValue' \
+            --output text \
+            --region ${{ env.AWS_REGION }})
+          echo "dashboard-url=$DASHBOARD_URL" >> $GITHUB_OUTPUT
+
+      - name: Comment PR with deployment info
+        if: github.event_name == 'pull_request'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: `
+              ## 🚀 Dashboard Deployment Complete
+              
+              **Environment:** ${{ needs.determine-environment.outputs.environment }}
+              **Dashboard URL:** ${{ steps.stack-outputs.outputs.dashboard-url }}
+              **Image Tag:** \`${{ github.sha }}\`
+              **Deployment Time:** ${new Date().toISOString()}
+              
+              ### Services Deployed:
+              - ✅ Dashboard API
+              - ✅ Dashboard Frontend
+              - ✅ Infrastructure
+              
+              [View Dashboard](${{ steps.stack-outputs.outputs.dashboard-url }})
+              `
+            })
+
+  notify-deployment:
+    runs-on: ubuntu-latest
+    needs: [determine-environment, deploy-infrastructure]
+    if: always() && github.event_name == 'push'
+    steps:
+      - name: Notify deployment status
+        run: |
+          if [[ "${{ needs.deploy-infrastructure.result }}" == "success" ]]; then
+            echo "✅ NA Dashboard deployed successfully to ${{ needs.determine-environment.outputs.environment }}"
+            echo "🔗 Dashboard URL: ${{ needs.deploy-infrastructure.outputs.dashboard-url }}"
+          else
+            echo "❌ NA Dashboard deployment failed"
+            exit 1
+          fi

@@ -1,0 +1,157 @@
+{
+  "timestamp": "2025-08-18T19:29:38.921377",
+  "overall_score": 52.94117647058824,
+  "total_tests": 17,
+  "passed_tests": 9,
+  "test_suite": {
+    "policy_engine_tests": {
+      "tests": [
+        {
+          "name": "Policy Engine Initialization",
+          "passed": true,
+          "details": "Successfully initialized SQLite policy engine"
+        },
+        {
+          "name": "Agent Roles Available",
+          "passed": false,
+          "error": "'AgentPolicyEngine' object has no attribute 'get_all_roles'"
+        },
+        {
+          "name": "Policy Assessment",
+          "passed": true,
+          "details": "Assessment returned: N/A"
+        },
+        {
+          "name": "Security Violation Detection",
+          "passed": false,
+          "details": "Risk level: 1"
+        }
+      ],
+      "success": false,
+      "success_rate": 0.5
+    },
+    "github_integration_tests": {
+      "tests": [
+        {
+          "name": "GitHub Agent Initialization",
+          "passed": true,
+          "details": "Successfully initialized GitHub Issues agent"
+        },
+        {
+          "name": "Policy Engine Integration",
+          "passed": false,
+          "details": "Policy engine type: None"
+        },
+        {
+          "name": "GitHub Token Available",
+          "passed": false,
+          "details": "Token length: 0"
+        },
+        {
+          "name": "Role Mapping Configuration",
+          "passed": true,
+          "details": "Roles mapped: 6"
+        }
+      ],
+      "success": true,
+      "success_rate": 0.5
+    },
+    "agent_coordination_tests": {
+      "tests": [
+        {
+          "name": "Communication Hub Available",
+          "passed": true,
+          "details": "Team communication protocol found"
+        },
+        {
+          "name": "Work Queue Manager Available",
+          "passed": true,
+          "details": "Work queue manager found"
+        },
+        {
+          "name": "Coordination Components",
+          "passed": true,
+          "details": "Available: 2/2"
+        }
+      ],
+      "success": true,
+      "success_rate": 1.0
+    },
+    "performance_tests": {
+      "tests": [
+        {
+          "name": "Policy Assessment Speed",
+          "passed": false,
+          "details": "Average time: 4.101s per assessment"
+        },
+        {
+          "name": "Database Size",
+          "passed": true,
+          "details": "Database size: 0.04MB"
+        }
+      ],
+      "success": true,
+      "success_rate": 0.5
+    },
+    "security_tests": {
+      "tests": [
+        {
+          "name": "Security Violation Detection",
+          "passed": false,
+          "details": "Detected 0/3 violations"
+        },
+        {
+          "name": "Security Policy Coverage",
+          "passed": false,
+          "error": "'AgentPolicyEngine' object has no attribute 'get_all_policy_rules'"
+        }
+      ],
+      "success": false,
+      "success_rate": 0.0
+    },
+    "end_to_end_tests": {
+      "tests": [
+        {
+          "name": "End-to-End Policy Workflow",
+          "passed": false,
+          "details": "Workflow completed with assessment: N/A"
+        },
+        {
+          "name": "Integration Points Available",
+          "passed": true,
+          "details": "Available: 3/3"
+        }
+      ],
+      "success": true,
+      "success_rate": 0.5
+    }
+  },
+  "recommendations": [
+    {
+      "category": "Policy Engine",
+      "priority": "HIGH",
+      "recommendation": "Fix policy engine initialization and assessment functionality",
+      "details": "Core policy engine is not functioning correctly"
+    },
+    {
+      "category": "GitHub Integration",
+      "priority": "MEDIUM",
+      "recommendation": "Set up GitHub token and improve integration",
+      "details": "GitHub integration needs token configuration"
+    },
+    {
+      "category": "Security",
+      "priority": "HIGH",
+      "recommendation": "Improve security violation detection",
+      "details": "Security compliance testing is not adequate"
+    }
+  ],
+  "next_actions": [
+    "Set up PostgreSQL database when ready",
+    "Run policy migration from SQLite to PostgreSQL",
+    "Test PostgreSQL policy engine performance",
+    "Start policy-aware development workflow",
+    "Monitor policy compliance metrics",
+    "Set up automated policy checking in CI/CD"
+  ]
+}

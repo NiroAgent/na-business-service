@@ -1,0 +1,13 @@
+{
+  "processed_issues": [],
+  "work_queue": [],
+  "agent_assignments": {},
+  "metrics": {
+    "total_issues_processed": 0,
+    "issues_by_type": {},
+    "issues_by_priority": {},
+    "assignments_by_agent": {},
+    "avg_assignment_time": 0,
+    "assignment_times": []
+  }
+}

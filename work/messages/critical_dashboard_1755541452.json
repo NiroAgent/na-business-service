@@ -1,0 +1,23 @@
+{
+  "message_type": "critical_agent_assignment",
+  "from_agent": "Dashboard-Crisis-Coordinator",
+  "to_agent": "GPT4-Dashboard-Agent",
+  "urgency": "CRITICAL",
+  "assignment_details": {
+    "title": "Dashboard Critical Fixes + Playwright Testing",
+    "priority": "P0-CRITICAL-URGENT",
+    "blocking_issue": true,
+    "current_problem": "Dashboard tabs not working, no data loading",
+    "impact": "Cannot monitor agent coordination system",
+    "estimated_fix_time": "5-8 hours total"
+  },
+  "context": {
+    "dashboard_broken": true,
+    "user_reported": true,
+    "blocking_monitoring": true,
+    "playwright_testing_required": true,
+    "assignment_file": "agent_assignments/GPT4-Dashboard-Agent_INSTRUCTIONS.md"
+  },
+  "timestamp": "2025-08-18T14:24:12.419160",
+  "status": "critical_assignment"
+}

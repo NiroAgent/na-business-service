@@ -1,0 +1,10 @@
+{
+  "test": "error_handling",
+  "timestamp": "2025-08-18T13:33:26.672969",
+  "results": {
+    "invalid_design_doc": false,
+    "empty_conversation": true,
+    "malformed_data": true,
+    "recovery": true
+  }
+}

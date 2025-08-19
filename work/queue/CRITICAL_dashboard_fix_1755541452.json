@@ -1,0 +1,45 @@
+{
+  "work_type": "critical_bug_fix",
+  "title": "CRITICAL: Dashboard Tab Switching & Data Loading Fix",
+  "description": "Dashboard completely broken - tabs not clickable, no data loading",
+  "assigned_to": "GPT4-Dashboard-Agent",
+  "priority": "P0-CRITICAL-URGENT",
+  "urgency": "IMMEDIATE",
+  "blocking": true,
+  "tasks": [
+    {
+      "task": "Fix Dashboard Tab Switching",
+      "file": "comprehensive-tabbed-dashboard.py",
+      "details": "Debug and fix tab navigation - tabs not clickable, investigate JavaScript issues",
+      "estimated_effort": "1-2 hours",
+      "priority": "P0-BLOCKING"
+    },
+    {
+      "task": "Fix Data Loading Issues",
+      "file": "comprehensive-tabbed-dashboard.py",
+      "details": "Debug data not loading in dashboard, check WebSocket connections and API endpoints",
+      "estimated_effort": "1-2 hours",
+      "priority": "P0-BLOCKING"
+    },
+    {
+      "task": "Implement Playwright Test Suite",
+      "file": "tests/dashboard_playwright_tests.py",
+      "details": "Create comprehensive Playwright tests for tab switching, data loading, and UI interactions",
+      "estimated_effort": "2-3 hours",
+      "priority": "P0-CRITICAL"
+    },
+    {
+      "task": "Dashboard Health Monitoring",
+      "file": "dashboard_health_checker.py",
+      "details": "Create automated health checks for dashboard functionality",
+      "estimated_effort": "1 hour",
+      "priority": "P1-HIGH"
+    }
+  ],
+  "impact": "Blocking agent coordination monitoring",
+  "user_affected": true,
+  "estimated_total_effort": "5-8 hours",
+  "created_at": "2025-08-18T14:24:12.419366",
+  "status": "critical_assigned",
+  "requires_immediate_attention": true
+}

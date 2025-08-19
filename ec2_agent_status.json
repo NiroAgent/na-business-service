@@ -1,0 +1,18 @@
+{
+  "timestamp": "2025-08-19T14:45:10.270545",
+  "instance_id": "i-0af59b7036f7b0b77",
+  "agents": {
+    "ai-qa-agent": {
+      "status": "stopped",
+      "pid": null
+    },
+    "ai-developer-agent": {
+      "status": "stopped",
+      "pid": null
+    },
+    "ai-operations-agent": {
+      "status": "stopped",
+      "pid": null
+    }
+  }
+}

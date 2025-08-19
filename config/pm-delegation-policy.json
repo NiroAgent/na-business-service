@@ -1,0 +1,94 @@
+{
+  "policy_name": "Service Review and Delegation Policy",
+  "version": "1.0",
+  "created": "2025-08-18T22:08:35.129302",
+  "objective": "Review all services, create stories, and delegate testing work",
+  "review_process": {
+    "step_1": "Documentation Review",
+    "step_2": "Completeness Assessment (currently 75%)",
+    "step_3": "Gap Analysis",
+    "step_4": "Story Creation",
+    "step_5": "Task Assignment",
+    "step_6": "Test Case Definition",
+    "step_7": "Acceptance Criteria"
+  },
+  "delegation_rules": {
+    "developer_agent": [
+      "Code completion for remaining 25%",
+      "API endpoint implementation",
+      "Bug fixes from testing",
+      "Documentation updates",
+      "Code review implementation"
+    ],
+    "devops_agent": [
+      "Environment setup (vf-dev)",
+      "CI/CD pipeline configuration",
+      "Deployment automation",
+      "Infrastructure as Code",
+      "Monitoring setup",
+      "Performance optimization"
+    ],
+    "qa_agent": [
+      "Test case creation from acceptance criteria",
+      "Integration testing",
+      "End-to-end testing",
+      "Performance testing",
+      "Security testing",
+      "Test automation"
+    ]
+  },
+  "story_template": {
+    "title": "[Service] - [Feature/Task]",
+    "description": "Detailed description of what needs to be done",
+    "tasks": [
+      "Specific implementation task 1",
+      "Specific implementation task 2",
+      "Testing task",
+      "Documentation task"
+    ],
+    "acceptance_criteria": [
+      "GIVEN a specific context",
+      "WHEN an action is performed",
+      "THEN expected outcome occurs"
+    ],
+    "test_cases": [
+      "Test case derived from acceptance criteria"
+    ],
+    "assigned_agents": [
+      "developer",
+      "qa",
+      "devops"
+    ],
+    "priority": "P1",
+    "estimated_hours": 8
+  },
+  "service_specific_requirements": {
+    "authentication_services": {
+      "critical_tests": [
+        "Token validation",
+        "Session management",
+        "Password reset flow",
+        "MFA implementation",
+        "Rate limiting"
+      ]
+    },
+    "payment_services": {
+      "critical_tests": [
+        "Payment processing",
+        "Subscription management",
+        "Webhook handling",
+        "Refund processing",
+        "PCI compliance"
+      ]
+    },
+    "media_services": {
+      "critical_tests": [
+        "File upload/download",
+        "Processing pipeline",
+        "Format conversion",
+        "CDN integration",
+        "Storage optimization"
+      ]
+    }
+  }
+}

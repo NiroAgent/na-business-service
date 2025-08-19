@@ -1,0 +1,96 @@
+{
+  "timestamp": "2025-08-19T10:27:14.393869",
+  "services": {
+    "vf-agent-service": {
+      "status": "pilot",
+      "coverage": 0,
+      "bugs_found": 0,
+      "bugs_fixed": 0
+    },
+    "ns-auth": {
+      "status": "pending",
+      "coverage": 0,
+      "bugs_found": 0,
+      "bugs_fixed": 0
+    },
+    "ns-payments": {
+      "status": "pending",
+      "coverage": 0,
+      "bugs_found": 0,
+      "bugs_fixed": 0
+    },
+    "ns-dashboard": {
+      "status": "pending",
+      "coverage": 0,
+      "bugs_found": 0,
+      "bugs_fixed": 0
+    },
+    "ns-user": {
+      "status": "pending",
+      "coverage": 0,
+      "bugs_found": 0,
+      "bugs_fixed": 0
+    },
+    "ns-shell": {
+      "status": "pending",
+      "coverage": 0,
+      "bugs_found": 0,
+      "bugs_fixed": 0
+    },
+    "vf-audio": {
+      "status": "pending",
+      "coverage": 0,
+      "bugs_found": 0,
+      "bugs_fixed": 0
+    },
+    "vf-video": {
+      "status": "pending",
+      "coverage": 0,
+      "bugs_found": 0,
+      "bugs_fixed": 0
+    },
+    "vf-image": {
+      "status": "pending",
+      "coverage": 0,
+      "bugs_found": 0,
+      "bugs_fixed": 0
+    },
+    "vf-text-service": {
+      "status": "pending",
+      "coverage": 0,
+      "bugs_found": 0,
+      "bugs_fixed": 0
+    },
+    "vf-bulk": {
+      "status": "pending",
+      "coverage": 0,
+      "bugs_found": 0,
+      "bugs_fixed": 0
+    },
+    "vf-dashboard": {
+      "status": "pending",
+      "coverage": 0,
+      "bugs_found": 0,
+      "bugs_fixed": 0
+    }
+  },
+  "agents": {
+    "ai-qa-agent": {
+      "assigned_to": "vf-agent-service",
+      "tasks_today": 0
+    },
+    "ai-developer-agent": {
+      "assigned_to": "vf-agent-service",
+      "tasks_today": 0
+    },
+    "ai-devops-agent": {
+      "assigned_to": "infrastructure",
+      "tasks_today": 0
+    }
+  },
+  "metrics": {
+    "services_with_tests": 12,
+    "total_services": 12,
+    "total_bugs_found": 0
+  }
+}

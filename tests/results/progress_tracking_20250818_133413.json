@@ -1,0 +1,16 @@
+{
+  "test": "progress_tracking",
+  "timestamp": "2025-08-18T13:34:13.609147",
+  "results": {
+    "session_id": "test-progress-001",
+    "updates_captured": 9,
+    "stages": [
+      "design"
+    ],
+    "final_progress": {
+      "stage": "design",
+      "percentage": 50,
+      "message": "Design document formatted"
+    }
+  }
+}

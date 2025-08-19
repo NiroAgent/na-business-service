@@ -1,0 +1,90 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: 'Ultra Cost-Optimized Spot Instance AI Agent System'
+
+Parameters:
+  SpotPrice:
+    Type: String
+    Default: '0.05'
+    Description: Maximum spot price per hour
+  
+  InstanceType:
+    Type: String
+    Default: m5.large
+    Description: Instance type for spot instances
+
+Resources:
+  # Launch Template for Spot Instances
+  AgentLaunchTemplate:
+    Type: AWS::EC2::LaunchTemplate
+    Properties:
+      LaunchTemplateName: vf-dev-spot-agents
+      LaunchTemplateData:
+        ImageId: ami-0c02fb55956c7d316
+        InstanceType: !Ref InstanceType
+        IamInstanceProfile:
+          Arn: !GetAtt AgentInstanceProfile.Arn
+        SecurityGroupIds: [!Ref AgentSecurityGroup]
+        UserData:
+          Fn::Base64: !Sub |
+            #!/bin/bash
+            yum update -y
+            yum install -y python3 python3-pip git tmux
+            
+            # Setup spot instance interruption handling
+            cat > /home/ec2-user/handle-interruption.sh << 'EOF'
+            #!/bin/bash
+            # Check for spot interruption notice every 5 seconds
+            while true; do
+              if curl -s http://169.254.169.254/latest/meta-data/spot/instance-action 2>/dev/null; then
+                echo "Spot interruption notice received! Gracefully shutting down agents..."
+                # Save agent states
+                tmux list-sessions | awk '{print $1}' | sed 's/://' | xargs -I {} tmux send-keys -t {} 'save_state' Enter
+                sleep 30
+                # Kill all tmux sessions
+                tmux kill-server
+                break
+              fi
+              sleep 5
+            done
+            EOF
+            chmod +x /home/ec2-user/handle-interruption.sh
+            
+            # Start interruption handler in background
+            nohup /home/ec2-user/handle-interruption.sh &
+            
+            # Start all 50 agents
+            cd /home/ec2-user
+            for i in {1..50}; do
+              tmux new-session -d -s "agent-$i" "python3 agent.py --agent-id $i --spot-mode"
+              sleep 0.2
+            done
+
+  # Auto Scaling Group for Spot Instances
+  SpotAutoScalingGroup:
+    Type: AWS::AutoScaling::AutoScalingGroup
+    Properties:
+      LaunchTemplate:
+        LaunchTemplateId: !Ref AgentLaunchTemplate
+        Version: !GetAtt AgentLaunchTemplate.LatestVersionNumber
+      MinSize: 1
+      MaxSize: 3
+      DesiredCapacity: 1
+      VPCZoneIdentifier: [!Ref AgentSubnet]
+      MixedInstancesPolicy:
+        LaunchTemplate:
+          LaunchTemplateSpecification:
+            LaunchTemplateId: !Ref AgentLaunchTemplate
+            Version: !GetAtt AgentLaunchTemplate.LatestVersionNumber
+        InstancesDistribution:
+          OnDemandPercentage: 0
+          SpotAllocationStrategy: diversified
+          SpotMaxPrice: !Ref SpotPrice
+
+Outputs:
+  CostSavings:
+    Description: Estimated cost savings with spot instances
+    Value: 'Up to 90% savings - estimated $8-15/month'
+  
+  SpotPrice:
+    Description: Maximum spot price set
+    Value: !Ref SpotPrice

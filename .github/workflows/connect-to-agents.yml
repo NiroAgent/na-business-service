@@ -1,0 +1,36 @@
+name: Connect Issues to Agents
+
+on:
+  issues:
+    types: [opened, reopened, labeled]
+
+jobs:
+  send-to-agents:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Send to Agent System
+      run: |
+        curl -X POST https://vf-dev.visualforgemedia.com/github-webhook \
+          -H "Content-Type: application/json" \
+          -H "X-GitHub-Event: issues" \
+          -d '{
+            "action": "${{ github.event.action }}",
+            "repository": "${{ github.repository }}",
+            "issue": {
+              "number": ${{ github.event.issue.number }},
+              "title": "${{ github.event.issue.title }}",
+              "body": "${{ toJSON(github.event.issue.body) }},
+              "labels": ${{ toJSON(github.event.issue.labels) }}
+            }
+          }'
+    
+    - name: Auto-Assign Label
+      uses: actions/github-script@v6
+      with:
+        script: |
+          await github.rest.issues.addLabels({
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            issue_number: context.issue.number,
+            labels: ['ai-processing']
+          });

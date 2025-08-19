@@ -1,0 +1,1318 @@
+[
+  {
+    "timestamp": "2025-08-18T10:58:35.774156",
+    "source": "PID 47064",
+    "pattern": "timeout_based_approval",
+    "response": "auto_approve",
+    "type": "stdin_timeout"
+  },
+  {
+    "timestamp": "2025-08-18T10:58:35.806284",
+    "source": "PID 58940",
+    "pattern": "timeout_based_approval",
+    "response": "auto_approve",
+    "type": "stdin_timeout"
+  },
+  {
+    "timestamp": "2025-08-18T10:58:35.806358",
+    "source": "PID 4064",
+    "pattern": "timeout_based_approval",
+    "response": "auto_approve",
+    "type": "stdin_timeout"
+  },
+  {
+    "timestamp": "2025-08-18T10:58:35.820220",
+    "source": "PID 9388",
+    "pattern": "timeout_based_approval",
+    "response": "auto_approve",
+    "type": "stdin_timeout"
+  },
+  {
+    "timestamp": "2025-08-18T10:58:35.849584",
+    "source": "PID 11124",
+    "pattern": "timeout_based_approval",
+    "response": "auto_approve",
+    "type": "stdin_timeout"
+  },
+  {
+    "timestamp": "2025-08-18T10:58:35.882571",
+    "source": "PID 29060",
+    "pattern": "timeout_based_approval",
+    "response": "auto_approve",
+    "type": "stdin_timeout"
+  },
+  {
+    "timestamp": "2025-08-18T10:58:35.899340",
+    "source": "PID 31452",
+    "pattern": "timeout_based_approval",
+    "response": "auto_approve",
+    "type": "stdin_timeout"
+  },
+  {
+    "timestamp": "2025-08-18T10:58:35.930367",
+    "source": "PID 46924",
+    "pattern": "timeout_based_approval",
+    "response": "auto_approve",
+    "type": "stdin_timeout"
+  },
+  {
+    "timestamp": "2025-08-18T10:58:35.946301",
+    "source": "PID 52440",
+    "pattern": "timeout_based_approval",
+    "response": "auto_approve",
+    "type": "stdin_timeout"
+  },
+  {
+    "timestamp": "2025-08-18T10:58:35.963241",
+    "source": "PID 54504",
+    "pattern": "timeout_based_approval",
+    "response": "auto_approve",
+    "type": "stdin_timeout"
+  },
+  {
+    "timestamp": "2025-08-18T10:58:51.009089",
+    "source": "PID 47064",
+    "pattern": "timeout_based_approval",
+    "response": "auto_approve",
+    "type": "stdin_timeout"
+  },
+  {
+    "timestamp": "2025-08-18T10:58:51.035273",
+    "source": "PID 58940",
+    "pattern": "timeout_based_approval",
+    "response": "auto_approve",
+    "type": "stdin_timeout"
+  },
+  {
+    "timestamp": "2025-08-18T10:58:51.055440",
+    "source": "PID 4064",
+    "pattern": "timeout_based_approval",
+    "response": "auto_approve",
+    "type": "stdin_timeout"
+  },
+  {
+    "timestamp": "2025-08-18T10:58:51.084605",
+    "source": "PID 9388",
+    "pattern": "timeout_based_approval",
+    "response": "auto_approve",
+    "type": "stdin_timeout"
+  },
+  {
+    "timestamp": "2025-08-18T10:58:51.100742",
+    "source": "PID 11124",
+    "pattern": "timeout_based_approval",
+    "response": "auto_approve",
+    "type": "stdin_timeout"
+  },
+  {
+    "timestamp": "2025-08-18T10:58:51.112292",
+    "source": "PID 29060",
+    "pattern": "timeout_based_approval",
+    "response": "auto_approve",
+    "type": "stdin_timeout"
+  },
+  {
+    "timestamp": "2025-08-18T10:58:51.129935",
+    "source": "PID 31452",
+    "pattern": "timeout_based_approval",
+    "response": "auto_approve",
+    "type": "stdin_timeout"
+  },
+  {
+    "timestamp": "2025-08-18T10:58:51.150246",
+    "source": "PID 46924",
+    "pattern": "timeout_based_approval",
+    "response": "auto_approve",
+    "type": "stdin_timeout"
+  },
+  {
+    "timestamp": "2025-08-18T10:58:51.161290",
+    "source": "PID 52440",
+    "pattern": "timeout_based_approval",
+    "response": "auto_approve",
+    "type": "stdin_timeout"
+  },
+  {
+    "timestamp": "2025-08-18T10:58:51.205899",
+    "source": "PID 54504",
+    "pattern": "timeout_based_approval",
+    "response": "auto_approve",
+    "type": "stdin_timeout"
+  },
+  {
+    "timestamp": "2025-08-18T10:58:51.222257",
+    "source": "PID 12336",
+    "pattern": "timeout_based_approval",
+    "response": "auto_approve",
+    "type": "stdin_timeout"
+  },
+  {
+    "timestamp": "2025-08-18T10:58:51.237944",
+    "source": "PID 57328",
+    "pattern": "timeout_based_approval",
+    "response": "auto_approve",
+    "type": "stdin_timeout"
+  },
+  {
+    "timestamp": "2025-08-18T10:59:06.286335",
+    "source": "PID 47064",
+    "pattern": "timeout_based_approval",
+    "response": "auto_approve",
+    "type": "stdin_timeout"
+  },
+  {
+    "timestamp": "2025-08-18T10:59:06.286427",
+    "source": "PID 58940",
+    "pattern": "timeout_based_approval",
+    "response": "auto_approve",
+    "type": "stdin_timeout"
+  },
+  {
+    "timestamp": "2025-08-18T10:59:06.286469",
+    "source": "PID 4064",
+    "pattern": "timeout_based_approval",
+    "response": "auto_approve",
+    "type": "stdin_timeout"
+  },
+  {
+    "timestamp": "2025-08-18T10:59:06.286521",
+    "source": "PID 9388",
+    "pattern": "timeout_based_approval",
+    "response": "auto_approve",
+    "type": "stdin_timeout"
+  },
+  {
+    "timestamp": "2025-08-18T10:59:06.286582",
+    "source": "PID 11124",
+    "pattern": "timeout_based_approval",
+    "response": "auto_approve",
+    "type": "stdin_timeout"
+  },
+  {
+    "timestamp": "2025-08-18T10:59:06.286637",
+    "source": "PID 29060",
+    "pattern": "timeout_based_approval",
+    "response": "auto_approve",
+    "type": "stdin_timeout"
+  },
+  {
+    "timestamp": "2025-08-18T10:59:06.286724",
+    "source": "PID 31452",
+    "pattern": "timeout_based_approval",
+    "response": "auto_approve",
+    "type": "stdin_timeout"
+  },
+  {
+    "timestamp": "2025-08-18T10:59:06.286832",
+    "source": "PID 46924",
+    "pattern": "timeout_based_approval",
+    "response": "auto_approve",
+    "type": "stdin_timeout"
+  },
+  {
+    "timestamp": "2025-08-18T10:59:06.286886",
+    "source": "PID 52440",
+    "pattern": "timeout_based_approval",
+    "response": "auto_approve",
+    "type": "stdin_timeout"
+  },
+  {
+    "timestamp": "2025-08-18T10:59:06.286915",
+    "source": "PID 54504",
+    "pattern": "timeout_based_approval",
+    "response": "auto_approve",
+    "type": "stdin_timeout"
+  },
+  {
+    "timestamp": "2025-08-18T10:59:06.286941",
+    "source": "PID 12336",
+    "pattern": "timeout_based_approval",
+    "response": "auto_approve",
+    "type": "stdin_timeout"
+  },
+  {
+    "timestamp": "2025-08-18T10:59:06.286966",
+    "source": "PID 57328",
+    "pattern": "timeout_based_approval",
+    "response": "auto_approve",
+    "type": "stdin_timeout"
+  },
+  {
+    "timestamp": "2025-08-18T10:59:06.286989",
+    "source": "PID 15708",
+    "pattern": "timeout_based_approval",
+    "response": "auto_approve",
+    "type": "stdin_timeout"
+  },
+  {
+    "timestamp": "2025-08-18T10:59:06.287009",
+    "source": "PID 52672",
+    "pattern": "timeout_based_approval",
+    "response": "auto_approve",
+    "type": "stdin_timeout"
+  },
+  {
+    "timestamp": "2025-08-18T10:59:06.287026",
+    "source": "PID 56928",
+    "pattern": "timeout_based_approval",
+    "response": "auto_approve",
+    "type": "stdin_timeout"
+  },
+  {
+    "timestamp": "2025-08-18T10:59:06.287042",
+    "source": "PID 58668",
+    "pattern": "timeout_based_approval",
+    "response": "auto_approve",
+    "type": "stdin_timeout"
+  },
+  {
+    "timestamp": "2025-08-18T10:59:06.287057",
+    "source": "PID 59048",
+    "pattern": "timeout_based_approval",
+    "response": "auto_approve",
+    "type": "stdin_timeout"
+  },
+  {
+    "timestamp": "2025-08-18T10:59:06.287073",
+    "source": "PID 60448",
+    "pattern": "timeout_based_approval",
+    "response": "auto_approve",
+    "type": "stdin_timeout"
+  },
+  {
+    "timestamp": "2025-08-18T10:59:06.287088",
+    "source": "PID 27336",
+    "pattern": "timeout_based_approval",
+    "response": "auto_approve",
+    "type": "stdin_timeout"
+  },
+  {
+    "timestamp": "2025-08-18T10:59:06.287105",
+    "source": "PID 31856",
+    "pattern": "timeout_based_approval",
+    "response": "auto_approve",
+    "type": "stdin_timeout"
+  },
+  {
+    "timestamp": "2025-08-18T10:59:06.287131",
+    "source": "PID 33596",
+    "pattern": "timeout_based_approval",
+    "response": "auto_approve",
+    "type": "stdin_timeout"
+  },
+  {
+    "timestamp": "2025-08-18T10:59:06.287184",
+    "source": "PID 39228",
+    "pattern": "timeout_based_approval",
+    "response": "auto_approve",
+    "type": "stdin_timeout"
+  },
+  {
+    "timestamp": "2025-08-18T10:59:06.287242",
+    "source": "PID 41580",
+    "pattern": "timeout_based_approval",
+    "response": "auto_approve",
+    "type": "stdin_timeout"
+  },
+  {
+    "timestamp": "2025-08-18T10:59:06.287287",
+    "source": "PID 53304",
+    "pattern": "timeout_based_approval",
+    "response": "auto_approve",
+    "type": "stdin_timeout"
+  },
+  {
+    "timestamp": "2025-08-18T10:59:06.287325",
+    "source": "PID 54588",
+    "pattern": "timeout_based_approval",
+    "response": "auto_approve",
+    "type": "stdin_timeout"
+  },
+  {
+    "timestamp": "2025-08-18T10:59:06.287358",
+    "source": "PID 57364",
+    "pattern": "timeout_based_approval",
+    "response": "auto_approve",
+    "type": "stdin_timeout"
+  },
+  {
+    "timestamp": "2025-08-18T10:59:06.287405",
+    "source": "PID 12200",
+    "pattern": "timeout_based_approval",
+    "response": "auto_approve",
+    "type": "stdin_timeout"
+  },
+  {
+    "timestamp": "2025-08-18T10:59:21.288027",
+    "source": "PID 47064",
+    "pattern": "timeout_based_approval",
+    "response": "auto_approve",
+    "type": "stdin_timeout"
+  },
+  {
+    "timestamp": "2025-08-18T10:59:21.288133",
+    "source": "PID 58940",
+    "pattern": "timeout_based_approval",
+    "response": "auto_approve",
+    "type": "stdin_timeout"
+  },
+  {
+    "timestamp": "2025-08-18T10:59:21.288171",
+    "source": "PID 4064",
+    "pattern": "timeout_based_approval",
+    "response": "auto_approve",
+    "type": "stdin_timeout"
+  },
+  {
+    "timestamp": "2025-08-18T10:59:21.288192",
+    "source": "PID 9388",
+    "pattern": "timeout_based_approval",
+    "response": "auto_approve",
+    "type": "stdin_timeout"
+  },
+  {
+    "timestamp": "2025-08-18T10:59:21.288212",
+    "source": "PID 11124",
+    "pattern": "timeout_based_approval",
+    "response": "auto_approve",
+    "type": "stdin_timeout"
+  },
+  {
+    "timestamp": "2025-08-18T10:59:21.288228",
+    "source": "PID 29060",
+    "pattern": "timeout_based_approval",
+    "response": "auto_approve",
+    "type": "stdin_timeout"
+  },
+  {
+    "timestamp": "2025-08-18T10:59:21.288413",
+    "source": "PID 31452",
+    "pattern": "timeout_based_approval",
+    "response": "auto_approve",
+    "type": "stdin_timeout"
+  },
+  {
+    "timestamp": "2025-08-18T10:59:21.288441",
+    "source": "PID 46924",
+    "pattern": "timeout_based_approval",
+    "response": "auto_approve",
+    "type": "stdin_timeout"
+  },
+  {
+    "timestamp": "2025-08-18T10:59:21.288460",
+    "source": "PID 52440",
+    "pattern": "timeout_based_approval",
+    "response": "auto_approve",
+    "type": "stdin_timeout"
+  },
+  {
+    "timestamp": "2025-08-18T10:59:21.288476",
+    "source": "PID 54504",
+    "pattern": "timeout_based_approval",
+    "response": "auto_approve",
+    "type": "stdin_timeout"
+  },
+  {
+    "timestamp": "2025-08-18T10:59:21.288492",
+    "source": "PID 12336",
+    "pattern": "timeout_based_approval",
+    "response": "auto_approve",
+    "type": "stdin_timeout"
+  },
+  {
+    "timestamp": "2025-08-18T10:59:21.288508",
+    "source": "PID 57328",
+    "pattern": "timeout_based_approval",
+    "response": "auto_approve",
+    "type": "stdin_timeout"
+  },
+  {
+    "timestamp": "2025-08-18T10:59:21.288523",
+    "source": "PID 15708",
+    "pattern": "timeout_based_approval",
+    "response": "auto_approve",
+    "type": "stdin_timeout"
+  },
+  {
+    "timestamp": "2025-08-18T10:59:21.288557",
+    "source": "PID 52672",
+    "pattern": "timeout_based_approval",
+    "response": "auto_approve",
+    "type": "stdin_timeout"
+  },
+  {
+    "timestamp": "2025-08-18T10:59:21.288599",
+    "source": "PID 56928",
+    "pattern": "timeout_based_approval",
+    "response": "auto_approve",
+    "type": "stdin_timeout"
+  },
+  {
+    "timestamp": "2025-08-18T10:59:21.288700",
+    "source": "PID 58668",
+    "pattern": "timeout_based_approval",
+    "response": "auto_approve",
+    "type": "stdin_timeout"
+  },
+  {
+    "timestamp": "2025-08-18T10:59:21.288729",
+    "source": "PID 59048",
+    "pattern": "timeout_based_approval",
+    "response": "auto_approve",
+    "type": "stdin_timeout"
+  },
+  {
+    "timestamp": "2025-08-18T10:59:21.288746",
+    "source": "PID 60448",
+    "pattern": "timeout_based_approval",
+    "response": "auto_approve",
+    "type": "stdin_timeout"
+  },
+  {
+    "timestamp": "2025-08-18T10:59:21.288762",
+    "source": "PID 27336",
+    "pattern": "timeout_based_approval",
+    "response": "auto_approve",
+    "type": "stdin_timeout"
+  },
+  {
+    "timestamp": "2025-08-18T10:59:21.288777",
+    "source": "PID 31856",
+    "pattern": "timeout_based_approval",
+    "response": "auto_approve",
+    "type": "stdin_timeout"
+  },
+  {
+    "timestamp": "2025-08-18T10:59:21.288793",
+    "source": "PID 33596",
+    "pattern": "timeout_based_approval",
+    "response": "auto_approve",
+    "type": "stdin_timeout"
+  },
+  {
+    "timestamp": "2025-08-18T10:59:21.288808",
+    "source": "PID 39228",
+    "pattern": "timeout_based_approval",
+    "response": "auto_approve",
+    "type": "stdin_timeout"
+  },
+  {
+    "timestamp": "2025-08-18T10:59:21.288824",
+    "source": "PID 41580",
+    "pattern": "timeout_based_approval",
+    "response": "auto_approve",
+    "type": "stdin_timeout"
+  },
+  {
+    "timestamp": "2025-08-18T10:59:21.288839",
+    "source": "PID 53304",
+    "pattern": "timeout_based_approval",
+    "response": "auto_approve",
+    "type": "stdin_timeout"
+  },
+  {
+    "timestamp": "2025-08-18T10:59:21.288853",
+    "source": "PID 54588",
+    "pattern": "timeout_based_approval",
+    "response": "auto_approve",
+    "type": "stdin_timeout"
+  },
+  {
+    "timestamp": "2025-08-18T10:59:21.288869",
+    "source": "PID 57364",
+    "pattern": "timeout_based_approval",
+    "response": "auto_approve",
+    "type": "stdin_timeout"
+  },
+  {
+    "timestamp": "2025-08-18T10:59:21.288884",
+    "source": "PID 12200",
+    "pattern": "timeout_based_approval",
+    "response": "auto_approve",
+    "type": "stdin_timeout"
+  },
+  {
+    "timestamp": "2025-08-18T10:59:21.288900",
+    "source": "PID 42332",
+    "pattern": "timeout_based_approval",
+    "response": "auto_approve",
+    "type": "stdin_timeout"
+  },
+  {
+    "timestamp": "2025-08-18T10:59:21.288917",
+    "source": "PID 55800",
+    "pattern": "timeout_based_approval",
+    "response": "auto_approve",
+    "type": "stdin_timeout"
+  },
+  {
+    "timestamp": "2025-08-18T10:59:21.288932",
+    "source": "PID 56620",
+    "pattern": "timeout_based_approval",
+    "response": "auto_approve",
+    "type": "stdin_timeout"
+  },
+  {
+    "timestamp": "2025-08-18T10:59:21.288948",
+    "source": "PID 58644",
+    "pattern": "timeout_based_approval",
+    "response": "auto_approve",
+    "type": "stdin_timeout"
+  },
+  {
+    "timestamp": "2025-08-18T10:59:21.288963",
+    "source": "PID 59812",
+    "pattern": "timeout_based_approval",
+    "response": "auto_approve",
+    "type": "stdin_timeout"
+  },
+  {
+    "timestamp": "2025-08-18T10:59:36.289188",
+    "source": "PID 47064",
+    "pattern": "timeout_based_approval",
+    "response": "auto_approve",
+    "type": "stdin_timeout"
+  },
+  {
+    "timestamp": "2025-08-18T10:59:36.289335",
+    "source": "PID 58940",
+    "pattern": "timeout_based_approval",
+    "response": "auto_approve",
+    "type": "stdin_timeout"
+  },
+  {
+    "timestamp": "2025-08-18T10:59:36.289378",
+    "source": "PID 4064",
+    "pattern": "timeout_based_approval",
+    "response": "auto_approve",
+    "type": "stdin_timeout"
+  },
+  {
+    "timestamp": "2025-08-18T10:59:36.289398",
+    "source": "PID 9388",
+    "pattern": "timeout_based_approval",
+    "response": "auto_approve",
+    "type": "stdin_timeout"
+  },
+  {
+    "timestamp": "2025-08-18T10:59:36.289415",
+    "source": "PID 11124",
+    "pattern": "timeout_based_approval",
+    "response": "auto_approve",
+    "type": "stdin_timeout"
+  },
+  {
+    "timestamp": "2025-08-18T10:59:36.289430",
+    "source": "PID 29060",
+    "pattern": "timeout_based_approval",
+    "response": "auto_approve",
+    "type": "stdin_timeout"
+  },
+  {
+    "timestamp": "2025-08-18T10:59:36.289446",
+    "source": "PID 31452",
+    "pattern": "timeout_based_approval",
+    "response": "auto_approve",
+    "type": "stdin_timeout"
+  },
+  {
+    "timestamp": "2025-08-18T10:59:36.289463",
+    "source": "PID 46924",
+    "pattern": "timeout_based_approval",
+    "response": "auto_approve",
+    "type": "stdin_timeout"
+  },
+  {
+    "timestamp": "2025-08-18T10:59:36.289478",
+    "source": "PID 52440",
+    "pattern": "timeout_based_approval",
+    "response": "auto_approve",
+    "type": "stdin_timeout"
+  },
+  {
+    "timestamp": "2025-08-18T10:59:36.289494",
+    "source": "PID 54504",
+    "pattern": "timeout_based_approval",
+    "response": "auto_approve",
+    "type": "stdin_timeout"
+  },
+  {
+    "timestamp": "2025-08-18T10:59:36.289509",
+    "source": "PID 12336",
+    "pattern": "timeout_based_approval",
+    "response": "auto_approve",
+    "type": "stdin_timeout"
+  },
+  {
+    "timestamp": "2025-08-18T10:59:36.289528",
+    "source": "PID 57328",
+    "pattern": "timeout_based_approval",
+    "response": "auto_approve",
+    "type": "stdin_timeout"
+  },
+  {
+    "timestamp": "2025-08-18T10:59:36.289545",
+    "source": "PID 15708",
+    "pattern": "timeout_based_approval",
+    "response": "auto_approve",
+    "type": "stdin_timeout"
+  },
+  {
+    "timestamp": "2025-08-18T10:59:36.289560",
+    "source": "PID 52672",
+    "pattern": "timeout_based_approval",
+    "response": "auto_approve",
+    "type": "stdin_timeout"
+  },
+  {
+    "timestamp": "2025-08-18T10:59:36.289600",
+    "source": "PID 56928",
+    "pattern": "timeout_based_approval",
+    "response": "auto_approve",
+    "type": "stdin_timeout"
+  },
+  {
+    "timestamp": "2025-08-18T10:59:36.289625",
+    "source": "PID 58668",
+    "pattern": "timeout_based_approval",
+    "response": "auto_approve",
+    "type": "stdin_timeout"
+  },
+  {
+    "timestamp": "2025-08-18T10:59:36.289641",
+    "source": "PID 59048",
+    "pattern": "timeout_based_approval",
+    "response": "auto_approve",
+    "type": "stdin_timeout"
+  },
+  {
+    "timestamp": "2025-08-18T10:59:36.289686",
+    "source": "PID 60448",
+    "pattern": "timeout_based_approval",
+    "response": "auto_approve",
+    "type": "stdin_timeout"
+  },
+  {
+    "timestamp": "2025-08-18T10:59:36.289749",
+    "source": "PID 27336",
+    "pattern": "timeout_based_approval",
+    "response": "auto_approve",
+    "type": "stdin_timeout"
+  },
+  {
+    "timestamp": "2025-08-18T10:59:36.289788",
+    "source": "PID 31856",
+    "pattern": "timeout_based_approval",
+    "response": "auto_approve",
+    "type": "stdin_timeout"
+  },
+  {
+    "timestamp": "2025-08-18T10:59:36.289814",
+    "source": "PID 33596",
+    "pattern": "timeout_based_approval",
+    "response": "auto_approve",
+    "type": "stdin_timeout"
+  },
+  {
+    "timestamp": "2025-08-18T10:59:36.289831",
+    "source": "PID 39228",
+    "pattern": "timeout_based_approval",
+    "response": "auto_approve",
+    "type": "stdin_timeout"
+  },
+  {
+    "timestamp": "2025-08-18T10:59:36.289847",
+    "source": "PID 41580",
+    "pattern": "timeout_based_approval",
+    "response": "auto_approve",
+    "type": "stdin_timeout"
+  },
+  {
+    "timestamp": "2025-08-18T10:59:36.289862",
+    "source": "PID 53304",
+    "pattern": "timeout_based_approval",
+    "response": "auto_approve",
+    "type": "stdin_timeout"
+  },
+  {
+    "timestamp": "2025-08-18T10:59:36.289878",
+    "source": "PID 54588",
+    "pattern": "timeout_based_approval",
+    "response": "auto_approve",
+    "type": "stdin_timeout"
+  },
+  {
+    "timestamp": "2025-08-18T10:59:36.289901",
+    "source": "PID 57364",
+    "pattern": "timeout_based_approval",
+    "response": "auto_approve",
+    "type": "stdin_timeout"
+  },
+  {
+    "timestamp": "2025-08-18T10:59:36.289958",
+    "source": "PID 12200",
+    "pattern": "timeout_based_approval",
+    "response": "auto_approve",
+    "type": "stdin_timeout"
+  },
+  {
+    "timestamp": "2025-08-18T10:59:36.289997",
+    "source": "PID 42332",
+    "pattern": "timeout_based_approval",
+    "response": "auto_approve",
+    "type": "stdin_timeout"
+  },
+  {
+    "timestamp": "2025-08-18T10:59:36.290085",
+    "source": "PID 55800",
+    "pattern": "timeout_based_approval",
+    "response": "auto_approve",
+    "type": "stdin_timeout"
+  },
+  {
+    "timestamp": "2025-08-18T10:59:36.290137",
+    "source": "PID 56620",
+    "pattern": "timeout_based_approval",
+    "response": "auto_approve",
+    "type": "stdin_timeout"
+  },
+  {
+    "timestamp": "2025-08-18T10:59:36.290160",
+    "source": "PID 58644",
+    "pattern": "timeout_based_approval",
+    "response": "auto_approve",
+    "type": "stdin_timeout"
+  },
+  {
+    "timestamp": "2025-08-18T10:59:36.290177",
+    "source": "PID 59812",
+    "pattern": "timeout_based_approval",
+    "response": "auto_approve",
+    "type": "stdin_timeout"
+  },
+  {
+    "timestamp": "2025-08-18T10:59:51.290395",
+    "source": "PID 12336",
+    "pattern": "timeout_based_approval",
+    "response": "auto_approve",
+    "type": "stdin_timeout"
+  },
+  {
+    "timestamp": "2025-08-18T10:59:51.290609",
+    "source": "PID 57328",
+    "pattern": "timeout_based_approval",
+    "response": "auto_approve",
+    "type": "stdin_timeout"
+  },
+  {
+    "timestamp": "2025-08-18T10:59:51.290776",
+    "source": "PID 15708",
+    "pattern": "timeout_based_approval",
+    "response": "auto_approve",
+    "type": "stdin_timeout"
+  },
+  {
+    "timestamp": "2025-08-18T10:59:51.290922",
+    "source": "PID 52672",
+    "pattern": "timeout_based_approval",
+    "response": "auto_approve",
+    "type": "stdin_timeout"
+  },
+  {
+    "timestamp": "2025-08-18T10:59:51.290968",
+    "source": "PID 56928",
+    "pattern": "timeout_based_approval",
+    "response": "auto_approve",
+    "type": "stdin_timeout"
+  },
+  {
+    "timestamp": "2025-08-18T10:59:51.291086",
+    "source": "PID 58668",
+    "pattern": "timeout_based_approval",
+    "response": "auto_approve",
+    "type": "stdin_timeout"
+  },
+  {
+    "timestamp": "2025-08-18T10:59:51.291135",
+    "source": "PID 59048",
+    "pattern": "timeout_based_approval",
+    "response": "auto_approve",
+    "type": "stdin_timeout"
+  },
+  {
+    "timestamp": "2025-08-18T10:59:51.291181",
+    "source": "PID 60448",
+    "pattern": "timeout_based_approval",
+    "response": "auto_approve",
+    "type": "stdin_timeout"
+  },
+  {
+    "timestamp": "2025-08-18T10:59:51.291214",
+    "source": "PID 27336",
+    "pattern": "timeout_based_approval",
+    "response": "auto_approve",
+    "type": "stdin_timeout"
+  },
+  {
+    "timestamp": "2025-08-18T10:59:51.291239",
+    "source": "PID 31856",
+    "pattern": "timeout_based_approval",
+    "response": "auto_approve",
+    "type": "stdin_timeout"
+  },
+  {
+    "timestamp": "2025-08-18T10:59:51.291414",
+    "source": "PID 33596",
+    "pattern": "timeout_based_approval",
+    "response": "auto_approve",
+    "type": "stdin_timeout"
+  },
+  {
+    "timestamp": "2025-08-18T10:59:51.291581",
+    "source": "PID 39228",
+    "pattern": "timeout_based_approval",
+    "response": "auto_approve",
+    "type": "stdin_timeout"
+  },
+  {
+    "timestamp": "2025-08-18T10:59:51.291619",
+    "source": "PID 41580",
+    "pattern": "timeout_based_approval",
+    "response": "auto_approve",
+    "type": "stdin_timeout"
+  },
+  {
+    "timestamp": "2025-08-18T10:59:51.291643",
+    "source": "PID 53304",
+    "pattern": "timeout_based_approval",
+    "response": "auto_approve",
+    "type": "stdin_timeout"
+  },
+  {
+    "timestamp": "2025-08-18T10:59:51.291723",
+    "source": "PID 54588",
+    "pattern": "timeout_based_approval",
+    "response": "auto_approve",
+    "type": "stdin_timeout"
+  },
+  {
+    "timestamp": "2025-08-18T10:59:51.291824",
+    "source": "PID 57364",
+    "pattern": "timeout_based_approval",
+    "response": "auto_approve",
+    "type": "stdin_timeout"
+  },
+  {
+    "timestamp": "2025-08-18T10:59:51.291862",
+    "source": "PID 12200",
+    "pattern": "timeout_based_approval",
+    "response": "auto_approve",
+    "type": "stdin_timeout"
+  },
+  {
+    "timestamp": "2025-08-18T10:59:51.291886",
+    "source": "PID 42332",
+    "pattern": "timeout_based_approval",
+    "response": "auto_approve",
+    "type": "stdin_timeout"
+  },
+  {
+    "timestamp": "2025-08-18T10:59:51.291924",
+    "source": "PID 55800",
+    "pattern": "timeout_based_approval",
+    "response": "auto_approve",
+    "type": "stdin_timeout"
+  },
+  {
+    "timestamp": "2025-08-18T10:59:51.291969",
+    "source": "PID 56620",
+    "pattern": "timeout_based_approval",
+    "response": "auto_approve",
+    "type": "stdin_timeout"
+  },
+  {
+    "timestamp": "2025-08-18T10:59:51.291997",
+    "source": "PID 58644",
+    "pattern": "timeout_based_approval",
+    "response": "auto_approve",
+    "type": "stdin_timeout"
+  },
+  {
+    "timestamp": "2025-08-18T10:59:51.292091",
+    "source": "PID 59812",
+    "pattern": "timeout_based_approval",
+    "response": "auto_approve",
+    "type": "stdin_timeout"
+  },
+  {
+    "timestamp": "2025-08-18T11:00:06.292515",
+    "source": "PID 15708",
+    "pattern": "timeout_based_approval",
+    "response": "auto_approve",
+    "type": "stdin_timeout"
+  },
+  {
+    "timestamp": "2025-08-18T11:00:06.292609",
+    "source": "PID 52672",
+    "pattern": "timeout_based_approval",
+    "response": "auto_approve",
+    "type": "stdin_timeout"
+  },
+  {
+    "timestamp": "2025-08-18T11:00:06.292685",
+    "source": "PID 56928",
+    "pattern": "timeout_based_approval",
+    "response": "auto_approve",
+    "type": "stdin_timeout"
+  },
+  {
+    "timestamp": "2025-08-18T11:00:06.292727",
+    "source": "PID 58668",
+    "pattern": "timeout_based_approval",
+    "response": "auto_approve",
+    "type": "stdin_timeout"
+  },
+  {
+    "timestamp": "2025-08-18T11:00:06.292777",
+    "source": "PID 59048",
+    "pattern": "timeout_based_approval",
+    "response": "auto_approve",
+    "type": "stdin_timeout"
+  },
+  {
+    "timestamp": "2025-08-18T11:00:06.292809",
+    "source": "PID 60448",
+    "pattern": "timeout_based_approval",
+    "response": "auto_approve",
+    "type": "stdin_timeout"
+  },
+  {
+    "timestamp": "2025-08-18T11:00:06.292848",
+    "source": "PID 27336",
+    "pattern": "timeout_based_approval",
+    "response": "auto_approve",
+    "type": "stdin_timeout"
+  },
+  {
+    "timestamp": "2025-08-18T11:00:06.292881",
+    "source": "PID 31856",
+    "pattern": "timeout_based_approval",
+    "response": "auto_approve",
+    "type": "stdin_timeout"
+  },
+  {
+    "timestamp": "2025-08-18T11:00:06.292913",
+    "source": "PID 33596",
+    "pattern": "timeout_based_approval",
+    "response": "auto_approve",
+    "type": "stdin_timeout"
+  },
+  {
+    "timestamp": "2025-08-18T11:00:06.292945",
+    "source": "PID 39228",
+    "pattern": "timeout_based_approval",
+    "response": "auto_approve",
+    "type": "stdin_timeout"
+  },
+  {
+    "timestamp": "2025-08-18T11:00:06.292965",
+    "source": "PID 41580",
+    "pattern": "timeout_based_approval",
+    "response": "auto_approve",
+    "type": "stdin_timeout"
+  },
+  {
+    "timestamp": "2025-08-18T11:00:06.292995",
+    "source": "PID 53304",
+    "pattern": "timeout_based_approval",
+    "response": "auto_approve",
+    "type": "stdin_timeout"
+  },
+  {
+    "timestamp": "2025-08-18T11:00:06.293060",
+    "source": "PID 54588",
+    "pattern": "timeout_based_approval",
+    "response": "auto_approve",
+    "type": "stdin_timeout"
+  },
+  {
+    "timestamp": "2025-08-18T11:00:06.293177",
+    "source": "PID 57364",
+    "pattern": "timeout_based_approval",
+    "response": "auto_approve",
+    "type": "stdin_timeout"
+  },
+  {
+    "timestamp": "2025-08-18T11:00:06.293258",
+    "source": "PID 12200",
+    "pattern": "timeout_based_approval",
+    "response": "auto_approve",
+    "type": "stdin_timeout"
+  },
+  {
+    "timestamp": "2025-08-18T11:00:06.293324",
+    "source": "PID 42332",
+    "pattern": "timeout_based_approval",
+    "response": "auto_approve",
+    "type": "stdin_timeout"
+  },
+  {
+    "timestamp": "2025-08-18T11:00:06.293374",
+    "source": "PID 55800",
+    "pattern": "timeout_based_approval",
+    "response": "auto_approve",
+    "type": "stdin_timeout"
+  },
+  {
+    "timestamp": "2025-08-18T11:00:06.293432",
+    "source": "PID 56620",
+    "pattern": "timeout_based_approval",
+    "response": "auto_approve",
+    "type": "stdin_timeout"
+  },
+  {
+    "timestamp": "2025-08-18T11:00:06.293467",
+    "source": "PID 58644",
+    "pattern": "timeout_based_approval",
+    "response": "auto_approve",
+    "type": "stdin_timeout"
+  },
+  {
+    "timestamp": "2025-08-18T11:00:06.293504",
+    "source": "PID 59812",
+    "pattern": "timeout_based_approval",
+    "response": "auto_approve",
+    "type": "stdin_timeout"
+  },
+  {
+    "timestamp": "2025-08-18T11:00:21.293811",
+    "source": "PID 42332",
+    "pattern": "timeout_based_approval",
+    "response": "auto_approve",
+    "type": "stdin_timeout"
+  },
+  {
+    "timestamp": "2025-08-18T11:00:21.293908",
+    "source": "PID 55800",
+    "pattern": "timeout_based_approval",
+    "response": "auto_approve",
+    "type": "stdin_timeout"
+  },
+  {
+    "timestamp": "2025-08-18T11:00:21.293961",
+    "source": "PID 56620",
+    "pattern": "timeout_based_approval",
+    "response": "auto_approve",
+    "type": "stdin_timeout"
+  },
+  {
+    "timestamp": "2025-08-18T11:00:21.294020",
+    "source": "PID 58644",
+    "pattern": "timeout_based_approval",
+    "response": "auto_approve",
+    "type": "stdin_timeout"
+  },
+  {
+    "timestamp": "2025-08-18T11:00:21.294053",
+    "source": "PID 59812",
+    "pattern": "timeout_based_approval",
+    "response": "auto_approve",
+    "type": "stdin_timeout"
+  },
+  {
+    "timestamp": "2025-08-18T11:29:37.007677",
+    "source": "PID 56676",
+    "pattern": "timeout_based_approval",
+    "response": "auto_approve",
+    "type": "stdin_timeout"
+  },
+  {
+    "timestamp": "2025-08-18T11:29:37.007857",
+    "source": "PID 56748",
+    "pattern": "timeout_based_approval",
+    "response": "auto_approve",
+    "type": "stdin_timeout"
+  },
+  {
+    "timestamp": "2025-08-18T11:29:52.008612",
+    "source": "PID 56676",
+    "pattern": "timeout_based_approval",
+    "response": "auto_approve",
+    "type": "stdin_timeout"
+  },
+  {
+    "timestamp": "2025-08-18T11:29:52.009269",
+    "source": "PID 56748",
+    "pattern": "timeout_based_approval",
+    "response": "auto_approve",
+    "type": "stdin_timeout"
+  },
+  {
+    "timestamp": "2025-08-18T11:30:07.017934",
+    "source": "PID 56676",
+    "pattern": "timeout_based_approval",
+    "response": "auto_approve",
+    "type": "stdin_timeout"
+  },
+  {
+    "timestamp": "2025-08-18T11:30:07.038079",
+    "source": "PID 56748",
+    "pattern": "timeout_based_approval",
+    "response": "auto_approve",
+    "type": "stdin_timeout"
+  },
+  {
+    "timestamp": "2025-08-18T11:30:22.063329",
+    "source": "PID 56676",
+    "pattern": "timeout_based_approval",
+    "response": "auto_approve",
+    "type": "stdin_timeout"
+  },
+  {
+    "timestamp": "2025-08-18T11:30:22.077044",
+    "source": "PID 56748",
+    "pattern": "timeout_based_approval",
+    "response": "auto_approve",
+    "type": "stdin_timeout"
+  },
+  {
+    "timestamp": "2025-08-18T11:30:37.091311",
+    "source": "PID 56676",
+    "pattern": "timeout_based_approval",
+    "response": "auto_approve",
+    "type": "stdin_timeout"
+  },
+  {
+    "timestamp": "2025-08-18T11:30:37.091407",
+    "source": "PID 56748",
+    "pattern": "timeout_based_approval",
+    "response": "auto_approve",
+    "type": "stdin_timeout"
+  },
+  {
+    "timestamp": "2025-08-18T13:32:24.223233",
+    "source": "PID 52324",
+    "pattern": "timeout_based_approval",
+    "response": "auto_approve",
+    "type": "stdin_timeout"
+  },
+  {
+    "timestamp": "2025-08-18T13:32:39.223944",
+    "source": "PID 52324",
+    "pattern": "timeout_based_approval",
+    "response": "auto_approve",
+    "type": "stdin_timeout"
+  },
+  {
+    "timestamp": "2025-08-18T13:32:54.224311",
+    "source": "PID 52324",
+    "pattern": "timeout_based_approval",
+    "response": "auto_approve",
+    "type": "stdin_timeout"
+  },
+  {
+    "timestamp": "2025-08-18T13:33:09.225323",
+    "source": "PID 52324",
+    "pattern": "timeout_based_approval",
+    "response": "auto_approve",
+    "type": "stdin_timeout"
+  },
+  {
+    "timestamp": "2025-08-18T13:33:09.225970",
+    "source": "PID 46388",
+    "pattern": "timeout_based_approval",
+    "response": "auto_approve",
+    "type": "stdin_timeout"
+  },
+  {
+    "timestamp": "2025-08-18T13:33:24.226542",
+    "source": "PID 52324",
+    "pattern": "timeout_based_approval",
+    "response": "auto_approve",
+    "type": "stdin_timeout"
+  },
+  {
+    "timestamp": "2025-08-18T13:33:24.226685",
+    "source": "PID 46388",
+    "pattern": "timeout_based_approval",
+    "response": "auto_approve",
+    "type": "stdin_timeout"
+  },
+  {
+    "timestamp": "2025-08-18T13:33:39.227156",
+    "source": "PID 46388",
+    "pattern": "timeout_based_approval",
+    "response": "auto_approve",
+    "type": "stdin_timeout"
+  },
+  {
+    "timestamp": "2025-08-18T13:33:54.228085",
+    "source": "PID 46388",
+    "pattern": "timeout_based_approval",
+    "response": "auto_approve",
+    "type": "stdin_timeout"
+  },
+  {
+    "timestamp": "2025-08-18T13:34:09.228808",
+    "source": "PID 46388",
+    "pattern": "timeout_based_approval",
+    "response": "auto_approve",
+    "type": "stdin_timeout"
+  },
+  {
+    "timestamp": "2025-08-18T15:30:42.146092",
+    "source": "PID 49736",
+    "pattern": "timeout_based_approval",
+    "response": "auto_approve",
+    "type": "stdin_timeout"
+  },
+  {
+    "timestamp": "2025-08-18T15:30:57.146514",
+    "source": "PID 49736",
+    "pattern": "timeout_based_approval",
+    "response": "auto_approve",
+    "type": "stdin_timeout"
+  },
+  {
+    "timestamp": "2025-08-18T15:31:12.147214",
+    "source": "PID 49736",
+    "pattern": "timeout_based_approval",
+    "response": "auto_approve",
+    "type": "stdin_timeout"
+  },
+  {
+    "timestamp": "2025-08-18T15:31:27.147933",
+    "source": "PID 49736",
+    "pattern": "timeout_based_approval",
+    "response": "auto_approve",
+    "type": "stdin_timeout"
+  },
+  {
+    "timestamp": "2025-08-18T15:31:42.148261",
+    "source": "PID 49736",
+    "pattern": "timeout_based_approval",
+    "response": "auto_approve",
+    "type": "stdin_timeout"
+  },
+  {
+    "timestamp": "2025-08-18T16:50:29.032895",
+    "source": "PID 42008",
+    "pattern": "timeout_based_approval",
+    "response": "auto_approve",
+    "type": "stdin_timeout"
+  },
+  {
+    "timestamp": "2025-08-18T17:05:44.473599",
+    "source": "PID 58548",
+    "pattern": "timeout_based_approval",
+    "response": "auto_approve",
+    "type": "stdin_timeout"
+  },
+  {
+    "timestamp": "2025-08-18T17:05:59.487884",
+    "source": "PID 58548",
+    "pattern": "timeout_based_approval",
+    "response": "auto_approve",
+    "type": "stdin_timeout"
+  }
+]

@@ -1,0 +1,30 @@
+services:
+  ai-agents-master:
+    build:
+      context: .
+      dockerfile: Dockerfile.multi-agent
+    container_name: ai-agents-dev
+    environment:
+    - ENVIRONMENT=vf-dev
+    - AGENT_COUNT=50
+    - AWS_REGION=us-east-1
+    healthcheck:
+      interval: 30s
+      retries: 3
+      test:
+      - CMD
+      - curl
+      - -f
+      - http://localhost:5000/health
+      timeout: 10s
+    ports:
+    - 5000:5000
+    - 8080:8080
+    restart: unless-stopped
+    volumes:
+    - ./logs:/app/logs
+    - ./data:/app/data
+version: '3.8'
+volumes:
+  agent_data: null
+  agent_logs: null

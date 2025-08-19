@@ -1,0 +1,58 @@
+{
+  "agent_id": "vf-dev-deployment-001",
+  "timestamp": "2025-08-18T13:41:31.225601",
+  "uptime": 0.0011682510375976562,
+  "progress": {
+    "last_check": "2025-08-18T13:41:31.225594",
+    "issues_created": 0,
+    "issues_processed": 0,
+    "services_tested": 0,
+    "deployments_validated": 0
+  },
+  "services": {
+    "visual_forge": {
+      "ns-auth": {
+        "status": "missing",
+        "error": "Service directory not found"
+      },
+      "ns-dashboard": {
+        "status": "missing",
+        "error": "Service directory not found"
+      },
+      "ns-payments": {
+        "status": "missing",
+        "error": "Service directory not found"
+      },
+      "ns-user": {
+        "status": "missing",
+        "error": "Service directory not found"
+      }
+    },
+    "niro_subs": {
+      "vf-audio-service": {
+        "status": "missing",
+        "error": "Service directory not found"
+      },
+      "vf-video-service": {
+        "status": "missing",
+        "error": "Service directory not found"
+      },
+      "vf-text-service": {
+        "status": "missing",
+        "error": "Service directory not found"
+      },
+      "vf-agent-service": {
+        "status": "missing",
+        "error": "Service directory not found"
+      }
+    }
+  },
+  "summary": {
+    "total_services": 8,
+    "healthy_services": 0,
+    "service_health_percentage": 0.0,
+    "issues_created_today": 0,
+    "tests_run": 0,
+    "configs_validated": 0
+  }
+}

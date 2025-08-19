@@ -1,0 +1,14 @@
+{
+  "test": "service_integration",
+  "timestamp": "2025-08-18T13:33:55.193412",
+  "results": {
+    "services_checked": {
+      "vf_agent": "unreachable",
+      "vf_text": "unreachable",
+      "visual_forge": "unreachable",
+      "pm_workflow": "unhealthy"
+    },
+    "ai_architect_available": false,
+    "test_submission": true
+  }
+}

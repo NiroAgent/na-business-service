@@ -1,0 +1,31 @@
+{
+  "timestamp": "2025-08-18T12:50:14.554284",
+  "component": "intelligent-issue-detector",
+  "status": "operational",
+  "metrics": {
+    "total_issues": 0,
+    "issues_by_type": {},
+    "issues_by_agent": {},
+    "detection_rate": 0.0,
+    "top_issues": [],
+    "agent_health_scores": {}
+  },
+  "active_resolution_plans": 0,
+  "monitoring_active": true,
+  "self_healing": {
+    "timestamp": "2025-08-18T12:50:24.320809",
+    "component": "agent-self-healing",
+    "status": "operational",
+    "metrics": {
+      "total_healings": 0,
+      "successful_healings": 0,
+      "failed_healings": 0,
+      "success_rate": 0,
+      "healings_by_type": {},
+      "avg_healing_time": 0,
+      "active_healings": 0
+    },
+    "active_healings": [],
+    "monitoring_active": true
+  }
+}

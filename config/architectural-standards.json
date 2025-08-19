@@ -1,0 +1,162 @@
+{
+  "version": "2.0",
+  "last_updated": "2025-08-18T22:23:49.315616",
+  "core_principles": {
+    "microservices": {
+      "description": "Service-oriented architecture with clear boundaries",
+      "requirements": [
+        "Each service must be independently deployable",
+        "Services communicate via well-defined APIs",
+        "No shared databases between services",
+        "Event-driven communication where appropriate",
+        "Service mesh for inter-service communication"
+      ]
+    },
+    "cloud_native": {
+      "description": "Built for cloud deployment and scaling",
+      "requirements": [
+        "Containerized deployments (Docker)",
+        "Kubernetes orchestration",
+        "12-factor app methodology",
+        "Stateless services where possible",
+        "External configuration management"
+      ]
+    },
+    "security_first": {
+      "description": "Security integrated at every level",
+      "requirements": [
+        "Zero-trust network architecture",
+        "Encryption in transit and at rest",
+        "OAuth2/JWT for authentication",
+        "RBAC for authorization",
+        "Regular security scanning",
+        "Secrets management via AWS Secrets Manager/Vault"
+      ]
+    },
+    "observability": {
+      "description": "Full system visibility and monitoring",
+      "requirements": [
+        "Distributed tracing (OpenTelemetry)",
+        "Centralized logging (ELK stack)",
+        "Metrics collection (Prometheus)",
+        "Real-time dashboards (Grafana)",
+        "Alerting and incident management"
+      ]
+    }
+  },
+  "technical_standards": {
+    "api_design": {
+      "style": "RESTful with GraphQL for complex queries",
+      "versioning": "URL path versioning (/v1, /v2)",
+      "documentation": "OpenAPI 3.0 specification",
+      "response_format": "JSON with consistent schema",
+      "error_handling": "RFC 7807 Problem Details",
+      "rate_limiting": "Token bucket algorithm",
+      "pagination": "Cursor-based for large datasets"
+    },
+    "database_standards": {
+      "primary": "PostgreSQL for transactional data",
+      "nosql": "DynamoDB for high-scale key-value",
+      "cache": "Redis for session and cache",
+      "search": "Elasticsearch for full-text search",
+      "timeseries": "InfluxDB for metrics",
+      "migrations": "Flyway or Liquibase",
+      "connection_pooling": "PgBouncer or RDS Proxy"
+    },
+    "messaging_standards": {
+      "async_messaging": "AWS SQS for queues, SNS for pub/sub",
+      "streaming": "Kafka or Kinesis for event streaming",
+      "protocols": "AMQP, MQTT for IoT",
+      "dead_letter_queues": "Required for all queues",
+      "message_format": "CloudEvents specification"
+    },
+    "frontend_standards": {
+      "frameworks": {
+        "web": "React 18+ with TypeScript",
+        "mobile": "React Native or Flutter",
+        "desktop": "Electron with React"
+      },
+      "state_management": "Redux Toolkit or Zustand",
+      "styling": "CSS Modules or Styled Components",
+      "testing": "Jest + React Testing Library",
+      "bundling": "Webpack 5 or Vite",
+      "code_quality": "ESLint + Prettier"
+    },
+    "backend_standards": {
+      "languages": {
+        "primary": "Python 3.10+ or Node.js 18+",
+        "performance_critical": "Go or Rust",
+        "data_processing": "Python with Pandas/NumPy"
+      },
+      "frameworks": {
+        "python": "FastAPI or Django",
+        "nodejs": "Express or NestJS",
+        "go": "Gin or Echo"
+      },
+      "testing": "Pytest, Jest, or Go testing",
+      "code_quality": "Black, ESLint, gofmt"
+    },
+    "infrastructure_standards": {
+      "iac": "Terraform for infrastructure",
+      "ci_cd": "GitHub Actions with ArgoCD",
+      "container_registry": "AWS ECR",
+      "orchestration": "AWS EKS or ECS",
+      "service_mesh": "Istio or AWS App Mesh",
+      "load_balancing": "AWS ALB/NLB",
+      "cdn": "CloudFront for static assets"
+    }
+  },
+  "quality_gates": {
+    "code_coverage": {
+      "minimum": 80,
+      "target": 90,
+      "critical_paths": 95
+    },
+    "performance": {
+      "api_response_time": "p95 < 200ms",
+      "page_load_time": "< 3 seconds",
+      "database_query_time": "< 100ms"
+    },
+    "security": {
+      "vulnerability_scan": "No critical/high vulnerabilities",
+      "dependency_check": "No outdated dependencies",
+      "code_analysis": "SAST/DAST passed"
+    },
+    "documentation": {
+      "api_docs": "100% endpoint coverage",
+      "code_comments": "Complex logic documented",
+      "architecture_diagrams": "Up-to-date",
+      "runbooks": "Operational procedures documented"
+    }
+  },
+  "review_checklist": {
+    "architecture": [
+      "Follows microservices principles",
+      "Scalability considered",
+      "Fault tolerance designed",
+      "Security controls implemented",
+      "Performance optimized"
+    ],
+    "implementation": [
+      "Follows coding standards",
+      "Proper error handling",
+      "Logging implemented",
+      "Tests written",
+      "Documentation complete"
+    ],
+    "deployment": [
+      "CI/CD pipeline configured",
+      "Environment configurations",
+      "Monitoring setup",
+      "Rollback procedures",
+      "Health checks implemented"
+    ],
+    "operations": [
+      "Runbooks created",
+      "Alerts configured",
+      "Backup strategies",
+      "Disaster recovery plan",
+      "SLA defined"
+    ]
+  }
+}

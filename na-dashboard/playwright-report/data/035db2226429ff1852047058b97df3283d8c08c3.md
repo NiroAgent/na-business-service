@@ -1,0 +1,91 @@
+# Page snapshot
+
+```yaml
+- banner:
+  - heading "NiroAgent Dashboard" [level=1]
+  - paragraph: Real-time AWS Infrastructure Monitoring
+  - img
+  - text: Open
+  - button:
+    - img
+- complementary:
+  - navigation:
+    - link "Dashboard Overview and real-time monitoring":
+      - /url: /dashboard
+      - img
+      - text: Dashboard Overview and real-time monitoring
+    - link "EC2 Instances EC2 instance monitoring across environments":
+      - /url: /instances
+      - img
+      - text: EC2 Instances EC2 instance monitoring across environments
+    - link "Cost Analysis Cost breakdown and optimization":
+      - /url: /costs
+      - img
+      - text: Cost Analysis Cost breakdown and optimization
+    - link "Real-time Monitoring Live alerts and system health":
+      - /url: /monitoring
+      - img
+      - text: Real-time Monitoring Live alerts and system health
+  - heading "Environments" [level=3]
+  - text: VF-DevActive VF-StagingMonitor VF-ProductionCritical
+- main:
+  - heading "Real-time Monitoring" [level=1]
+  - paragraph: Live system health monitoring and alerts across all environments
+  - button "Start Monitoring":
+    - img
+    - text: Start Monitoring
+  - button "Test Alert":
+    - img
+    - text: Test Alert
+  - button "Refresh":
+    - img
+    - text: Refresh
+  - paragraph: System Health
+  - paragraph: 98.5%
+  - paragraph:
+    - img
+    - text: All systems operational
+  - img
+  - paragraph: Active Instances
+  - paragraph: "3"
+  - paragraph:
+    - img
+    - text: Being monitored
+  - img
+  - paragraph: Active Alerts
+  - paragraph: "0"
+  - paragraph:
+    - img
+    - text: Require attention
+  - img
+  - paragraph: Monitoring Status
+  - paragraph: PAUSED
+  - paragraph:
+    - img
+    - text: Real-time updates
+  - img
+  - heading "DEV" [level=3]
+  - img
+  - text: Healthy Instances:1 Alerts:0 Last Update:5:30:11 PM
+  - heading "STAGING" [level=3]
+  - img
+  - text: Healthy Instances:1 Alerts:0 Last Update:5:30:12 PM
+  - heading "PRODUCTION" [level=3]
+  - img
+  - text: Healthy Instances:1 Alerts:0 Last Update:5:30:12 PM
+  - heading "Recent Alerts" [level=3]
+  - combobox:
+    - option "All Environments" [selected]
+    - option "VF-Development"
+    - option "VF-Staging"
+    - option "VF-Production"
+  - img
+  - paragraph: No alerts found
+  - heading "Live Activity Feed" [level=3]
+  - text: PAUSED
+  - img
+  - paragraph: CPU utilization threshold exceeded
+  - text: dev
+  - img
+  - text: 5:30:19 PM
+```

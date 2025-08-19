@@ -1,0 +1,54 @@
+{
+  "name": "na-dashboard",
+  "version": "1.0.0",
+  "description": "NiroAgent Dashboard - Live AWS infrastructure monitoring and cost analysis",
+  "private": true,
+  "workspaces": [
+    "services/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "docker-compose up",
+    "build": "lerna run build",
+    "test": "lerna run test",
+    "test:e2e": "playwright test",
+    "test:integration": "playwright test tests/integration",
+    "test:ui": "playwright test --ui",
+    "test:headed": "playwright test --headed",
+    "test:debug": "playwright test --debug",
+    "test:quick": "node scripts/quick-test.js",
+    "test:servers:start": "node scripts/start-test-servers.js",
+    "test:servers:stop": "node scripts/stop-test-servers.js",
+    "test:full": "npm run test:servers:stop && npm run test:e2e && npm run test:servers:stop",
+    "lint": "lerna run lint",
+    "deploy": "./scripts/deploy-all.sh",
+    "dev:api": "cd services/dashboard-api && npm run dev",
+    "dev:mfe": "cd services/dashboard-mfe && npm run dev"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.40.0",
+    "@types/node": "^20.19.11",
+    "eslint": "^8.0.0",
+    "husky": "^8.0.0",
+    "jest": "^29.0.0",
+    "kill-port": "^2.0.1",
+    "lerna": "^6.0.0",
+    "prettier": "^3.0.0",
+    "typescript": "^5.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/niroagent/na-dashboard.git"
+  },
+  "keywords": [
+    "aws",
+    "dashboard",
+    "monitoring",
+    "cost-analysis",
+    "microservices",
+    "typescript",
+    "react"
+  ],
+  "author": "NiroAgent Team",
+  "license": "MIT"
+}

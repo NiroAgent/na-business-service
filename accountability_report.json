@@ -1,0 +1,12 @@
+{
+  "timestamp": "2025-08-19T11:59:44.880185",
+  "accountability_score": 0,
+  "max_score": 4,
+  "evidence": {
+    "test_executions": 0,
+    "bug_issues": 0,
+    "fix_commits": 0,
+    "agent_processes": 0
+  },
+  "compliance": false
+}

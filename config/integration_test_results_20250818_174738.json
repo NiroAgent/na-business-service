@@ -1,0 +1,142 @@
+{
+  "test_suite": "Pipeline Integration Tests",
+  "timestamp": "2025-08-18T17:47:38.744973",
+  "duration": 4.359162,
+  "total_tests": 6,
+  "passed": 3,
+  "failed": 2,
+  "skipped": 1,
+  "success_rate": 50.0,
+  "test_results": [
+    {
+      "test_name": "Agent Communication",
+      "status": "skipped",
+      "start_time": "2025-08-18T17:47:34.387655",
+      "details": {
+        "error": "Communication hub not available"
+      },
+      "end_time": "2025-08-18T17:47:34.387824"
+    },
+    {
+      "test_name": "Pipeline Data Flow",
+      "status": "passed",
+      "start_time": "2025-08-18T17:47:34.387907",
+      "details": {
+        "flow_steps": [
+          {
+            "step": "architect",
+            "status": "complete",
+            "data": {
+              "project_id": "test-project-001",
+              "requirements": [
+                "API endpoints",
+                "Database integration"
+              ],
+              "technology_stack": [
+                "Python",
+                "Flask",
+                "SQLite"
+              ],
+              "architecture_patterns": [
+                "REST API",
+                "MVC"
+              ]
+            }
+          },
+          {
+            "step": "developer",
+            "status": "complete",
+            "data": {
+              "project_id": "test-project-001",
+              "generated_files": [
+                "main.py",
+                "models.py",
+                "api.py"
+              ],
+              "lines_of_code": 150,
+              "test_files": [
+                "test_main.py"
+              ]
+            }
+          },
+          {
+            "step": "qa",
+            "status": "complete",
+            "data": {
+              "project_id": "test-project-001",
+              "quality_score": 85.0,
+              "test_results": {
+                "passed": 5,
+                "failed": 0
+              },
+              "security_issues": [],
+              "approved": true
+            }
+          },
+          {
+            "step": "devops",
+            "status": "ready",
+            "data": {
+              "project_id": "test-project-001",
+              "deployment_target": "staging",
+              "docker_config": "generated",
+              "ci_cd_pipeline": "configured"
+            }
+          }
+        ]
+      },
+      "end_time": "2025-08-18T17:47:34.387912"
+    },
+    {
+      "test_name": "File Generation",
+      "status": "failed",
+      "start_time": "2025-08-18T17:47:34.387981",
+      "details": {
+        "error": "'charmap' codec can't decode byte 0x90 in position 2256: character maps to <undefined>"
+      },
+      "end_time": "2025-08-18T17:47:34.388374"
+    },
+    {
+      "test_name": "Quality Metrics",
+      "status": "passed",
+      "start_time": "2025-08-18T17:47:34.388444",
+      "details": {
+        "reports_found": 1,
+        "quality_scores": [
+          93.8
+        ],
+        "average_quality": 93.8
+      },
+      "end_time": "2025-08-18T17:47:34.388744"
+    },
+    {
+      "test_name": "Dashboard Integration",
+      "status": "failed",
+      "start_time": "2025-08-18T17:47:34.388823",
+      "details": {
+        "error": "HTTPConnectionPool(host='localhost', port=5003): Max retries exceeded with url: / (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001B6DC7CF380>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))"
+      },
+      "end_time": "2025-08-18T17:47:38.742602"
+    },
+    {
+      "test_name": "DevOps Readiness",
+      "status": "passed",
+      "start_time": "2025-08-18T17:47:38.743390",
+      "details": {
+        "devops_agent_exists": true,
+        "devops_lines": 1180,
+        "devops_size": 34148,
+        "capabilities_found": [
+          "docker",
+          "deployment",
+          "ci_cd",
+          "monitoring",
+          "infrastructure"
+        ],
+        "capability_coverage": 100.0
+      },
+      "end_time": "2025-08-18T17:47:38.744719"
+    }
+  ],
+  "overall_status": "failed"
+}

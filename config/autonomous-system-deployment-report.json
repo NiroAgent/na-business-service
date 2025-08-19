@@ -1,0 +1,44 @@
+{
+  "deployment_timestamp": "2025-08-19T00:02:10.196481",
+  "environments": {
+    "vf-dev": {
+      "account_id": "816454053517",
+      "region": "us-east-1",
+      "branch": "dev",
+      "projects": [
+        "NiroSubs-V2",
+        "VisualForgeMediaV2"
+      ]
+    },
+    "vf-stg": {
+      "account_id": "816454053517",
+      "region": "us-east-1",
+      "branch": "staging",
+      "projects": [
+        "NiroSubs-V2",
+        "VisualForgeMediaV2"
+      ]
+    },
+    "vf-prd": {
+      "account_id": "816454053517",
+      "region": "us-east-1",
+      "branch": "main",
+      "projects": [
+        "NiroSubs-V2",
+        "VisualForgeMediaV2"
+      ]
+    }
+  },
+  "results": {
+    "vf-dev": "ERROR: 'charmap' codec can't decode byte 0x8f in position 14027: character maps to <undefined>",
+    "vf-stg": "ERROR: 'charmap' codec can't decode byte 0x8f in position 14027: character maps to <undefined>",
+    "vf-prd": "ERROR: 'charmap' codec can't decode byte 0x8f in position 14027: character maps to <undefined>"
+  },
+  "next_steps": [
+    "Commit deployment artifacts to projects",
+    "Create test issues for verification",
+    "Monitor GitHub Actions workflows",
+    "Check AWS infrastructure status",
+    "Validate end-to-end functionality"
+  ]
+}

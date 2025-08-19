@@ -1,0 +1,81 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: 'AI Agent Infrastructure for vf-stg'
+
+Parameters:
+  Environment:
+    Type: String
+    Default: vf-stg
+
+Resources:
+  # Lambda for GitHub webhook processing
+  GitHubAgentLambda:
+    Type: AWS::Lambda::Function
+    Properties:
+      FunctionName: !Sub 'github-agent-processor-${Environment}'
+      Runtime: python3.9
+      Handler: index.lambda_handler
+      Code:
+        ZipFile: |
+          import json
+          import boto3
+          import logging
+          
+          logger = logging.getLogger()
+          logger.setLevel(logging.INFO)
+          
+          def lambda_handler(event, context):
+              logger.info("GitHub webhook received")
+              
+              try:
+                  if 'body' in event:
+                      body = json.loads(event['body'])
+                      if 'issue' in body:
+                          process_issue(body['issue'], body.get('action'))
+              except Exception as e:
+                  logger.error(f"Error processing webhook: {str(e)}")
+              
+              return {'statusCode': 200, 'body': 'OK'}
+          
+          def process_issue(issue, action):
+              if action in ['opened', 'edited']:
+                  logger.info(f"Processing issue: {issue['title']}")
+                  # Route to appropriate agent based on labels
+                  
+      Environment:
+        Variables:
+          ENVIRONMENT: !Ref Environment
+      Role: !GetAtt LambdaRole.Arn
+
+  # IAM Role for Lambda
+  LambdaRole:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service: lambda.amazonaws.com
+            Action: sts:AssumeRole
+      ManagedPolicyArns:
+        - arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole
+
+  # SQS Queue for agent tasks
+  AgentTaskQueue:
+    Type: AWS::SQS::Queue
+    Properties:
+      QueueName: !Sub 'agent-tasks-${Environment}'
+      VisibilityTimeoutSeconds: 300
+
+Outputs:
+  LambdaArn:
+    Description: Lambda function ARN
+    Value: !GetAtt GitHubAgentLambda.Arn
+    Export:
+      Name: !Sub 'github-lambda-${Environment}'
+      
+  QueueUrl:
+    Description: SQS Queue URL
+    Value: !Ref AgentTaskQueue
+    Export:
+      Name: !Sub 'task-queue-${Environment}'

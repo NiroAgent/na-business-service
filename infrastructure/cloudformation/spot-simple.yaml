@@ -1,0 +1,118 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: 'Simple Spot Instance for AI Agents - 95% Cost Savings'
+
+Parameters:
+  SpotPrice:
+    Type: String
+    Default: '0.05'
+  
+  InstanceType:
+    Type: String
+    Default: m5.large
+
+Resources:
+  # IAM Role
+  SpotAgentRole:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service: ec2.amazonaws.com
+            Action: sts:AssumeRole
+      ManagedPolicyArns:
+        - arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore
+      Policies:
+        - PolicyName: BasicAgentAccess
+          PolicyDocument:
+            Version: '2012-10-17'
+            Statement:
+              - Effect: Allow
+                Action:
+                  - logs:*
+                  - ssm:GetParameter
+                  - ssm:PutParameter
+                Resource: '*'
+
+  SpotAgentProfile:
+    Type: AWS::IAM::InstanceProfile
+    Properties:
+      Roles: [!Ref SpotAgentRole]
+
+  # Security Group
+  SpotAgentSG:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupDescription: Spot agent security group
+      SecurityGroupIngress:
+        - IpProtocol: tcp
+          FromPort: 22
+          ToPort: 22
+          CidrIp: 0.0.0.0/0
+
+  # Spot Instance Request
+  SpotAgentInstance:
+    Type: AWS::EC2::SpotFleet
+    Properties:
+      SpotFleetRequestConfig:
+        IamFleetRole: !Sub 'arn:aws:iam::${AWS::AccountId}:role/aws-ec2-spot-fleet-tagging-role'
+        AllocationStrategy: lowestPrice
+        TargetCapacity: 1
+        SpotPrice: !Ref SpotPrice
+        LaunchSpecifications:
+          - ImageId: ami-0c02fb55956c7d316
+            InstanceType: !Ref InstanceType
+            IamInstanceProfile:
+              Arn: !GetAtt SpotAgentProfile.Arn
+            SecurityGroups:
+              - GroupId: !Ref SpotAgentSG
+            UserData:
+              Fn::Base64: !Sub |
+                #!/bin/bash
+                yum update -y
+                yum install -y python3 python3-pip git tmux htop
+                
+                # Create agent user
+                useradd -m -s /bin/bash agent
+                
+                # Install Python packages
+                pip3 install boto3 requests
+                
+                # Create basic agent script
+                cat > /home/agent/agent.py << 'EOF'
+                #!/usr/bin/env python3
+                import time
+                import argparse
+                from datetime import datetime
+                
+                def main():
+                    parser = argparse.ArgumentParser()
+                    parser.add_argument('--agent-id', type=int, required=True)
+                    args = parser.parse_args()
+                    
+                    print(f"Starting Spot Agent {args.agent_id}")
+                    
+                    while True:
+                        print(f"[{datetime.now()}] Agent {args.agent_id} running...")
+                        time.sleep(30)
+                
+                if __name__ == '__main__':
+                    main()
+                EOF
+                
+                chmod +x /home/agent/agent.py
+                chown agent:agent /home/agent/agent.py
+                
+                # Start 50 agents
+                sudo -u agent bash -c 'for i in {1..50}; do tmux new-session -d -s "agent-$i" "python3 /home/agent/agent.py --agent-id $i"; done'
+
+Outputs:
+  SpotFleetId:
+    Description: Spot Fleet Request ID
+    Value: !Ref SpotAgentInstance
+  
+  CostEstimate:
+    Description: Monthly cost estimate
+    Value: !Sub '${SpotPrice} * 720 hours = ~$36/month (95% savings vs Lambda)'

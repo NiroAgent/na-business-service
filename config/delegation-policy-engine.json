@@ -1,0 +1,166 @@
+{
+  "version": "2.0",
+  "updated": "2025-08-18T23:00:06.367293",
+  "name": "Delegation Policy Engine",
+  "prime_directive": {
+    "rule": "DELEGATE EVERYTHING THROUGH THE SYSTEM",
+    "description": "All work must be delegated to managers via GitHub Issues",
+    "enforcement": "MANDATORY"
+  },
+  "delegation_rules": {
+    "rule_1": {
+      "name": "Single Delegation Only",
+      "description": "Create exactly ONE issue to a manager",
+      "violation_action": "Reject multiple issues",
+      "example_correct": "gh issue create --repo business-operations --title '[Manager] Fix Dashboard'",
+      "example_wrong": "Creating multiple developer/QA tasks"
+    },
+    "rule_2": {
+      "name": "Managers Only",
+      "description": "ONLY delegate to managers, never to contributors",
+      "allowed_assignees": [
+        "manager",
+        "project-manager",
+        "pm"
+      ],
+      "forbidden_assignees": [
+        "developer",
+        "qa",
+        "devops",
+        "designer"
+      ],
+      "violation_action": "Redirect to manager"
+    },
+    "rule_3": {
+      "name": "No Implementation Details",
+      "description": "Delegation must be high-level only",
+      "forbidden_content": [
+        "code examples",
+        "test cases",
+        "technical specs",
+        "database schemas"
+      ],
+      "allowed_content": [
+        "problem description",
+        "deadline",
+        "priority"
+      ],
+      "violation_action": "Strip details, keep only objective"
+    },
+    "rule_4": {
+      "name": "Repository Restriction",
+      "description": "Only create issues in business-operations",
+      "allowed_repos": [
+        "business-operations"
+      ],
+      "forbidden_repos": [
+        "service repos",
+        "component repos"
+      ],
+      "violation_action": "Redirect to business-operations"
+    }
+  },
+  "delegation_workflow": {
+    "step_1": {
+      "trigger": "User request or problem identified",
+      "action": "Create manager delegation",
+      "output": "Single issue in business-operations"
+    },
+    "step_2": {
+      "trigger": "Manager receives issue",
+      "action": "Manager creates sub-tasks",
+      "output": "Issues in appropriate service repos"
+    },
+    "step_3": {
+      "trigger": "Tasks created",
+      "action": "Teams self-organize",
+      "output": "Work begins"
+    },
+    "step_4": {
+      "trigger": "Periodic check",
+      "action": "Monitor manager issue",
+      "output": "Progress update"
+    }
+  },
+  "issue_routing": {
+    "dashboard_problems": {
+      "delegate_to": "UI Manager",
+      "repo": "business-operations",
+      "manager_creates_in": "vf-dashboard-service"
+    },
+    "service_issues": {
+      "delegate_to": "Service Manager",
+      "repo": "business-operations",
+      "manager_creates_in": "[service]-service repo"
+    },
+    "infrastructure": {
+      "delegate_to": "Infrastructure Manager",
+      "repo": "business-operations",
+      "manager_creates_in": "infrastructure repo"
+    },
+    "testing_needs": {
+      "delegate_to": "QA Manager",
+      "repo": "business-operations",
+      "manager_creates_in": "service repos"
+    }
+  },
+  "monitoring_rules": {
+    "check_frequency": "Every 4 hours",
+    "check_command": "gh issue list --assignee manager --repo business-operations",
+    "escalation_after": "24 hours no update",
+    "completion_verification": "Issue closed with resolution"
+  },
+  "anti_patterns": {
+    "micromanagement": {
+      "indicator": "Creating >1 issue for same problem",
+      "correction": "Consolidate into single manager delegation"
+    },
+    "doing_work": {
+      "indicator": "Writing code or implementation details",
+      "correction": "Remove details, delegate objective only"
+    },
+    "wrong_level": {
+      "indicator": "Assigning to non-managers",
+      "correction": "Reassign to appropriate manager"
+    },
+    "wrong_repo": {
+      "indicator": "Creating in service repos",
+      "correction": "Move to business-operations"
+    }
+  },
+  "enforcement": {
+    "pre_creation_check": {
+      "validate_assignee": "Must be manager role",
+      "validate_repo": "Must be business-operations",
+      "validate_count": "Only 1 issue per problem",
+      "validate_content": "No implementation details"
+    },
+    "post_creation_audit": {
+      "frequency": "Every issue creation",
+      "violations_log": "delegation-violations.log",
+      "correction_action": "Close and recreate properly"
+    }
+  },
+  "templates": {
+    "standard_delegation": {
+      "title": "[Manager] {action_required}",
+      "body": "## Delegation\n                \nWhat needs to be done: {one_sentence_description}\nPriority: {P0|P1|P2}\nDeadline: {if_applicable}\n\nYou own this. Create tasks as needed.\nReport when complete."
+    },
+    "emergency_delegation": {
+      "title": "[Manager] URGENT: {critical_issue}",
+      "body": "## Critical Issue\n\nProblem: {description}\nImpact: {who_affected}\nPriority: P0\n\nFix immediately. All hands if needed.\nReport every 2 hours."
+    }
+  },
+  "metrics": {
+    "delegation_efficiency": {
+      "measure": "Issues created by me vs managers",
+      "target": "1:10 ratio (1 mine, 10+ theirs)",
+      "current": "Track in metrics.json"
+    },
+    "resolution_time": {
+      "measure": "Time from delegation to completion",
+      "target": "Based on priority level",
+      "tracking": "GitHub issue timestamps"
+    }
+  }
+}

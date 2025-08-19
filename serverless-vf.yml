@@ -1,0 +1,37 @@
+
+service: vf-services
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+  region: us-east-1
+  # No stage prefix - this is your dev account!
+  
+functions:
+  core:
+    name: vf-core
+    handler: src/core/handler.main
+    
+  dashboard:
+    name: vf-dashboard
+    handler: src/dashboard/handler.main
+    
+  auth:
+    name: vf-auth
+    handler: src/auth/handler.main
+    
+  image:
+    name: vf-image
+    handler: src/image/handler.main
+
+resources:
+  Resources:
+    MediaTable:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        TableName: vf-media
+        
+    UsersTable:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        TableName: vf-users

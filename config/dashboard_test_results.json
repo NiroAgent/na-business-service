@@ -1,0 +1,12 @@
+{
+  "timestamp": "2025-08-18T17:13:39.199585",
+  "results": {
+    "Dashboard Responds": false,
+    "API Endpoints": true,
+    "Static Content": false,
+    "WebSocket Connection": true,
+    "Agent Data Integration": true,
+    "Performance": true
+  },
+  "dashboard_url": "http://localhost:5003"
+}

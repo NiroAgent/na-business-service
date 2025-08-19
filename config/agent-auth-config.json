@@ -1,0 +1,26 @@
+{
+  "github": {
+    "app_id": "${GITHUB_APP_ID}",
+    "private_key_path": "/etc/agents/github-app.pem",
+    "webhook_secret": "${WEBHOOK_SECRET}"
+  },
+  "agents": {
+    "developer": {
+      "github_token": "${DEVELOPER_AGENT_TOKEN}",
+      "openai_key": "${OPENAI_API_KEY}"
+    },
+    "qa": {
+      "github_token": "${QA_AGENT_TOKEN}",
+      "openai_key": "${OPENAI_API_KEY}"
+    },
+    "devops": {
+      "github_token": "${DEVOPS_AGENT_TOKEN}",
+      "openai_key": "${OPENAI_API_KEY}"
+    }
+  },
+  "spot_instance": {
+    "agent_count": 50,
+    "instance_type": "t3.large",
+    "spot_price": "0.03"
+  }
+}

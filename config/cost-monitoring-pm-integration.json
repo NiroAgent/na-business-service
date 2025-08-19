@@ -1,0 +1,17 @@
+{
+  "cost_optimization": {
+    "enabled": true,
+    "target_savings": "95%",
+    "monthly_budget": 15,
+    "pm_alerts": {
+      "budget_warning": "70%",
+      "budget_critical": "90%",
+      "notify_pm": true
+    },
+    "agent_costs": {
+      "spot_instance_hourly": 0.05,
+      "lambda_equivalent": 0.5,
+      "savings_per_hour": 0.45
+    }
+  }
+}

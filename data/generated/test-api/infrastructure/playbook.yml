@@ -1,0 +1,29 @@
+---
+- name: Deploy test-api
+  hosts: all
+  become: yes
+  
+  tasks:
+    - name: Install Docker
+      package:
+        name: docker.io
+        state: present
+    
+    - name: Start Docker service
+      service:
+        name: docker
+        state: started
+        enabled: yes
+    
+    - name: Pull Docker image
+      docker_image:
+        name: test-api:latest
+        source: pull
+    
+    - name: Run container
+      docker_container:
+        name: test-api
+        image: test-api:latest
+        ports:
+          - "8000:8000"
+        restart_policy: always

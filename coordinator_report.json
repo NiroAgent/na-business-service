@@ -1,0 +1,26 @@
+{
+  "timestamp": "2025-08-19T10:19:08.819275",
+  "total_issues": 162,
+  "service_health": {
+    "Emergency Dashboard": "OFFLINE",
+    "Claude Service": "HEALTHY",
+    "VF Agent Service": "OFFLINE",
+    "VF Text Service": "OFFLINE",
+    "Visual Forge AI": "OFFLINE",
+    "PM Workflow": "OFFLINE"
+  },
+  "agent_workload": {
+    "ai-security-agent": 4,
+    "ai-finance-agent": 2,
+    "ai-analytics-agent": 4,
+    "ai-support-agent": 2,
+    "ai-operations-agent": 2
+  },
+  "priority_distribution": {
+    "P0": 2,
+    "P1": 10,
+    "P2": 6,
+    "P3": 0
+  },
+  "sla_violations": 12
+}

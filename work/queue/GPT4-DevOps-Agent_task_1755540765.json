@@ -1,0 +1,52 @@
+{
+  "work_type": "agent_development_task",
+  "title": "Production Deployment Infrastructure",
+  "description": "Create production-ready deployment infrastructure",
+  "assigned_to": "GPT4-DevOps-Agent",
+  "priority": "P1-HIGH",
+  "tasks": [
+    {
+      "task": "Docker Configuration",
+      "file": "Dockerfile",
+      "details": "Production Dockerfile for AI Developer Agent",
+      "estimated_effort": "1 hour"
+    },
+    {
+      "task": "Kubernetes Manifests",
+      "file": "k8s/",
+      "details": "Kubernetes deployment, service, and ingress manifests",
+      "estimated_effort": "2 hours"
+    },
+    {
+      "task": "CI/CD Pipeline",
+      "file": ".github/workflows/",
+      "details": "GitHub Actions for automated testing and deployment",
+      "estimated_effort": "2 hours"
+    },
+    {
+      "task": "Monitoring Setup",
+      "file": "monitoring/",
+      "details": "Prometheus, Grafana, and logging configuration",
+      "estimated_effort": "1.5 hours"
+    }
+  ],
+  "deliverables": [
+    "Production Docker image",
+    "Kubernetes deployment manifests",
+    "CI/CD pipeline operational",
+    "Monitoring and alerting setup"
+  ],
+  "success_criteria": [
+    "One-click deployment to production",
+    "Automated testing in CI/CD",
+    "Health monitoring operational",
+    "Scalable and resilient infrastructure"
+  ],
+  "estimated_total_effort": "6.5 hours",
+  "dependencies": [
+    "Claude Opus AI Developer Agent (75% complete)"
+  ],
+  "created_at": "2025-08-18T14:12:45.943566",
+  "status": "assigned",
+  "coordination_type": "multi_agent_parallel"
+}

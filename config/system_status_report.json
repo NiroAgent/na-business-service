@@ -1,0 +1,21 @@
+{
+  "timestamp": "2025-08-18T17:08:51.144586",
+  "dashboard_ok": false,
+  "agents_count": 2,
+  "agents": [
+    {
+      "pid": 46388,
+      "name": "ai-architect",
+      "cmdline": "C:\\Program Files\\Python313\\python.exe ai-architect-agent.py"
+    },
+    {
+      "pid": 52324,
+      "name": "github-issues",
+      "cmdline": "C:\\Program Files\\Python313\\python.exe github-issues-agent.py"
+    }
+  ],
+  "files_count": 4,
+  "generated_count": 6,
+  "api_count": 2,
+  "health_score": 80.0
+}

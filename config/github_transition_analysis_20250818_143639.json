@@ -1,0 +1,86 @@
+{
+  "total_tasks": 9,
+  "critical_tasks": 4,
+  "assigned_tasks": 7,
+  "ready_for_migration": [
+    {
+      "file": "CRITICAL_dashboard_fix_1755541452.json",
+      "title": "CRITICAL: Dashboard Tab Switching & Data Loading Fix",
+      "priority": "P0-CRITICAL-URGENT",
+      "assigned_to": "GPT4-Dashboard-Agent",
+      "status": "critical_assigned",
+      "estimated_effort": "5-8 hours"
+    },
+    {
+      "file": "GPT4-DevOps-Agent_task_1755540765.json",
+      "title": "Production Deployment Infrastructure",
+      "priority": "P1-HIGH",
+      "assigned_to": "GPT4-DevOps-Agent",
+      "status": "assigned",
+      "estimated_effort": "6.5 hours"
+    },
+    {
+      "file": "GPT4-Documentation-Agent_task_1755540765.json",
+      "title": "Complete Documentation Suite",
+      "priority": "P1-HIGH",
+      "assigned_to": "GPT4-Documentation-Agent",
+      "status": "assigned",
+      "estimated_effort": "7.0 hours"
+    },
+    {
+      "file": "GPT4-Security-Agent_task_1755540765.json",
+      "title": "Security Analysis and Hardening",
+      "priority": "P1-HIGH",
+      "assigned_to": "GPT4-Security-Agent",
+      "status": "assigned",
+      "estimated_effort": "6.5 hours"
+    },
+    {
+      "file": "phase_assignment_1755540429.json",
+      "title": "Unknown",
+      "priority": "HIGH",
+      "assigned_to": "",
+      "status": "pending",
+      "estimated_effort": "unknown"
+    },
+    {
+      "file": "phase_assignment_1755540440.json",
+      "title": "Unknown",
+      "priority": "HIGH",
+      "assigned_to": "",
+      "status": "pending",
+      "estimated_effort": "unknown"
+    }
+  ],
+  "requires_completion": [
+    {
+      "file": "GPT4-Completion-Agent_task_1755540765.json",
+      "title": "Complete AI Developer Agent Implementation",
+      "priority": "P0-CRITICAL",
+      "assigned_to": "GPT4-Completion-Agent",
+      "status": "assigned",
+      "estimated_effort": "8.0 hours"
+    },
+    {
+      "file": "GPT4-Testing-Agent_task_1755540765.json",
+      "title": "Comprehensive Testing Framework",
+      "priority": "P0-CRITICAL",
+      "assigned_to": "GPT4-Testing-Agent",
+      "status": "assigned",
+      "estimated_effort": "8.0 hours"
+    },
+    {
+      "file": "qa_agent_implementation_1755540477.json",
+      "title": "Phase 4: AI QA & Testing Agent Implementation",
+      "priority": "P0-CRITICAL",
+      "assigned_to": "ChatGPT-QA-Agent",
+      "status": "assigned",
+      "estimated_effort": "unknown"
+    }
+  ],
+  "migration_summary": {
+    "immediate_migration": 6,
+    "complete_first": 3,
+    "total": 9
+  }
+}

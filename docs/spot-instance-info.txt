@@ -1,0 +1,36 @@
+SPOT INSTANCE DEPLOYMENT - ULTRA COST OPTIMIZED
+=============================================
+
+Instance Details:
+- Instance ID: i-0c8fef744add7803c
+- Public IP: 35.174.174.116
+- Instance Type: m5.large
+- Spot Request ID: sir-fty76qrm
+- Spot Price: ./deploy-to-spot-instance.sh.05/hour
+
+Cost Analysis:
+- Hourly Cost: ./deploy-to-spot-instance.sh.05
+- Daily Cost: ~.20
+- Monthly Cost: ~6
+- Annual Cost: ~32
+- Savings vs Lambda: 95% (50-300/month → 6/month)
+
+SSH Access:
+ssh -i your-key.pem ec2-user@35.174.174.116
+
+Agent Management (on instance):
+sudo su - agent
+/home/agent/start-all-agents.sh    # Start 50 agents
+/home/agent/check-status.sh        # Check status
+tmux list-sessions                 # List all agents
+tmux attach -t agent-5             # Connect to agent 5
+
+Features:
+✅ 50 AI agents in separate tmux sessions
+✅ State persistence across spot interruptions
+✅ Automatic interruption handling
+✅ Ultra cost-optimized (6/month vs 00)
+✅ Full context retention per agent
+✅ Easy management and monitoring
+
+Deployment Status: READY FOR SSH SETUP

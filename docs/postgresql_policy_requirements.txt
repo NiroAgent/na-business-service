@@ -1,0 +1,8 @@
+# PostgreSQL Policy Engine Dependencies
+sqlalchemy>=2.0.0
+psycopg2-binary>=2.9.0
+alembic>=1.12.0  # For database migrations
+asyncpg>=0.28.0  # For async PostgreSQL support
+
+# Existing dependencies (if not already installed)
+requests>=2.31.0

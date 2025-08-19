@@ -1,0 +1,22 @@
+{
+  "timestamp": "2025-08-18T22:08:45.844370",
+  "total_stories": 25,
+  "created": 0,
+  "nirosubs_services": [
+    "ns-auth",
+    "ns-dashboard",
+    "ns-payments",
+    "ns-user",
+    "ns-shell"
+  ],
+  "visualforge_services": [
+    "vf-audio",
+    "vf-video",
+    "vf-image",
+    "vf-text",
+    "vf-bulk",
+    "vf-dashboard"
+  ],
+  "vf_dev_environment": "https://vf-dev.visualforgemedia.com",
+  "policy_file": "pm-delegation-policy.json"
+}

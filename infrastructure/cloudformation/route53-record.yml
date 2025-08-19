@@ -1,0 +1,57 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: 'Route53 DNS Record for VF Live Dashboard'
+
+Parameters:
+  Environment:
+    Type: String
+    Default: dev
+    AllowedValues: [dev, staging, production]
+    Description: Environment name
+  
+  DomainName:
+    Type: String
+    Default: dev.visualforge.com
+    Description: Domain name for the dashboard
+    
+  ALBDNSName:
+    Type: String
+    Description: ALB DNS name to point to
+
+Resources:
+  # Route53 Record for Dashboard
+  DashboardDNSRecord:
+    Type: AWS::Route53::RecordSet
+    Properties:
+      HostedZoneId: !ImportValue
+        Fn::Sub: 'vf-dashboard-alb-${Environment}-stack-HostedZoneId'
+      Name: !Ref DomainName
+      Type: A
+      AliasTarget:
+        DNSName: !Ref ALBDNSName
+        HostedZoneId: Z35SXDOTRQ7X7K  # ALB Hosted Zone ID for us-east-1
+        EvaluateTargetHealth: true
+
+  # CNAME record for www subdomain
+  WWWDNSRecord:
+    Type: AWS::Route53::RecordSet
+    Properties:
+      HostedZoneId: !ImportValue
+        Fn::Sub: 'vf-dashboard-alb-${Environment}-stack-HostedZoneId'
+      Name: !Sub 'www.${DomainName}'
+      Type: CNAME
+      TTL: 300
+      ResourceRecords:
+        - !Ref DomainName
+
+Outputs:
+  DashboardURL:
+    Description: Dashboard URL
+    Value: !Sub 'https://${DomainName}/'
+    Export:
+      Name: !Sub '${AWS::StackName}-DashboardURL'
+      
+  WWWDashboardURL:
+    Description: WWW Dashboard URL
+    Value: !Sub 'https://www.${DomainName}/'
+    Export:
+      Name: !Sub '${AWS::StackName}-WWWDashboardURL'

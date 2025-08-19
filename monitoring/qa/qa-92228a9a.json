@@ -1,0 +1,70 @@
+{
+  "report_id": "qa-92228a9a",
+  "project_id": "test-api-001",
+  "timestamp": "2025-08-18T21:41:10.837596",
+  "test_results": [
+    {
+      "test_id": "integration-e01f08be",
+      "test_type": "TestType.INTEGRATION",
+      "test_name": "API Integration",
+      "status": "passed",
+      "message": "All endpoints responding correctly",
+      "duration": 5.2,
+      "details": {
+        "endpoints_tested": 8,
+        "passed": 8
+      }
+    },
+    {
+      "test_id": "integration-3cf7d49e",
+      "test_type": "TestType.INTEGRATION",
+      "test_name": "Database Integration",
+      "status": "passed",
+      "message": "Database operations working",
+      "duration": 2.1,
+      "details": {
+        "operations_tested": 5,
+        "passed": 5
+      }
+    }
+  ],
+  "security_issues": [],
+  "performance_metrics": [
+    {
+      "metric_name": "Average Cyclomatic Complexity",
+      "value": 2.92,
+      "unit": "complexity",
+      "threshold": 10.0,
+      "passed": true
+    },
+    {
+      "metric_name": "Average File Size",
+      "value": 0.82,
+      "unit": "KB",
+      "threshold": 50.0,
+      "passed": true
+    },
+    {
+      "metric_name": "Total Project Size",
+      "value": 0.03,
+      "unit": "MB",
+      "threshold": 100.0,
+      "passed": true
+    },
+    {
+      "metric_name": "Python Dependencies",
+      "value": 15,
+      "unit": "packages",
+      "threshold": 50,
+      "passed": true
+    }
+  ],
+  "code_coverage": 25.0,
+  "quality_score": 92.5,
+  "quality_level": "excellent",
+  "recommendations": [
+    "Add missing documentation: CONTRIBUTING, CHANGELOG",
+    "Add a LICENSE file to the project"
+  ],
+  "passed": true
+}

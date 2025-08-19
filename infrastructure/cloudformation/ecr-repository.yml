@@ -1,0 +1,146 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: 'ECR Repository for VF Live Dashboard'
+
+Parameters:
+  Environment:
+    Type: String
+    Default: dev
+    AllowedValues: [dev, staging, production]
+    Description: Environment name
+  
+  RepositoryName:
+    Type: String
+    Default: vf-live-dashboard
+    Description: ECR repository name
+
+Resources:
+  ECRRepository:
+    Type: AWS::ECR::Repository
+    Properties:
+      RepositoryName: !Ref RepositoryName
+      ImageScanningConfiguration:
+        ScanOnPush: true
+      EncryptionConfiguration:
+        EncryptionType: AES256
+      LifecyclePolicy:
+        LifecyclePolicyText: |
+          {
+            "rules": [
+              {
+                "rulePriority": 1,
+                "description": "Keep last 10 production images",
+                "selection": {
+                  "tagStatus": "tagged",
+                  "tagPrefixList": ["production"],
+                  "countType": "imageCountMoreThan",
+                  "countNumber": 10
+                },
+                "action": {
+                  "type": "expire"
+                }
+              },
+              {
+                "rulePriority": 2,
+                "description": "Keep last 5 staging images",
+                "selection": {
+                  "tagStatus": "tagged",
+                  "tagPrefixList": ["staging"],
+                  "countType": "imageCountMoreThan",
+                  "countNumber": 5
+                },
+                "action": {
+                  "type": "expire"
+                }
+              },
+              {
+                "rulePriority": 3,
+                "description": "Keep last 3 dev images",
+                "selection": {
+                  "tagStatus": "tagged",
+                  "tagPrefixList": ["dev"],
+                  "countType": "imageCountMoreThan",
+                  "countNumber": 3
+                },
+                "action": {
+                  "type": "expire"
+                }
+              },
+              {
+                "rulePriority": 4,
+                "description": "Delete untagged images older than 1 day",
+                "selection": {
+                  "tagStatus": "untagged",
+                  "countType": "sinceImagePushed",
+                  "countUnit": "days",
+                  "countNumber": 1
+                },
+                "action": {
+                  "type": "expire"
+                }
+              }
+            ]
+          }
+
+  # IAM Role for GitHub Actions
+  GitHubActionsRole:
+    Type: AWS::IAM::Role
+    Properties:
+      RoleName: !Sub 'GitHubActionsRole-Dashboard-${Environment}'
+      AssumeRolePolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Principal:
+              Federated: !Sub 'arn:aws:iam::${AWS::AccountId}:oidc-provider/token.actions.githubusercontent.com'
+            Action: 'sts:AssumeRoleWithWebIdentity'
+            Condition:
+              StringEquals:
+                'token.actions.githubusercontent.com:aud': 'sts.amazonaws.com'
+              StringLike:
+                'token.actions.githubusercontent.com:sub': 'repo:NiroAgentV2/autonomous-business-system:*'
+      ManagedPolicyArns:
+        - 'arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryPowerUser'
+        - 'arn:aws:iam::aws:policy/AmazonEKSClusterPolicy'
+        - 'arn:aws:iam::aws:policy/AmazonEKSWorkerNodePolicy'
+      Policies:
+        - PolicyName: DashboardDeploymentPolicy
+          PolicyDocument:
+            Version: '2012-10-17'
+            Statement:
+              - Effect: Allow
+                Action:
+                  - 'eks:DescribeCluster'
+                  - 'eks:DescribeNodegroup'
+                  - 'eks:ListClusters'
+                  - 'eks:UpdateKubeconfig'
+                  - 'iam:CreateRole'
+                  - 'iam:AttachRolePolicy'
+                  - 'iam:PassRole'
+                  - 'cloudformation:*'
+                  - 'route53:*'
+                  - 'elasticloadbalancing:*'
+                  - 'ec2:DescribeInstances'
+                  - 'ec2:DescribeInstanceStatus'
+                  - 'cloudwatch:*'
+                  - 'ce:GetCostAndUsage'
+                  - 'ce:GetUsageReport'
+                Resource: '*'
+
+Outputs:
+  ECRRepositoryURI:
+    Description: ECR Repository URI
+    Value: !GetAtt ECRRepository.RepositoryUri
+    Export:
+      Name: !Sub '${AWS::StackName}-ECRRepositoryURI'
+  
+  ECRRepositoryArn:
+    Description: ECR Repository ARN
+    Value: !GetAtt ECRRepository.Arn
+    Export:
+      Name: !Sub '${AWS::StackName}-ECRRepositoryArn'
+      
+  GitHubActionsRoleArn:
+    Description: GitHub Actions Role ARN
+    Value: !GetAtt GitHubActionsRole.Arn
+    Export:
+      Name: !Sub '${AWS::StackName}-GitHubActionsRoleArn'

@@ -1,0 +1,31 @@
+FROM python:3.11-slim
+
+RUN apt-get update && apt-get install -y \
+    git \
+    tmux \
+    htop \
+    curl \
+    && rm -rf /var/lib/apt/lists/*
+
+WORKDIR /app
+
+# Copy agent system
+COPY . .
+
+# Install dependencies
+RUN pip install -r requirements.txt
+
+# Create start script for all agents
+RUN echo '#!/bin/bash' > start-agents.sh && \
+    echo 'for i in {1..50}; do' >> start-agents.sh && \
+    echo '  tmux new-session -d -s "agent-$i" "python agent.py --agent-id $i --environment vf-dev"' >> start-agents.sh && \
+    echo '  sleep 0.5' >> start-agents.sh && \
+    echo 'done' >> start-agents.sh && \
+    echo 'echo "All 50 agents started!"' >> start-agents.sh && \
+    echo 'tmux list-sessions' >> start-agents.sh && \
+    echo 'tail -f /dev/null' >> start-agents.sh && \
+    chmod +x start-agents.sh
+
+EXPOSE 8080
+
+CMD ["./start-agents.sh"]

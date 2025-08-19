@@ -1,0 +1,48 @@
+{
+  "environments": {
+    "dev": {
+      "enabled": true,
+      "cost_threshold_percent": 2.0,
+      "time_window_minutes": 30,
+      "tags": {
+        "Environment": "dev",
+        "Project": "testing"
+      },
+      "shutdown_agents": [
+        "dev-agents"
+      ],
+      "max_hourly_cost": 5.0
+    },
+    "staging": {
+      "enabled": true,
+      "cost_threshold_percent": 1.5,
+      "time_window_minutes": 45,
+      "tags": {
+        "Environment": "staging"
+      },
+      "shutdown_agents": [
+        "staging-agents"
+      ],
+      "max_hourly_cost": 10.0
+    },
+    "production": {
+      "enabled": false,
+      "cost_threshold_percent": 0.5,
+      "time_window_minutes": 60,
+      "tags": {
+        "Environment": "production"
+      },
+      "shutdown_agents": [],
+      "max_hourly_cost": 50.0
+    }
+  },
+  "aws": {
+    "region": "us-east-1",
+    "profile": "default"
+  },
+  "global": {
+    "total_cost_threshold_percent": 1.0,
+    "emergency_shutdown_all": true,
+    "max_total_hourly_cost": 100.0
+  }
+}

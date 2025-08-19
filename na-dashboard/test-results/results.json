@@ -1,0 +1,2607 @@
+{
+  "config": {
+    "configFile": "E:\\Projects\\na-dashboard\\playwright.config.ts",
+    "rootDir": "E:/Projects/na-dashboard/tests",
+    "forbidOnly": false,
+    "fullyParallel": true,
+    "globalSetup": "E:\\Projects\\na-dashboard\\tests\\global-setup.ts",
+    "globalTeardown": "E:\\Projects\\na-dashboard\\tests\\global-teardown.ts",
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "reporter": [
+      [
+        "html",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "test-results/results.json"
+        }
+      ],
+      [
+        "junit",
+        {
+          "outputFile": "test-results/results.xml"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "quiet": false,
+    "projects": [
+      {
+        "outputDir": "E:/Projects/na-dashboard/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "E:/Projects/na-dashboard/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "E:/Projects/na-dashboard/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "firefox",
+        "name": "firefox",
+        "testDir": "E:/Projects/na-dashboard/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "E:/Projects/na-dashboard/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "webkit",
+        "name": "webkit",
+        "testDir": "E:/Projects/na-dashboard/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "E:/Projects/na-dashboard/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "Mobile Chrome",
+        "name": "Mobile Chrome",
+        "testDir": "E:/Projects/na-dashboard/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "E:/Projects/na-dashboard/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "Mobile Safari",
+        "name": "Mobile Safari",
+        "testDir": "E:/Projects/na-dashboard/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "E:/Projects/na-dashboard/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "Microsoft Edge",
+        "name": "Microsoft Edge",
+        "testDir": "E:/Projects/na-dashboard/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "E:/Projects/na-dashboard/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "Google Chrome",
+        "name": "Google Chrome",
+        "testDir": "E:/Projects/na-dashboard/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "shard": null,
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.54.2",
+    "workers": 1,
+    "webServer": {
+      "command": "node scripts/start-test-servers.js",
+      "port": 3001,
+      "timeout": 60000,
+      "reuseExistingServer": true,
+      "stdout": "pipe",
+      "stderr": "pipe"
+    }
+  },
+  "suites": [
+    {
+      "title": "e2e\\dashboard.spec.ts",
+      "file": "e2e/dashboard.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Dashboard Navigation",
+          "file": "e2e/dashboard.spec.ts",
+          "line": 3,
+          "column": 6,
+          "specs": [
+            {
+              "title": "should load the dashboard homepage",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1914,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-08-19T21:28:30.952Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "d892c21f4fe98edf46bf-f2f54b3dd7773b813382",
+              "file": "e2e/dashboard.spec.ts",
+              "line": 8,
+              "column": 7
+            },
+            {
+              "title": "should navigate to all main sections",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 496,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-08-19T21:28:32.918Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "d892c21f4fe98edf46bf-d860b4776ea2bfac0ef1",
+              "file": "e2e/dashboard.spec.ts",
+              "line": 28,
+              "column": 7
+            },
+            {
+              "title": "should show connection status",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 281,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-08-19T21:28:33.417Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "d892c21f4fe98edf46bf-e6cbbc7f53b495ee3fb4",
+              "file": "e2e/dashboard.spec.ts",
+              "line": 46,
+              "column": 7
+            }
+          ]
+        },
+        {
+          "title": "Dashboard Data Loading",
+          "file": "e2e/dashboard.spec.ts",
+          "line": 55,
+          "column": 6,
+          "specs": [
+            {
+              "title": "should load and display instance metrics",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1474,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-08-19T21:28:33.701Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "d892c21f4fe98edf46bf-1962e7c26296f16fe702",
+              "file": "e2e/dashboard.spec.ts",
+              "line": 56,
+              "column": 7
+            },
+            {
+              "title": "should load and display cost metrics",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1499,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-08-19T21:28:35.177Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "d892c21f4fe98edf46bf-307c87baee39a671d23d",
+              "file": "e2e/dashboard.spec.ts",
+              "line": 71,
+              "column": 7
+            },
+            {
+              "title": "should show environment status",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1515,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-08-19T21:28:36.679Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "d892c21f4fe98edf46bf-bcbda19822b2527d845a",
+              "file": "e2e/dashboard.spec.ts",
+              "line": 84,
+              "column": 7
+            }
+          ]
+        },
+        {
+          "title": "Responsive Design",
+          "file": "e2e/dashboard.spec.ts",
+          "line": 95,
+          "column": 6,
+          "specs": [
+            {
+              "title": "should work on mobile devices",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 10299,
+                      "error": {
+                        "message": "TimeoutError: page.click: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('[data-testid=\"mobile-menu-button\"]')\u001b[22m\n",
+                        "stack": "TimeoutError: page.click: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('[data-testid=\"mobile-menu-button\"]')\u001b[22m\n\n    at E:\\Projects\\na-dashboard\\tests\\e2e\\dashboard.spec.ts:101:16",
+                        "location": {
+                          "file": "E:\\Projects\\na-dashboard\\tests\\e2e\\dashboard.spec.ts",
+                          "column": 16,
+                          "line": 101
+                        },
+                        "snippet": "\u001b[0m \u001b[90m  99 |\u001b[39m     \n \u001b[90m 100 |\u001b[39m     \u001b[90m// Check mobile navigation works\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 101 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mclick(\u001b[32m'[data-testid=\"mobile-menu-button\"]'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 102 |\u001b[39m     \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mlocator(\u001b[32m'[data-testid=\"mobile-nav\"]'\u001b[39m))\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n \u001b[90m 103 |\u001b[39m   })\u001b[33m;\u001b[39m\n \u001b[90m 104 |\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "E:\\Projects\\na-dashboard\\tests\\e2e\\dashboard.spec.ts",
+                            "column": 16,
+                            "line": 101
+                          },
+                          "message": "TimeoutError: page.click: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('[data-testid=\"mobile-menu-button\"]')\u001b[22m\n\n\n\u001b[0m \u001b[90m  99 |\u001b[39m     \n \u001b[90m 100 |\u001b[39m     \u001b[90m// Check mobile navigation works\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 101 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mclick(\u001b[32m'[data-testid=\"mobile-menu-button\"]'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 102 |\u001b[39m     \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mlocator(\u001b[32m'[data-testid=\"mobile-nav\"]'\u001b[39m))\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n \u001b[90m 103 |\u001b[39m   })\u001b[33m;\u001b[39m\n \u001b[90m 104 |\u001b[39m\u001b[0m\n\u001b[2m    at E:\\Projects\\na-dashboard\\tests\\e2e\\dashboard.spec.ts:101:16\u001b[22m"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-08-19T21:28:38.196Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "E:\\Projects\\na-dashboard\\test-results\\e2e-dashboard-Responsive-D-bda17-ould-work-on-mobile-devices-chromium\\test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "E:\\Projects\\na-dashboard\\test-results\\e2e-dashboard-Responsive-D-bda17-ould-work-on-mobile-devices-chromium\\video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "E:\\Projects\\na-dashboard\\test-results\\e2e-dashboard-Responsive-D-bda17-ould-work-on-mobile-devices-chromium\\error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "E:\\Projects\\na-dashboard\\tests\\e2e\\dashboard.spec.ts",
+                        "column": 16,
+                        "line": 101
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "d892c21f4fe98edf46bf-373ec0082402377fae32",
+              "file": "e2e/dashboard.spec.ts",
+              "line": 96,
+              "column": 7
+            },
+            {
+              "title": "should work on tablet devices",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 335,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-08-19T21:28:48.993Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "d892c21f4fe98edf46bf-7ee3a2a91d00ee0460e5",
+              "file": "e2e/dashboard.spec.ts",
+              "line": 105,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "e2e\\pages.spec.ts",
+      "file": "e2e/pages.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Instances Page",
+          "file": "e2e/pages.spec.ts",
+          "line": 3,
+          "column": 6,
+          "specs": [
+            {
+              "title": "should display instances table",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 1320,
+                      "error": {
+                        "message": "Error: expect.toContainText: Error: strict mode violation: locator('h1') resolved to 2 elements:\n    1) <h1 class=\"text-2xl font-bold text-gray-900\">NiroAgent Dashboard</h1> aka getByRole('heading', { name: 'NiroAgent Dashboard' })\n    2) <h1 class=\"text-3xl font-bold text-gray-900\">EC2 Instances</h1> aka getByRole('heading', { name: 'EC2 Instances' })\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('h1')\u001b[22m\n",
+                        "stack": "Error: expect.toContainText: Error: strict mode violation: locator('h1') resolved to 2 elements:\n    1) <h1 class=\"text-2xl font-bold text-gray-900\">NiroAgent Dashboard</h1> aka getByRole('heading', { name: 'NiroAgent Dashboard' })\n    2) <h1 class=\"text-3xl font-bold text-gray-900\">EC2 Instances</h1> aka getByRole('heading', { name: 'EC2 Instances' })\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('h1')\u001b[22m\n\n    at E:\\Projects\\na-dashboard\\tests\\e2e\\pages.spec.ts:11:38",
+                        "location": {
+                          "file": "E:\\Projects\\na-dashboard\\tests\\e2e\\pages.spec.ts",
+                          "column": 38,
+                          "line": 11
+                        },
+                        "snippet": "\u001b[0m \u001b[90m  9 |\u001b[39m   test(\u001b[32m'should display instances table'\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ page }) \u001b[33m=>\u001b[39m {\n \u001b[90m 10 |\u001b[39m     \u001b[90m// Check page title\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 11 |\u001b[39m     \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mlocator(\u001b[32m'h1'\u001b[39m))\u001b[33m.\u001b[39mtoContainText(\u001b[32m'Instances'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                      \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 12 |\u001b[39m     \n \u001b[90m 13 |\u001b[39m     \u001b[90m// Check instances table or empty state\u001b[39m\n \u001b[90m 14 |\u001b[39m     \u001b[36mconst\u001b[39m instancesTable \u001b[33m=\u001b[39m page\u001b[33m.\u001b[39mlocator(\u001b[32m'[data-testid=\"instances-table\"]'\u001b[39m)\u001b[33m;\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "E:\\Projects\\na-dashboard\\tests\\e2e\\pages.spec.ts",
+                            "column": 38,
+                            "line": 11
+                          },
+                          "message": "Error: expect.toContainText: Error: strict mode violation: locator('h1') resolved to 2 elements:\n    1) <h1 class=\"text-2xl font-bold text-gray-900\">NiroAgent Dashboard</h1> aka getByRole('heading', { name: 'NiroAgent Dashboard' })\n    2) <h1 class=\"text-3xl font-bold text-gray-900\">EC2 Instances</h1> aka getByRole('heading', { name: 'EC2 Instances' })\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('h1')\u001b[22m\n\n\n\u001b[0m \u001b[90m  9 |\u001b[39m   test(\u001b[32m'should display instances table'\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ page }) \u001b[33m=>\u001b[39m {\n \u001b[90m 10 |\u001b[39m     \u001b[90m// Check page title\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 11 |\u001b[39m     \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mlocator(\u001b[32m'h1'\u001b[39m))\u001b[33m.\u001b[39mtoContainText(\u001b[32m'Instances'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                      \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 12 |\u001b[39m     \n \u001b[90m 13 |\u001b[39m     \u001b[90m// Check instances table or empty state\u001b[39m\n \u001b[90m 14 |\u001b[39m     \u001b[36mconst\u001b[39m instancesTable \u001b[33m=\u001b[39m page\u001b[33m.\u001b[39mlocator(\u001b[32m'[data-testid=\"instances-table\"]'\u001b[39m)\u001b[33m;\u001b[39m\u001b[0m\n\u001b[2m    at E:\\Projects\\na-dashboard\\tests\\e2e\\pages.spec.ts:11:38\u001b[22m"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-08-19T21:28:49.383Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "E:\\Projects\\na-dashboard\\test-results\\e2e-pages-Instances-Page-should-display-instances-table-chromium\\test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "E:\\Projects\\na-dashboard\\test-results\\e2e-pages-Instances-Page-should-display-instances-table-chromium\\video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "E:\\Projects\\na-dashboard\\test-results\\e2e-pages-Instances-Page-should-display-instances-table-chromium\\error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "E:\\Projects\\na-dashboard\\tests\\e2e\\pages.spec.ts",
+                        "column": 38,
+                        "line": 11
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "0cdf628baed288e8b74b-0fd3dc7f92d852263063",
+              "file": "e2e/pages.spec.ts",
+              "line": 9,
+              "column": 7
+            },
+            {
+              "title": "should filter instances by environment",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 11617,
+                      "error": {
+                        "message": "TimeoutError: page.selectOption: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('[data-testid=\"environment-filter\"]')\u001b[22m\n",
+                        "stack": "TimeoutError: page.selectOption: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('[data-testid=\"environment-filter\"]')\u001b[22m\n\n    at E:\\Projects\\na-dashboard\\tests\\e2e\\pages.spec.ts:23:16",
+                        "location": {
+                          "file": "E:\\Projects\\na-dashboard\\tests\\e2e\\pages.spec.ts",
+                          "column": 16,
+                          "line": 23
+                        },
+                        "snippet": "\u001b[0m \u001b[90m 21 |\u001b[39m   test(\u001b[32m'should filter instances by environment'\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ page }) \u001b[33m=>\u001b[39m {\n \u001b[90m 22 |\u001b[39m     \u001b[90m// Test environment filter\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 23 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mselectOption(\u001b[32m'[data-testid=\"environment-filter\"]'\u001b[39m\u001b[33m,\u001b[39m \u001b[32m'vf-dev'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 24 |\u001b[39m     \n \u001b[90m 25 |\u001b[39m     \u001b[90m// Wait for filter to apply\u001b[39m\n \u001b[90m 26 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mwaitForTimeout(\u001b[35m1000\u001b[39m)\u001b[33m;\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "E:\\Projects\\na-dashboard\\tests\\e2e\\pages.spec.ts",
+                            "column": 16,
+                            "line": 23
+                          },
+                          "message": "TimeoutError: page.selectOption: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('[data-testid=\"environment-filter\"]')\u001b[22m\n\n\n\u001b[0m \u001b[90m 21 |\u001b[39m   test(\u001b[32m'should filter instances by environment'\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ page }) \u001b[33m=>\u001b[39m {\n \u001b[90m 22 |\u001b[39m     \u001b[90m// Test environment filter\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 23 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mselectOption(\u001b[32m'[data-testid=\"environment-filter\"]'\u001b[39m\u001b[33m,\u001b[39m \u001b[32m'vf-dev'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 24 |\u001b[39m     \n \u001b[90m 25 |\u001b[39m     \u001b[90m// Wait for filter to apply\u001b[39m\n \u001b[90m 26 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mwaitForTimeout(\u001b[35m1000\u001b[39m)\u001b[33m;\u001b[39m\u001b[0m\n\u001b[2m    at E:\\Projects\\na-dashboard\\tests\\e2e\\pages.spec.ts:23:16\u001b[22m"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-08-19T21:28:51.179Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "E:\\Projects\\na-dashboard\\test-results\\e2e-pages-Instances-Page-s-d666a-er-instances-by-environment-chromium\\test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "E:\\Projects\\na-dashboard\\test-results\\e2e-pages-Instances-Page-s-d666a-er-instances-by-environment-chromium\\video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "E:\\Projects\\na-dashboard\\test-results\\e2e-pages-Instances-Page-s-d666a-er-instances-by-environment-chromium\\error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "E:\\Projects\\na-dashboard\\tests\\e2e\\pages.spec.ts",
+                        "column": 16,
+                        "line": 23
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "0cdf628baed288e8b74b-13f44b916cf27e21fb6f",
+              "file": "e2e/pages.spec.ts",
+              "line": 21,
+              "column": 7
+            },
+            {
+              "title": "should refresh instances data",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 11745,
+                      "error": {
+                        "message": "TimeoutError: page.click: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('[data-testid=\"refresh-instances\"]')\u001b[22m\n",
+                        "stack": "TimeoutError: page.click: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('[data-testid=\"refresh-instances\"]')\u001b[22m\n\n    at E:\\Projects\\na-dashboard\\tests\\e2e\\pages.spec.ts:34:16",
+                        "location": {
+                          "file": "E:\\Projects\\na-dashboard\\tests\\e2e\\pages.spec.ts",
+                          "column": 16,
+                          "line": 34
+                        },
+                        "snippet": "\u001b[0m \u001b[90m 32 |\u001b[39m   test(\u001b[32m'should refresh instances data'\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ page }) \u001b[33m=>\u001b[39m {\n \u001b[90m 33 |\u001b[39m     \u001b[90m// Click refresh button\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 34 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mclick(\u001b[32m'[data-testid=\"refresh-instances\"]'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 35 |\u001b[39m     \n \u001b[90m 36 |\u001b[39m     \u001b[90m// Check loading state appears\u001b[39m\n \u001b[90m 37 |\u001b[39m     \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mlocator(\u001b[32m'[data-testid=\"loading-instances\"]'\u001b[39m))\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "E:\\Projects\\na-dashboard\\tests\\e2e\\pages.spec.ts",
+                            "column": 16,
+                            "line": 34
+                          },
+                          "message": "TimeoutError: page.click: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('[data-testid=\"refresh-instances\"]')\u001b[22m\n\n\n\u001b[0m \u001b[90m 32 |\u001b[39m   test(\u001b[32m'should refresh instances data'\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ page }) \u001b[33m=>\u001b[39m {\n \u001b[90m 33 |\u001b[39m     \u001b[90m// Click refresh button\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 34 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mclick(\u001b[32m'[data-testid=\"refresh-instances\"]'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 35 |\u001b[39m     \n \u001b[90m 36 |\u001b[39m     \u001b[90m// Check loading state appears\u001b[39m\n \u001b[90m 37 |\u001b[39m     \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mlocator(\u001b[32m'[data-testid=\"loading-instances\"]'\u001b[39m))\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\u001b[0m\n\u001b[2m    at E:\\Projects\\na-dashboard\\tests\\e2e\\pages.spec.ts:34:16\u001b[22m"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-08-19T21:29:03.325Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "E:\\Projects\\na-dashboard\\test-results\\e2e-pages-Instances-Page-should-refresh-instances-data-chromium\\test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "E:\\Projects\\na-dashboard\\test-results\\e2e-pages-Instances-Page-should-refresh-instances-data-chromium\\video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "E:\\Projects\\na-dashboard\\test-results\\e2e-pages-Instances-Page-should-refresh-instances-data-chromium\\error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "E:\\Projects\\na-dashboard\\tests\\e2e\\pages.spec.ts",
+                        "column": 16,
+                        "line": 34
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "0cdf628baed288e8b74b-b64138d927b566c72fa7",
+              "file": "e2e/pages.spec.ts",
+              "line": 32,
+              "column": 7
+            },
+            {
+              "title": "should show instance details on click",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 4,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1367,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-08-19T21:29:15.595Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "0cdf628baed288e8b74b-a6b9bbacbc3f229b1b86",
+              "file": "e2e/pages.spec.ts",
+              "line": 43,
+              "column": 7
+            }
+          ]
+        },
+        {
+          "title": "Costs Page",
+          "file": "e2e/pages.spec.ts",
+          "line": 56,
+          "column": 6,
+          "specs": [
+            {
+              "title": "should display cost breakdown",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 4,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 6565,
+                      "error": {
+                        "message": "Error: \u001b[31mTimed out 5000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nLocator: locator('h1')\nExpected string: \u001b[32m\"Costs\"\u001b[39m\nReceived: <element(s) not found>\nCall log:\n\u001b[2m  - Expect \"toContainText\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('h1')\u001b[22m\n",
+                        "stack": "Error: \u001b[31mTimed out 5000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nLocator: locator('h1')\nExpected string: \u001b[32m\"Costs\"\u001b[39m\nReceived: <element(s) not found>\nCall log:\n\u001b[2m  - Expect \"toContainText\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('h1')\u001b[22m\n\n    at E:\\Projects\\na-dashboard\\tests\\e2e\\pages.spec.ts:63:38",
+                        "location": {
+                          "file": "E:\\Projects\\na-dashboard\\tests\\e2e\\pages.spec.ts",
+                          "column": 38,
+                          "line": 63
+                        },
+                        "snippet": "\u001b[0m \u001b[90m 61 |\u001b[39m\n \u001b[90m 62 |\u001b[39m   test(\u001b[32m'should display cost breakdown'\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ page }) \u001b[33m=>\u001b[39m {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 63 |\u001b[39m     \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mlocator(\u001b[32m'h1'\u001b[39m))\u001b[33m.\u001b[39mtoContainText(\u001b[32m'Costs'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                      \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 64 |\u001b[39m     \n \u001b[90m 65 |\u001b[39m     \u001b[90m// Check cost charts are present\u001b[39m\n \u001b[90m 66 |\u001b[39m     \u001b[36mconst\u001b[39m pieChart \u001b[33m=\u001b[39m page\u001b[33m.\u001b[39mlocator(\u001b[32m'[data-testid=\"cost-pie-chart\"]'\u001b[39m)\u001b[33m;\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "E:\\Projects\\na-dashboard\\tests\\e2e\\pages.spec.ts",
+                            "column": 38,
+                            "line": 63
+                          },
+                          "message": "Error: \u001b[31mTimed out 5000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m\n\nLocator: locator('h1')\nExpected string: \u001b[32m\"Costs\"\u001b[39m\nReceived: <element(s) not found>\nCall log:\n\u001b[2m  - Expect \"toContainText\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('h1')\u001b[22m\n\n\n\u001b[0m \u001b[90m 61 |\u001b[39m\n \u001b[90m 62 |\u001b[39m   test(\u001b[32m'should display cost breakdown'\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ page }) \u001b[33m=>\u001b[39m {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 63 |\u001b[39m     \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mlocator(\u001b[32m'h1'\u001b[39m))\u001b[33m.\u001b[39mtoContainText(\u001b[32m'Costs'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                      \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 64 |\u001b[39m     \n \u001b[90m 65 |\u001b[39m     \u001b[90m// Check cost charts are present\u001b[39m\n \u001b[90m 66 |\u001b[39m     \u001b[36mconst\u001b[39m pieChart \u001b[33m=\u001b[39m page\u001b[33m.\u001b[39mlocator(\u001b[32m'[data-testid=\"cost-pie-chart\"]'\u001b[39m)\u001b[33m;\u001b[39m\u001b[0m\n\u001b[2m    at E:\\Projects\\na-dashboard\\tests\\e2e\\pages.spec.ts:63:38\u001b[22m"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-08-19T21:29:17.014Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "E:\\Projects\\na-dashboard\\test-results\\e2e-pages-Costs-Page-should-display-cost-breakdown-chromium\\test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "E:\\Projects\\na-dashboard\\test-results\\e2e-pages-Costs-Page-should-display-cost-breakdown-chromium\\video.webm"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "E:\\Projects\\na-dashboard\\tests\\e2e\\pages.spec.ts",
+                        "column": 38,
+                        "line": 63
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "0cdf628baed288e8b74b-067f95521c52739f0dc9",
+              "file": "e2e/pages.spec.ts",
+              "line": 62,
+              "column": 7
+            },
+            {
+              "title": "should switch between environments",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 5,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 11841,
+                      "error": {
+                        "message": "TimeoutError: page.selectOption: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('[data-testid=\"cost-environment-select\"]')\u001b[22m\n",
+                        "stack": "TimeoutError: page.selectOption: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('[data-testid=\"cost-environment-select\"]')\u001b[22m\n\n    at E:\\Projects\\na-dashboard\\tests\\e2e\\pages.spec.ts:74:16",
+                        "location": {
+                          "file": "E:\\Projects\\na-dashboard\\tests\\e2e\\pages.spec.ts",
+                          "column": 16,
+                          "line": 74
+                        },
+                        "snippet": "\u001b[0m \u001b[90m 72 |\u001b[39m   test(\u001b[32m'should switch between environments'\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ page }) \u001b[33m=>\u001b[39m {\n \u001b[90m 73 |\u001b[39m     \u001b[90m// Test environment selector\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 74 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mselectOption(\u001b[32m'[data-testid=\"cost-environment-select\"]'\u001b[39m\u001b[33m,\u001b[39m \u001b[32m'vf-staging'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 75 |\u001b[39m     \n \u001b[90m 76 |\u001b[39m     \u001b[90m// Wait for data to update\u001b[39m\n \u001b[90m 77 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mwaitForTimeout(\u001b[35m1000\u001b[39m)\u001b[33m;\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "E:\\Projects\\na-dashboard\\tests\\e2e\\pages.spec.ts",
+                            "column": 16,
+                            "line": 74
+                          },
+                          "message": "TimeoutError: page.selectOption: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('[data-testid=\"cost-environment-select\"]')\u001b[22m\n\n\n\u001b[0m \u001b[90m 72 |\u001b[39m   test(\u001b[32m'should switch between environments'\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ page }) \u001b[33m=>\u001b[39m {\n \u001b[90m 73 |\u001b[39m     \u001b[90m// Test environment selector\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 74 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mselectOption(\u001b[32m'[data-testid=\"cost-environment-select\"]'\u001b[39m\u001b[33m,\u001b[39m \u001b[32m'vf-staging'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 75 |\u001b[39m     \n \u001b[90m 76 |\u001b[39m     \u001b[90m// Wait for data to update\u001b[39m\n \u001b[90m 77 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mwaitForTimeout(\u001b[35m1000\u001b[39m)\u001b[33m;\u001b[39m\u001b[0m\n\u001b[2m    at E:\\Projects\\na-dashboard\\tests\\e2e\\pages.spec.ts:74:16\u001b[22m"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-08-19T21:29:24.051Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "E:\\Projects\\na-dashboard\\test-results\\e2e-pages-Costs-Page-should-switch-between-environments-chromium\\test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "E:\\Projects\\na-dashboard\\test-results\\e2e-pages-Costs-Page-should-switch-between-environments-chromium\\video.webm"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "E:\\Projects\\na-dashboard\\tests\\e2e\\pages.spec.ts",
+                        "column": 16,
+                        "line": 74
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "0cdf628baed288e8b74b-abc0e59795cc6c0cdc31",
+              "file": "e2e/pages.spec.ts",
+              "line": 72,
+              "column": 7
+            },
+            {
+              "title": "should export cost data",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 6,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 11796,
+                      "error": {
+                        "message": "TimeoutError: page.waitForEvent: Timeout 10000ms exceeded while waiting for event \"download\"\n=========================== logs ===========================\nwaiting for event \"download\"\n============================================================",
+                        "stack": "TimeoutError: page.waitForEvent: Timeout 10000ms exceeded while waiting for event \"download\"\n=========================== logs ===========================\nwaiting for event \"download\"\n============================================================\n    at E:\\Projects\\na-dashboard\\tests\\e2e\\pages.spec.ts:85:34",
+                        "location": {
+                          "file": "E:\\Projects\\na-dashboard\\tests\\e2e\\pages.spec.ts",
+                          "column": 34,
+                          "line": 85
+                        },
+                        "snippet": "\u001b[0m \u001b[90m 83 |\u001b[39m   test(\u001b[32m'should export cost data'\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ page }) \u001b[33m=>\u001b[39m {\n \u001b[90m 84 |\u001b[39m     \u001b[90m// Click export button\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 85 |\u001b[39m     \u001b[36mconst\u001b[39m downloadPromise \u001b[33m=\u001b[39m page\u001b[33m.\u001b[39mwaitForEvent(\u001b[32m'download'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                  \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 86 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mclick(\u001b[32m'[data-testid=\"export-costs\"]'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 87 |\u001b[39m     \n \u001b[90m 88 |\u001b[39m     \u001b[90m// Wait for download to start\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "E:\\Projects\\na-dashboard\\tests\\e2e\\pages.spec.ts",
+                            "column": 34,
+                            "line": 85
+                          },
+                          "message": "TimeoutError: page.waitForEvent: Timeout 10000ms exceeded while waiting for event \"download\"\n=========================== logs ===========================\nwaiting for event \"download\"\n============================================================\n\n\u001b[0m \u001b[90m 83 |\u001b[39m   test(\u001b[32m'should export cost data'\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ page }) \u001b[33m=>\u001b[39m {\n \u001b[90m 84 |\u001b[39m     \u001b[90m// Click export button\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 85 |\u001b[39m     \u001b[36mconst\u001b[39m downloadPromise \u001b[33m=\u001b[39m page\u001b[33m.\u001b[39mwaitForEvent(\u001b[32m'download'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                  \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 86 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mclick(\u001b[32m'[data-testid=\"export-costs\"]'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m 87 |\u001b[39m     \n \u001b[90m 88 |\u001b[39m     \u001b[90m// Wait for download to start\u001b[39m\u001b[0m\n\u001b[2m    at E:\\Projects\\na-dashboard\\tests\\e2e\\pages.spec.ts:85:34\u001b[22m"
+                        },
+                        {
+                          "location": {
+                            "file": "E:\\Projects\\na-dashboard\\tests\\e2e\\pages.spec.ts",
+                            "column": 16,
+                            "line": 86
+                          },
+                          "message": "TimeoutError: page.click: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('[data-testid=\"export-costs\"]')\u001b[22m\n\n\n\u001b[0m \u001b[90m 84 |\u001b[39m     \u001b[90m// Click export button\u001b[39m\n \u001b[90m 85 |\u001b[39m     \u001b[36mconst\u001b[39m downloadPromise \u001b[33m=\u001b[39m page\u001b[33m.\u001b[39mwaitForEvent(\u001b[32m'download'\u001b[39m)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 86 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mclick(\u001b[32m'[data-testid=\"export-costs\"]'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 87 |\u001b[39m     \n \u001b[90m 88 |\u001b[39m     \u001b[90m// Wait for download to start\u001b[39m\n \u001b[90m 89 |\u001b[39m     \u001b[36mconst\u001b[39m download \u001b[33m=\u001b[39m \u001b[36mawait\u001b[39m downloadPromise\u001b[33m;\u001b[39m\u001b[0m\n\u001b[2m    at E:\\Projects\\na-dashboard\\tests\\e2e\\pages.spec.ts:86:16\u001b[22m"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-08-19T21:29:36.420Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "E:\\Projects\\na-dashboard\\test-results\\e2e-pages-Costs-Page-should-export-cost-data-chromium\\test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "E:\\Projects\\na-dashboard\\test-results\\e2e-pages-Costs-Page-should-export-cost-data-chromium\\video.webm"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "E:\\Projects\\na-dashboard\\tests\\e2e\\pages.spec.ts",
+                        "column": 34,
+                        "line": 85
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "0cdf628baed288e8b74b-5234c1efdfad01567f51",
+              "file": "e2e/pages.spec.ts",
+              "line": 83,
+              "column": 7
+            }
+          ]
+        },
+        {
+          "title": "Monitoring Page",
+          "file": "e2e/pages.spec.ts",
+          "line": 94,
+          "column": 6,
+          "specs": [
+            {
+              "title": "should display monitoring status",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 7,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 1911,
+                      "error": {
+                        "message": "Error: expect.toContainText: Error: strict mode violation: locator('h1') resolved to 2 elements:\n    1) <h1 class=\"text-2xl font-bold text-gray-900\">NiroAgent Dashboard</h1> aka getByRole('heading', { name: 'NiroAgent Dashboard' })\n    2) <h1 class=\"text-3xl font-bold text-gray-900\">Real-time Monitoring</h1> aka getByRole('heading', { name: 'Real-time Monitoring' })\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('h1')\u001b[22m\n",
+                        "stack": "Error: expect.toContainText: Error: strict mode violation: locator('h1') resolved to 2 elements:\n    1) <h1 class=\"text-2xl font-bold text-gray-900\">NiroAgent Dashboard</h1> aka getByRole('heading', { name: 'NiroAgent Dashboard' })\n    2) <h1 class=\"text-3xl font-bold text-gray-900\">Real-time Monitoring</h1> aka getByRole('heading', { name: 'Real-time Monitoring' })\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('h1')\u001b[22m\n\n    at E:\\Projects\\na-dashboard\\tests\\e2e\\pages.spec.ts:101:38",
+                        "location": {
+                          "file": "E:\\Projects\\na-dashboard\\tests\\e2e\\pages.spec.ts",
+                          "column": 38,
+                          "line": 101
+                        },
+                        "snippet": "\u001b[0m \u001b[90m  99 |\u001b[39m\n \u001b[90m 100 |\u001b[39m   test(\u001b[32m'should display monitoring status'\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ page }) \u001b[33m=>\u001b[39m {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 101 |\u001b[39m     \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mlocator(\u001b[32m'h1'\u001b[39m))\u001b[33m.\u001b[39mtoContainText(\u001b[32m'Monitoring'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                                      \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 102 |\u001b[39m     \n \u001b[90m 103 |\u001b[39m     \u001b[90m// Check monitoring cards\u001b[39m\n \u001b[90m 104 |\u001b[39m     \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mlocator(\u001b[32m'[data-testid=\"monitoring-status\"]'\u001b[39m))\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "E:\\Projects\\na-dashboard\\tests\\e2e\\pages.spec.ts",
+                            "column": 38,
+                            "line": 101
+                          },
+                          "message": "Error: expect.toContainText: Error: strict mode violation: locator('h1') resolved to 2 elements:\n    1) <h1 class=\"text-2xl font-bold text-gray-900\">NiroAgent Dashboard</h1> aka getByRole('heading', { name: 'NiroAgent Dashboard' })\n    2) <h1 class=\"text-3xl font-bold text-gray-900\">Real-time Monitoring</h1> aka getByRole('heading', { name: 'Real-time Monitoring' })\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('h1')\u001b[22m\n\n\n\u001b[0m \u001b[90m  99 |\u001b[39m\n \u001b[90m 100 |\u001b[39m   test(\u001b[32m'should display monitoring status'\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ page }) \u001b[33m=>\u001b[39m {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 101 |\u001b[39m     \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mlocator(\u001b[32m'h1'\u001b[39m))\u001b[33m.\u001b[39mtoContainText(\u001b[32m'Monitoring'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                                      \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 102 |\u001b[39m     \n \u001b[90m 103 |\u001b[39m     \u001b[90m// Check monitoring cards\u001b[39m\n \u001b[90m 104 |\u001b[39m     \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mlocator(\u001b[32m'[data-testid=\"monitoring-status\"]'\u001b[39m))\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\u001b[0m\n\u001b[2m    at E:\\Projects\\na-dashboard\\tests\\e2e\\pages.spec.ts:101:38\u001b[22m"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-08-19T21:29:48.745Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "E:\\Projects\\na-dashboard\\test-results\\e2e-pages-Monitoring-Page-should-display-monitoring-status-chromium\\test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "E:\\Projects\\na-dashboard\\test-results\\e2e-pages-Monitoring-Page-should-display-monitoring-status-chromium\\video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "E:\\Projects\\na-dashboard\\test-results\\e2e-pages-Monitoring-Page-should-display-monitoring-status-chromium\\error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "E:\\Projects\\na-dashboard\\tests\\e2e\\pages.spec.ts",
+                        "column": 38,
+                        "line": 101
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "0cdf628baed288e8b74b-59846ae034ff6649ae3c",
+              "file": "e2e/pages.spec.ts",
+              "line": 100,
+              "column": 7
+            },
+            {
+              "title": "should start/stop real-time monitoring",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 8,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 12057,
+                      "error": {
+                        "message": "TimeoutError: page.click: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('[data-testid=\"start-monitoring\"]')\u001b[22m\n",
+                        "stack": "TimeoutError: page.click: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('[data-testid=\"start-monitoring\"]')\u001b[22m\n\n    at E:\\Projects\\na-dashboard\\tests\\e2e\\pages.spec.ts:109:16",
+                        "location": {
+                          "file": "E:\\Projects\\na-dashboard\\tests\\e2e\\pages.spec.ts",
+                          "column": 16,
+                          "line": 109
+                        },
+                        "snippet": "\u001b[0m \u001b[90m 107 |\u001b[39m   test(\u001b[32m'should start/stop real-time monitoring'\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ page }) \u001b[33m=>\u001b[39m {\n \u001b[90m 108 |\u001b[39m     \u001b[90m// Start monitoring\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 109 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mclick(\u001b[32m'[data-testid=\"start-monitoring\"]'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 110 |\u001b[39m     \n \u001b[90m 111 |\u001b[39m     \u001b[90m// Check monitoring is active\u001b[39m\n \u001b[90m 112 |\u001b[39m     \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mlocator(\u001b[32m'[data-testid=\"monitoring-active\"]'\u001b[39m))\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "E:\\Projects\\na-dashboard\\tests\\e2e\\pages.spec.ts",
+                            "column": 16,
+                            "line": 109
+                          },
+                          "message": "TimeoutError: page.click: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('[data-testid=\"start-monitoring\"]')\u001b[22m\n\n\n\u001b[0m \u001b[90m 107 |\u001b[39m   test(\u001b[32m'should start/stop real-time monitoring'\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ page }) \u001b[33m=>\u001b[39m {\n \u001b[90m 108 |\u001b[39m     \u001b[90m// Start monitoring\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 109 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mclick(\u001b[32m'[data-testid=\"start-monitoring\"]'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 110 |\u001b[39m     \n \u001b[90m 111 |\u001b[39m     \u001b[90m// Check monitoring is active\u001b[39m\n \u001b[90m 112 |\u001b[39m     \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mlocator(\u001b[32m'[data-testid=\"monitoring-active\"]'\u001b[39m))\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\u001b[0m\n\u001b[2m    at E:\\Projects\\na-dashboard\\tests\\e2e\\pages.spec.ts:109:16\u001b[22m"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-08-19T21:29:51.187Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "E:\\Projects\\na-dashboard\\test-results\\e2e-pages-Monitoring-Page--01132-t-stop-real-time-monitoring-chromium\\test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "E:\\Projects\\na-dashboard\\test-results\\e2e-pages-Monitoring-Page--01132-t-stop-real-time-monitoring-chromium\\video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "E:\\Projects\\na-dashboard\\test-results\\e2e-pages-Monitoring-Page--01132-t-stop-real-time-monitoring-chromium\\error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "E:\\Projects\\na-dashboard\\tests\\e2e\\pages.spec.ts",
+                        "column": 16,
+                        "line": 109
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "0cdf628baed288e8b74b-fa4d7a38e13012a78a8b",
+              "file": "e2e/pages.spec.ts",
+              "line": 107,
+              "column": 7
+            },
+            {
+              "title": "should display alerts",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 9,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 6902,
+                      "error": {
+                        "message": "Error: \u001b[31mTimed out 5000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m\n\nLocator: locator('[data-testid=\"alerts-section\"]')\nExpected: visible\nReceived: <element(s) not found>\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('[data-testid=\"alerts-section\"]')\u001b[22m\n",
+                        "stack": "Error: \u001b[31mTimed out 5000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m\n\nLocator: locator('[data-testid=\"alerts-section\"]')\nExpected: visible\nReceived: <element(s) not found>\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('[data-testid=\"alerts-section\"]')\u001b[22m\n\n    at E:\\Projects\\na-dashboard\\tests\\e2e\\pages.spec.ts:124:33",
+                        "location": {
+                          "file": "E:\\Projects\\na-dashboard\\tests\\e2e\\pages.spec.ts",
+                          "column": 33,
+                          "line": 124
+                        },
+                        "snippet": "\u001b[0m \u001b[90m 122 |\u001b[39m     \u001b[90m// Check alerts section\u001b[39m\n \u001b[90m 123 |\u001b[39m     \u001b[36mconst\u001b[39m alertsSection \u001b[33m=\u001b[39m page\u001b[33m.\u001b[39mlocator(\u001b[32m'[data-testid=\"alerts-section\"]'\u001b[39m)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 124 |\u001b[39m     \u001b[36mawait\u001b[39m expect(alertsSection)\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                                 \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 125 |\u001b[39m     \n \u001b[90m 126 |\u001b[39m     \u001b[90m// Check for alerts or empty state\u001b[39m\n \u001b[90m 127 |\u001b[39m     \u001b[36mconst\u001b[39m alertsList \u001b[33m=\u001b[39m page\u001b[33m.\u001b[39mlocator(\u001b[32m'[data-testid=\"alerts-list\"]'\u001b[39m)\u001b[33m;\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "E:\\Projects\\na-dashboard\\tests\\e2e\\pages.spec.ts",
+                            "column": 33,
+                            "line": 124
+                          },
+                          "message": "Error: \u001b[31mTimed out 5000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m\n\nLocator: locator('[data-testid=\"alerts-section\"]')\nExpected: visible\nReceived: <element(s) not found>\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('[data-testid=\"alerts-section\"]')\u001b[22m\n\n\n\u001b[0m \u001b[90m 122 |\u001b[39m     \u001b[90m// Check alerts section\u001b[39m\n \u001b[90m 123 |\u001b[39m     \u001b[36mconst\u001b[39m alertsSection \u001b[33m=\u001b[39m page\u001b[33m.\u001b[39mlocator(\u001b[32m'[data-testid=\"alerts-section\"]'\u001b[39m)\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 124 |\u001b[39m     \u001b[36mawait\u001b[39m expect(alertsSection)\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                                 \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 125 |\u001b[39m     \n \u001b[90m 126 |\u001b[39m     \u001b[90m// Check for alerts or empty state\u001b[39m\n \u001b[90m 127 |\u001b[39m     \u001b[36mconst\u001b[39m alertsList \u001b[33m=\u001b[39m page\u001b[33m.\u001b[39mlocator(\u001b[32m'[data-testid=\"alerts-list\"]'\u001b[39m)\u001b[33m;\u001b[39m\u001b[0m\n\u001b[2m    at E:\\Projects\\na-dashboard\\tests\\e2e\\pages.spec.ts:124:33\u001b[22m"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-08-19T21:30:03.774Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "E:\\Projects\\na-dashboard\\test-results\\e2e-pages-Monitoring-Page-should-display-alerts-chromium\\test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "E:\\Projects\\na-dashboard\\test-results\\e2e-pages-Monitoring-Page-should-display-alerts-chromium\\video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "E:\\Projects\\na-dashboard\\test-results\\e2e-pages-Monitoring-Page-should-display-alerts-chromium\\error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "E:\\Projects\\na-dashboard\\tests\\e2e\\pages.spec.ts",
+                        "column": 33,
+                        "line": 124
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "0cdf628baed288e8b74b-172184c3268bfe683e08",
+              "file": "e2e/pages.spec.ts",
+              "line": 121,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "e2e\\realtime.spec.ts",
+      "file": "e2e/realtime.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "WebSocket Real-time Updates",
+          "file": "e2e/realtime.spec.ts",
+          "line": 3,
+          "column": 6,
+          "specs": [
+            {
+              "title": "should establish WebSocket connection",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 10,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 339,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-08-19T21:30:11.205Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "cec19b4c0d97deceaa77-4f3c9f87861d9e428322",
+              "file": "e2e/realtime.spec.ts",
+              "line": 4,
+              "column": 7
+            },
+            {
+              "title": "should receive real-time updates",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 10,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 10350,
+                      "error": {
+                        "message": "TimeoutError: page.click: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('[data-testid=\"start-monitoring\"]')\u001b[22m\n",
+                        "stack": "TimeoutError: page.click: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('[data-testid=\"start-monitoring\"]')\u001b[22m\n\n    at E:\\Projects\\na-dashboard\\tests\\e2e\\realtime.spec.ts:19:16",
+                        "location": {
+                          "file": "E:\\Projects\\na-dashboard\\tests\\e2e\\realtime.spec.ts",
+                          "column": 16,
+                          "line": 19
+                        },
+                        "snippet": "\u001b[0m \u001b[90m 17 |\u001b[39m     \n \u001b[90m 18 |\u001b[39m     \u001b[90m// Start real-time monitoring\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 19 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mclick(\u001b[32m'[data-testid=\"start-monitoring\"]'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 20 |\u001b[39m     \n \u001b[90m 21 |\u001b[39m     \u001b[90m// Check for real-time update indicators\u001b[39m\n \u001b[90m 22 |\u001b[39m     \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mlocator(\u001b[32m'[data-testid=\"live-indicator\"]'\u001b[39m))\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "E:\\Projects\\na-dashboard\\tests\\e2e\\realtime.spec.ts",
+                            "column": 16,
+                            "line": 19
+                          },
+                          "message": "TimeoutError: page.click: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('[data-testid=\"start-monitoring\"]')\u001b[22m\n\n\n\u001b[0m \u001b[90m 17 |\u001b[39m     \n \u001b[90m 18 |\u001b[39m     \u001b[90m// Start real-time monitoring\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 19 |\u001b[39m     \u001b[36mawait\u001b[39m page\u001b[33m.\u001b[39mclick(\u001b[32m'[data-testid=\"start-monitoring\"]'\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 20 |\u001b[39m     \n \u001b[90m 21 |\u001b[39m     \u001b[90m// Check for real-time update indicators\u001b[39m\n \u001b[90m 22 |\u001b[39m     \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mlocator(\u001b[32m'[data-testid=\"live-indicator\"]'\u001b[39m))\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\u001b[0m\n\u001b[2m    at E:\\Projects\\na-dashboard\\tests\\e2e\\realtime.spec.ts:19:16\u001b[22m"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-08-19T21:30:11.598Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "E:\\Projects\\na-dashboard\\test-results\\e2e-realtime-WebSocket-Rea-5874f-d-receive-real-time-updates-chromium\\test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "E:\\Projects\\na-dashboard\\test-results\\e2e-realtime-WebSocket-Rea-5874f-d-receive-real-time-updates-chromium\\video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "E:\\Projects\\na-dashboard\\test-results\\e2e-realtime-WebSocket-Rea-5874f-d-receive-real-time-updates-chromium\\error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "E:\\Projects\\na-dashboard\\tests\\e2e\\realtime.spec.ts",
+                        "column": 16,
+                        "line": 19
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "cec19b4c0d97deceaa77-a62295aa038572f2340c",
+              "file": "e2e/realtime.spec.ts",
+              "line": 15,
+              "column": 7
+            }
+          ]
+        },
+        {
+          "title": "API Error Handling",
+          "file": "e2e/realtime.spec.ts",
+          "line": 32,
+          "column": 6,
+          "specs": [
+            {
+              "title": "should handle API timeouts gracefully",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 11,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 10434,
+                      "error": {
+                        "message": "Error: \u001b[31mTimed out 10000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m\n\nLocator: locator('[data-testid=\"api-error\"]')\nExpected: visible\nReceived: <element(s) not found>\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for locator('[data-testid=\"api-error\"]')\u001b[22m\n",
+                        "stack": "Error: \u001b[31mTimed out 10000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m\n\nLocator: locator('[data-testid=\"api-error\"]')\nExpected: visible\nReceived: <element(s) not found>\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for locator('[data-testid=\"api-error\"]')\u001b[22m\n\n    at E:\\Projects\\na-dashboard\\tests\\e2e\\realtime.spec.ts:43:61",
+                        "location": {
+                          "file": "E:\\Projects\\na-dashboard\\tests\\e2e\\realtime.spec.ts",
+                          "column": 61,
+                          "line": 43
+                        },
+                        "snippet": "\u001b[0m \u001b[90m 41 |\u001b[39m     \n \u001b[90m 42 |\u001b[39m     \u001b[90m// Check error state is displayed\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 43 |\u001b[39m     \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mlocator(\u001b[32m'[data-testid=\"api-error\"]'\u001b[39m))\u001b[33m.\u001b[39mtoBeVisible({ timeout\u001b[33m:\u001b[39m \u001b[35m10000\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                                             \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 44 |\u001b[39m   })\u001b[33m;\u001b[39m\n \u001b[90m 45 |\u001b[39m\n \u001b[90m 46 |\u001b[39m   test(\u001b[32m'should show appropriate error messages'\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ page }) \u001b[33m=>\u001b[39m {\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "E:\\Projects\\na-dashboard\\tests\\e2e\\realtime.spec.ts",
+                            "column": 61,
+                            "line": 43
+                          },
+                          "message": "Error: \u001b[31mTimed out 10000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m\n\nLocator: locator('[data-testid=\"api-error\"]')\nExpected: visible\nReceived: <element(s) not found>\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for locator('[data-testid=\"api-error\"]')\u001b[22m\n\n\n\u001b[0m \u001b[90m 41 |\u001b[39m     \n \u001b[90m 42 |\u001b[39m     \u001b[90m// Check error state is displayed\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 43 |\u001b[39m     \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mlocator(\u001b[32m'[data-testid=\"api-error\"]'\u001b[39m))\u001b[33m.\u001b[39mtoBeVisible({ timeout\u001b[33m:\u001b[39m \u001b[35m10000\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                                             \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 44 |\u001b[39m   })\u001b[33m;\u001b[39m\n \u001b[90m 45 |\u001b[39m\n \u001b[90m 46 |\u001b[39m   test(\u001b[32m'should show appropriate error messages'\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ page }) \u001b[33m=>\u001b[39m {\u001b[0m\n\u001b[2m    at E:\\Projects\\na-dashboard\\tests\\e2e\\realtime.spec.ts:43:61\u001b[22m"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-08-19T21:30:22.417Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "E:\\Projects\\na-dashboard\\test-results\\e2e-realtime-API-Error-Han-a9c7a-dle-API-timeouts-gracefully-chromium\\test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "E:\\Projects\\na-dashboard\\test-results\\e2e-realtime-API-Error-Han-a9c7a-dle-API-timeouts-gracefully-chromium\\video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "E:\\Projects\\na-dashboard\\test-results\\e2e-realtime-API-Error-Han-a9c7a-dle-API-timeouts-gracefully-chromium\\error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "E:\\Projects\\na-dashboard\\tests\\e2e\\realtime.spec.ts",
+                        "column": 61,
+                        "line": 43
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "cec19b4c0d97deceaa77-0f7888ae2010ce9f510e",
+              "file": "e2e/realtime.spec.ts",
+              "line": 33,
+              "column": 7
+            },
+            {
+              "title": "should show appropriate error messages",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 12,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 5260,
+                      "error": {
+                        "message": "Error: \u001b[31mTimed out 5000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m\n\nLocator: locator('[data-testid=\"instances-error\"]')\nExpected: visible\nReceived: <element(s) not found>\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('[data-testid=\"instances-error\"]')\u001b[22m\n",
+                        "stack": "Error: \u001b[31mTimed out 5000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m\n\nLocator: locator('[data-testid=\"instances-error\"]')\nExpected: visible\nReceived: <element(s) not found>\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('[data-testid=\"instances-error\"]')\u001b[22m\n\n    at E:\\Projects\\na-dashboard\\tests\\e2e\\realtime.spec.ts:59:67",
+                        "location": {
+                          "file": "E:\\Projects\\na-dashboard\\tests\\e2e\\realtime.spec.ts",
+                          "column": 67,
+                          "line": 59
+                        },
+                        "snippet": "\u001b[0m \u001b[90m 57 |\u001b[39m     \n \u001b[90m 58 |\u001b[39m     \u001b[90m// Check error message is displayed\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 59 |\u001b[39m     \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mlocator(\u001b[32m'[data-testid=\"instances-error\"]'\u001b[39m))\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                                                   \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 60 |\u001b[39m   })\u001b[33m;\u001b[39m\n \u001b[90m 61 |\u001b[39m\n \u001b[90m 62 |\u001b[39m   test(\u001b[32m'should retry failed requests'\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ page }) \u001b[33m=>\u001b[39m {\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "E:\\Projects\\na-dashboard\\tests\\e2e\\realtime.spec.ts",
+                            "column": 67,
+                            "line": 59
+                          },
+                          "message": "Error: \u001b[31mTimed out 5000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m\n\nLocator: locator('[data-testid=\"instances-error\"]')\nExpected: visible\nReceived: <element(s) not found>\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('[data-testid=\"instances-error\"]')\u001b[22m\n\n\n\u001b[0m \u001b[90m 57 |\u001b[39m     \n \u001b[90m 58 |\u001b[39m     \u001b[90m// Check error message is displayed\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 59 |\u001b[39m     \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mlocator(\u001b[32m'[data-testid=\"instances-error\"]'\u001b[39m))\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                                                   \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 60 |\u001b[39m   })\u001b[33m;\u001b[39m\n \u001b[90m 61 |\u001b[39m\n \u001b[90m 62 |\u001b[39m   test(\u001b[32m'should retry failed requests'\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ page }) \u001b[33m=>\u001b[39m {\u001b[0m\n\u001b[2m    at E:\\Projects\\na-dashboard\\tests\\e2e\\realtime.spec.ts:59:67\u001b[22m"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-08-19T21:30:33.375Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "E:\\Projects\\na-dashboard\\test-results\\e2e-realtime-API-Error-Han-e1efe--appropriate-error-messages-chromium\\test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "E:\\Projects\\na-dashboard\\test-results\\e2e-realtime-API-Error-Han-e1efe--appropriate-error-messages-chromium\\video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "E:\\Projects\\na-dashboard\\test-results\\e2e-realtime-API-Error-Han-e1efe--appropriate-error-messages-chromium\\error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "E:\\Projects\\na-dashboard\\tests\\e2e\\realtime.spec.ts",
+                        "column": 67,
+                        "line": 59
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "cec19b4c0d97deceaa77-97db36de198ffd9aea95",
+              "file": "e2e/realtime.spec.ts",
+              "line": 46,
+              "column": 7
+            },
+            {
+              "title": "should retry failed requests",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 13,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 15518,
+                      "error": {
+                        "message": "Error: \u001b[31mTimed out 15000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m\n\nLocator: locator('[data-testid=\"monitoring-status\"]')\nExpected: visible\nReceived: <element(s) not found>\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 15000ms\u001b[22m\n\u001b[2m  - waiting for locator('[data-testid=\"monitoring-status\"]')\u001b[22m\n",
+                        "stack": "Error: \u001b[31mTimed out 15000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m\n\nLocator: locator('[data-testid=\"monitoring-status\"]')\nExpected: visible\nReceived: <element(s) not found>\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 15000ms\u001b[22m\n\u001b[2m  - waiting for locator('[data-testid=\"monitoring-status\"]')\u001b[22m\n\n    at E:\\Projects\\na-dashboard\\tests\\e2e\\realtime.spec.ts:77:69",
+                        "location": {
+                          "file": "E:\\Projects\\na-dashboard\\tests\\e2e\\realtime.spec.ts",
+                          "column": 69,
+                          "line": 77
+                        },
+                        "snippet": "\u001b[0m \u001b[90m 75 |\u001b[39m     \n \u001b[90m 76 |\u001b[39m     \u001b[90m// Should eventually succeed after retries\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 77 |\u001b[39m     \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mlocator(\u001b[32m'[data-testid=\"monitoring-status\"]'\u001b[39m))\u001b[33m.\u001b[39mtoBeVisible({ timeout\u001b[33m:\u001b[39m \u001b[35m15000\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                                                     \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 78 |\u001b[39m   })\u001b[33m;\u001b[39m\n \u001b[90m 79 |\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m 80 |\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "E:\\Projects\\na-dashboard\\tests\\e2e\\realtime.spec.ts",
+                            "column": 69,
+                            "line": 77
+                          },
+                          "message": "Error: \u001b[31mTimed out 15000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m\n\nLocator: locator('[data-testid=\"monitoring-status\"]')\nExpected: visible\nReceived: <element(s) not found>\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 15000ms\u001b[22m\n\u001b[2m  - waiting for locator('[data-testid=\"monitoring-status\"]')\u001b[22m\n\n\n\u001b[0m \u001b[90m 75 |\u001b[39m     \n \u001b[90m 76 |\u001b[39m     \u001b[90m// Should eventually succeed after retries\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 77 |\u001b[39m     \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mlocator(\u001b[32m'[data-testid=\"monitoring-status\"]'\u001b[39m))\u001b[33m.\u001b[39mtoBeVisible({ timeout\u001b[33m:\u001b[39m \u001b[35m15000\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                                                     \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 78 |\u001b[39m   })\u001b[33m;\u001b[39m\n \u001b[90m 79 |\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m 80 |\u001b[39m\u001b[0m\n\u001b[2m    at E:\\Projects\\na-dashboard\\tests\\e2e\\realtime.spec.ts:77:69\u001b[22m"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-08-19T21:30:39.160Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "E:\\Projects\\na-dashboard\\test-results\\e2e-realtime-API-Error-Handling-should-retry-failed-requests-chromium\\test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "E:\\Projects\\na-dashboard\\test-results\\e2e-realtime-API-Error-Handling-should-retry-failed-requests-chromium\\video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "E:\\Projects\\na-dashboard\\test-results\\e2e-realtime-API-Error-Handling-should-retry-failed-requests-chromium\\error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "E:\\Projects\\na-dashboard\\tests\\e2e\\realtime.spec.ts",
+                        "column": 69,
+                        "line": 77
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "cec19b4c0d97deceaa77-ea674608df0d65f72bd7",
+              "file": "e2e/realtime.spec.ts",
+              "line": 62,
+              "column": 7
+            }
+          ]
+        },
+        {
+          "title": "Performance",
+          "file": "e2e/realtime.spec.ts",
+          "line": 81,
+          "column": 6,
+          "specs": [
+            {
+              "title": "should load dashboard within performance budget",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 14,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1589,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-08-19T21:30:55.204Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "cec19b4c0d97deceaa77-3a223c80b8397a210f44",
+              "file": "e2e/realtime.spec.ts",
+              "line": 82,
+              "column": 7
+            },
+            {
+              "title": "should have good Lighthouse performance score",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 14,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 277,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-08-19T21:30:56.847Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "cec19b4c0d97deceaa77-916e13684921a5ddd12f",
+              "file": "e2e/realtime.spec.ts",
+              "line": 94,
+              "column": 7
+            }
+          ]
+        },
+        {
+          "title": "Accessibility",
+          "file": "e2e/realtime.spec.ts",
+          "line": 110,
+          "column": 6,
+          "specs": [
+            {
+              "title": "should be keyboard navigable",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 14,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 265,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-08-19T21:30:57.127Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "cec19b4c0d97deceaa77-2f9a2091a281772d9265",
+              "file": "e2e/realtime.spec.ts",
+              "line": 111,
+              "column": 7
+            },
+            {
+              "title": "should have proper ARIA labels",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 14,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 5186,
+                      "error": {
+                        "message": "Error: \u001b[31mTimed out 5000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m\n\nLocator: locator('nav[role=\"navigation\"]')\nExpected: visible\nReceived: <element(s) not found>\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('nav[role=\"navigation\"]')\u001b[22m\n",
+                        "stack": "Error: \u001b[31mTimed out 5000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m\n\nLocator: locator('nav[role=\"navigation\"]')\nExpected: visible\nReceived: <element(s) not found>\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('nav[role=\"navigation\"]')\u001b[22m\n\n    at E:\\Projects\\na-dashboard\\tests\\e2e\\realtime.spec.ts:128:58",
+                        "location": {
+                          "file": "E:\\Projects\\na-dashboard\\tests\\e2e\\realtime.spec.ts",
+                          "column": 58,
+                          "line": 128
+                        },
+                        "snippet": "\u001b[0m \u001b[90m 126 |\u001b[39m     \n \u001b[90m 127 |\u001b[39m     \u001b[90m// Check navigation has proper ARIA\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 128 |\u001b[39m     \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mlocator(\u001b[32m'nav[role=\"navigation\"]'\u001b[39m))\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                                                          \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 129 |\u001b[39m     \n \u001b[90m 130 |\u001b[39m     \u001b[90m// Check buttons have labels\u001b[39m\n \u001b[90m 131 |\u001b[39m     \u001b[36mconst\u001b[39m buttons \u001b[33m=\u001b[39m page\u001b[33m.\u001b[39mlocator(\u001b[32m'button'\u001b[39m)\u001b[33m;\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "E:\\Projects\\na-dashboard\\tests\\e2e\\realtime.spec.ts",
+                            "column": 58,
+                            "line": 128
+                          },
+                          "message": "Error: \u001b[31mTimed out 5000ms waiting for \u001b[39m\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m()\u001b[22m\n\nLocator: locator('nav[role=\"navigation\"]')\nExpected: visible\nReceived: <element(s) not found>\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('nav[role=\"navigation\"]')\u001b[22m\n\n\n\u001b[0m \u001b[90m 126 |\u001b[39m     \n \u001b[90m 127 |\u001b[39m     \u001b[90m// Check navigation has proper ARIA\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 128 |\u001b[39m     \u001b[36mawait\u001b[39m expect(page\u001b[33m.\u001b[39mlocator(\u001b[32m'nav[role=\"navigation\"]'\u001b[39m))\u001b[33m.\u001b[39mtoBeVisible()\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                                                          \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 129 |\u001b[39m     \n \u001b[90m 130 |\u001b[39m     \u001b[90m// Check buttons have labels\u001b[39m\n \u001b[90m 131 |\u001b[39m     \u001b[36mconst\u001b[39m buttons \u001b[33m=\u001b[39m page\u001b[33m.\u001b[39mlocator(\u001b[32m'button'\u001b[39m)\u001b[33m;\u001b[39m\u001b[0m\n\u001b[2m    at E:\\Projects\\na-dashboard\\tests\\e2e\\realtime.spec.ts:128:58\u001b[22m"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-08-19T21:30:57.395Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "E:\\Projects\\na-dashboard\\test-results\\e2e-realtime-Accessibility-should-have-proper-ARIA-labels-chromium\\test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "E:\\Projects\\na-dashboard\\test-results\\e2e-realtime-Accessibility-should-have-proper-ARIA-labels-chromium\\video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "E:\\Projects\\na-dashboard\\test-results\\e2e-realtime-Accessibility-should-have-proper-ARIA-labels-chromium\\error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "E:\\Projects\\na-dashboard\\tests\\e2e\\realtime.spec.ts",
+                        "column": 58,
+                        "line": 128
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "cec19b4c0d97deceaa77-58433ebfd7495c052a10",
+              "file": "e2e/realtime.spec.ts",
+              "line": 124,
+              "column": 7
+            },
+            {
+              "title": "should have sufficient color contrast",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 15,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 356,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-08-19T21:31:03.055Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "cec19b4c0d97deceaa77-0ba0ff5ca8d609bbcd4d",
+              "file": "e2e/realtime.spec.ts",
+              "line": 144,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "integration\\api-health.spec.ts",
+      "file": "integration/api-health.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "API Health Checks",
+          "file": "integration/api-health.spec.ts",
+          "line": 3,
+          "column": 6,
+          "specs": [
+            {
+              "title": "should have API server running",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 15,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 14,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-08-19T21:31:03.464Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "3c11aef604e742b19dec-bcbbf98ba419c89fcf47",
+              "file": "integration/api-health.spec.ts",
+              "line": 4,
+              "column": 7
+            },
+            {
+              "title": "should return AWS instances data",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 15,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 591,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-08-19T21:31:03.481Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "3c11aef604e742b19dec-6ea6439efc46998b4a19",
+              "file": "integration/api-health.spec.ts",
+              "line": 13,
+              "column": 7
+            },
+            {
+              "title": "should return cost data",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 15,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 709,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-08-19T21:31:04.073Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "3c11aef604e742b19dec-914c1b7ac65bee8d8764",
+              "file": "integration/api-health.spec.ts",
+              "line": 25,
+              "column": 7
+            },
+            {
+              "title": "should return monitoring status",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 15,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 814,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-08-19T21:31:04.785Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "3c11aef604e742b19dec-60794afe1d85992b45a5",
+              "file": "integration/api-health.spec.ts",
+              "line": 36,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "integration\\api.spec.ts",
+      "file": "integration/api.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "API Health Checks",
+          "file": "integration/api.spec.ts",
+          "line": 5,
+          "column": 6,
+          "specs": [
+            {
+              "title": "should return healthy status",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 15,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 4,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-08-19T21:31:05.604Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "e3e8546e43339cac0b88-467e327d2384464acee3",
+              "file": "integration/api.spec.ts",
+              "line": 6,
+              "column": 7
+            },
+            {
+              "title": "should have proper response headers",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 15,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 3,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-08-19T21:31:05.611Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "e3e8546e43339cac0b88-9f33e79ee0e6735e38f4",
+              "file": "integration/api.spec.ts",
+              "line": 17,
+              "column": 7
+            }
+          ]
+        },
+        {
+          "title": "AWS Instances API",
+          "file": "integration/api.spec.ts",
+          "line": 25,
+          "column": 6,
+          "specs": [
+            {
+              "title": "should return instances data structure",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 15,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 790,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-08-19T21:31:05.616Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "e3e8546e43339cac0b88-54ab077a72aff71695d8",
+              "file": "integration/api.spec.ts",
+              "line": 26,
+              "column": 7
+            },
+            {
+              "title": "should include AWS access information in development",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 15,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 597,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-08-19T21:31:06.410Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "e3e8546e43339cac0b88-3d14cc7e42b4f7e31421",
+              "file": "integration/api.spec.ts",
+              "line": 43,
+              "column": 7
+            },
+            {
+              "title": "should handle environment filtering",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 15,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 597,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-08-19T21:31:07.010Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "e3e8546e43339cac0b88-bb78d1eca84148e1c050",
+              "file": "integration/api.spec.ts",
+              "line": 55,
+              "column": 7
+            }
+          ]
+        },
+        {
+          "title": "Cost Breakdown API",
+          "file": "integration/api.spec.ts",
+          "line": 66,
+          "column": 6,
+          "specs": [
+            {
+              "title": "should return cost data structure",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 15,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 730,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-08-19T21:31:07.610Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "e3e8546e43339cac0b88-0994ac2ea83c1f1ac247",
+              "file": "integration/api.spec.ts",
+              "line": 67,
+              "column": 7
+            },
+            {
+              "title": "should have valid cost calculations",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 15,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 694,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-08-19T21:31:08.343Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "e3e8546e43339cac0b88-8ae19097edd6c8afd739",
+              "file": "integration/api.spec.ts",
+              "line": 88,
+              "column": 7
+            }
+          ]
+        },
+        {
+          "title": "Monitoring Status API",
+          "file": "integration/api.spec.ts",
+          "line": 109,
+          "column": 6,
+          "specs": [
+            {
+              "title": "should return monitoring data structure",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 15,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 706,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-08-19T21:31:09.039Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "e3e8546e43339cac0b88-26853340560394049fa7",
+              "file": "integration/api.spec.ts",
+              "line": 110,
+              "column": 7
+            },
+            {
+              "title": "should have valid monitoring status values",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 15,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 739,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-08-19T21:31:09.746Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "e3e8546e43339cac0b88-7c46468055a02f228569",
+              "file": "integration/api.spec.ts",
+              "line": 134,
+              "column": 7
+            }
+          ]
+        },
+        {
+          "title": "API Error Handling",
+          "file": "integration/api.spec.ts",
+          "line": 151,
+          "column": 6,
+          "specs": [
+            {
+              "title": "should return 404 for unknown endpoints",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 15,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 5,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-08-19T21:31:10.488Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "e3e8546e43339cac0b88-ba805b8a083bf4f3caff",
+              "file": "integration/api.spec.ts",
+              "line": 152,
+              "column": 7
+            },
+            {
+              "title": "should handle malformed requests gracefully",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 15,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 9,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoContain\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // indexOf\u001b[22m\n\nExpected value: \u001b[32m404\u001b[39m\nReceived array: \u001b[31m[400, 405]\u001b[39m",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoContain\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // indexOf\u001b[22m\n\nExpected value: \u001b[32m404\u001b[39m\nReceived array: \u001b[31m[400, 405]\u001b[39m\n    at E:\\Projects\\na-dashboard\\tests\\integration\\api.spec.ts:168:24",
+                        "location": {
+                          "file": "E:\\Projects\\na-dashboard\\tests\\integration\\api.spec.ts",
+                          "column": 24,
+                          "line": 168
+                        },
+                        "snippet": "\u001b[0m \u001b[90m 166 |\u001b[39m     \n \u001b[90m 167 |\u001b[39m     \u001b[90m// Should return method not allowed or bad request\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 168 |\u001b[39m     expect([\u001b[35m400\u001b[39m\u001b[33m,\u001b[39m \u001b[35m405\u001b[39m])\u001b[33m.\u001b[39mtoContain(response\u001b[33m.\u001b[39mstatus())\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                        \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 169 |\u001b[39m   })\u001b[33m;\u001b[39m\n \u001b[90m 170 |\u001b[39m\n \u001b[90m 171 |\u001b[39m   test(\u001b[32m'should have CORS headers'\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ request }) \u001b[33m=>\u001b[39m {\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "E:\\Projects\\na-dashboard\\tests\\integration\\api.spec.ts",
+                            "column": 24,
+                            "line": 168
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoContain\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // indexOf\u001b[22m\n\nExpected value: \u001b[32m404\u001b[39m\nReceived array: \u001b[31m[400, 405]\u001b[39m\n\n\u001b[0m \u001b[90m 166 |\u001b[39m     \n \u001b[90m 167 |\u001b[39m     \u001b[90m// Should return method not allowed or bad request\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 168 |\u001b[39m     expect([\u001b[35m400\u001b[39m\u001b[33m,\u001b[39m \u001b[35m405\u001b[39m])\u001b[33m.\u001b[39mtoContain(response\u001b[33m.\u001b[39mstatus())\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                        \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 169 |\u001b[39m   })\u001b[33m;\u001b[39m\n \u001b[90m 170 |\u001b[39m\n \u001b[90m 171 |\u001b[39m   test(\u001b[32m'should have CORS headers'\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ request }) \u001b[33m=>\u001b[39m {\u001b[0m\n\u001b[2m    at E:\\Projects\\na-dashboard\\tests\\integration\\api.spec.ts:168:24\u001b[22m"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-08-19T21:31:10.494Z",
+                      "annotations": [],
+                      "attachments": [],
+                      "errorLocation": {
+                        "file": "E:\\Projects\\na-dashboard\\tests\\integration\\api.spec.ts",
+                        "column": 24,
+                        "line": 168
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "e3e8546e43339cac0b88-04d5bb7ce9ecebbc3f2a",
+              "file": "integration/api.spec.ts",
+              "line": 162,
+              "column": 7
+            },
+            {
+              "title": "should have CORS headers",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 16,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 6,
+                      "error": {
+                        "message": "TypeError: request.options is not a function",
+                        "stack": "TypeError: request.options is not a function\n    at E:\\Projects\\na-dashboard\\tests\\integration\\api.spec.ts:172:36",
+                        "location": {
+                          "file": "E:\\Projects\\na-dashboard\\tests\\integration\\api.spec.ts",
+                          "column": 36,
+                          "line": 172
+                        },
+                        "snippet": "\u001b[0m \u001b[90m 170 |\u001b[39m\n \u001b[90m 171 |\u001b[39m   test(\u001b[32m'should have CORS headers'\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ request }) \u001b[33m=>\u001b[39m {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 172 |\u001b[39m     \u001b[36mconst\u001b[39m response \u001b[33m=\u001b[39m \u001b[36mawait\u001b[39m request\u001b[33m.\u001b[39moptions(\u001b[32m`${API_BASE_URL}/api/aws/instances`\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                                    \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 173 |\u001b[39m     \n \u001b[90m 174 |\u001b[39m     \u001b[36mconst\u001b[39m headers \u001b[33m=\u001b[39m response\u001b[33m.\u001b[39mheaders()\u001b[33m;\u001b[39m\n \u001b[90m 175 |\u001b[39m     expect(headers[\u001b[32m'access-control-allow-origin'\u001b[39m])\u001b[33m.\u001b[39mtoBeDefined()\u001b[33m;\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "E:\\Projects\\na-dashboard\\tests\\integration\\api.spec.ts",
+                            "column": 36,
+                            "line": 172
+                          },
+                          "message": "TypeError: request.options is not a function\n\n\u001b[0m \u001b[90m 170 |\u001b[39m\n \u001b[90m 171 |\u001b[39m   test(\u001b[32m'should have CORS headers'\u001b[39m\u001b[33m,\u001b[39m \u001b[36masync\u001b[39m ({ request }) \u001b[33m=>\u001b[39m {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 172 |\u001b[39m     \u001b[36mconst\u001b[39m response \u001b[33m=\u001b[39m \u001b[36mawait\u001b[39m request\u001b[33m.\u001b[39moptions(\u001b[32m`${API_BASE_URL}/api/aws/instances`\u001b[39m)\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                                    \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 173 |\u001b[39m     \n \u001b[90m 174 |\u001b[39m     \u001b[36mconst\u001b[39m headers \u001b[33m=\u001b[39m response\u001b[33m.\u001b[39mheaders()\u001b[33m;\u001b[39m\n \u001b[90m 175 |\u001b[39m     expect(headers[\u001b[32m'access-control-allow-origin'\u001b[39m])\u001b[33m.\u001b[39mtoBeDefined()\u001b[33m;\u001b[39m\u001b[0m\n\u001b[2m    at E:\\Projects\\na-dashboard\\tests\\integration\\api.spec.ts:172:36\u001b[22m"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-08-19T21:31:10.975Z",
+                      "annotations": [],
+                      "attachments": [],
+                      "errorLocation": {
+                        "file": "E:\\Projects\\na-dashboard\\tests\\integration\\api.spec.ts",
+                        "column": 36,
+                        "line": 172
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "e3e8546e43339cac0b88-8310eb8b62583d27b6e1",
+              "file": "integration/api.spec.ts",
+              "line": 171,
+              "column": 7
+            }
+          ]
+        },
+        {
+          "title": "API Performance",
+          "file": "integration/api.spec.ts",
+          "line": 180,
+          "column": 6,
+          "specs": [
+            {
+              "title": "should respond within reasonable time",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 17,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 20,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-08-19T21:31:11.431Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "e3e8546e43339cac0b88-29cb08c8795c2e592102",
+              "file": "integration/api.spec.ts",
+              "line": 181,
+              "column": 7
+            },
+            {
+              "title": "should handle concurrent requests",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 17,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 18,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-08-19T21:31:11.456Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "e3e8546e43339cac0b88-2910d9f5d29cbcf98b63",
+              "file": "integration/api.spec.ts",
+              "line": 192,
+              "column": 7
+            }
+          ]
+        },
+        {
+          "title": "API Data Consistency",
+          "file": "integration/api.spec.ts",
+          "line": 205,
+          "column": 6,
+          "specs": [
+            {
+              "title": "should maintain data consistency across endpoints",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 17,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 654,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2025-08-19T21:31:11.478Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "e3e8546e43339cac0b88-ef7fe74c07e95f052ddd",
+              "file": "integration/api.spec.ts",
+              "line": 206,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2025-08-19T21:28:26.495Z",
+    "duration": 166092.466,
+    "expected": 30,
+    "skipped": 0,
+    "unexpected": 17,
+    "flaky": 0
+  }
+}

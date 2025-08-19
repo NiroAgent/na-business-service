@@ -1,0 +1,41 @@
+{
+  "timestamp": "2025-08-18T22:25:22.199486",
+  "summary": {
+    "total_stories": 0,
+    "complete_stories": 0,
+    "architect_approved": 0,
+    "violations_found": 0
+  },
+  "pm_compliance": {
+    "stories_created": 0,
+    "average_completeness": 0,
+    "common_missing_elements": []
+  },
+  "architect_compliance": {
+    "stories_reviewed": 0,
+    "approval_rate": 0,
+    "average_review_time": "N/A"
+  },
+  "agent_compliance": {
+    "developer": {
+      "processing": 0,
+      "completed": 0,
+      "compliant": 0
+    },
+    "devops": {
+      "processing": 0,
+      "completed": 0,
+      "compliant": 0
+    },
+    "qa": {
+      "processing": 0,
+      "completed": 0,
+      "compliant": 0
+    }
+  },
+  "violations": [],
+  "recommendations": [
+    "PMs need to include all required elements in stories",
+    "Ensure all stories get architect review before implementation"
+  ]
+}

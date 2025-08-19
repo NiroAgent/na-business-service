@@ -1,0 +1,78 @@
+# Page snapshot
+
+```yaml
+- banner:
+  - heading "NiroAgent Dashboard" [level=1]
+  - paragraph: Real-time AWS Infrastructure Monitoring
+  - img
+  - text: Open
+  - button:
+    - img
+- complementary:
+  - navigation:
+    - link "Dashboard Overview and real-time monitoring":
+      - /url: /dashboard
+      - img
+      - text: Dashboard Overview and real-time monitoring
+    - link "EC2 Instances EC2 instance monitoring across environments":
+      - /url: /instances
+      - img
+      - text: EC2 Instances EC2 instance monitoring across environments
+    - link "Cost Analysis Cost breakdown and optimization":
+      - /url: /costs
+      - img
+      - text: Cost Analysis Cost breakdown and optimization
+    - link "Real-time Monitoring Live alerts and system health":
+      - /url: /monitoring
+      - img
+      - text: Real-time Monitoring Live alerts and system health
+  - heading "Environments" [level=3]
+  - text: VF-DevActive VF-StagingMonitor VF-ProductionCritical
+- main:
+  - heading "Dashboard" [level=1]
+  - paragraph: Real-time AWS infrastructure monitoring across all environments
+  - text: "LIVE Last updated: 5:30:58 PM"
+  - paragraph: Total Instances
+  - paragraph: "3"
+  - paragraph:
+    - img
+    - text: 3 running
+  - img
+  - paragraph: Monthly Cost
+  - paragraph: $0.00
+  - paragraph:
+    - img
+    - text: 0% savings
+  - img
+  - paragraph: Active Alerts
+  - paragraph: "0"
+  - paragraph:
+    - img
+    - text: Last 24h
+  - img
+  - paragraph: System Health
+  - paragraph: 98.5%
+  - paragraph:
+    - img
+    - text: All systems operational
+  - img
+  - heading "VF-Development" [level=3]
+  - text: Active Account ID:319040880702 Instances:1 Status:Healthy Cost (Est.):$0.00
+  - heading "VF-Staging" [level=3]
+  - text: Monitoring Account ID:275057778147 Instances:1 Status:Monitoring Cost (Est.):$0.00
+  - heading "VF-Production" [level=3]
+  - text: Critical Account ID:229742714212 Instances:1 Status:Attention Required Cost (Est.):$0.00
+  - heading "Recent Activity" [level=3]
+  - img
+  - paragraph: EC2 instances refreshed successfully
+  - paragraph: 3 instances across all environments
+  - text: Just now
+  - img
+  - paragraph: Cost analysis updated
+  - paragraph: "Monthly spend: $0.00 with 0% optimization"
+  - text: 2 min ago
+  - img
+  - paragraph: System health check completed
+  - paragraph: All environments operational with 0 active alerts
+  - text: 5 min ago
+```

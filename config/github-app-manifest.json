@@ -1,0 +1,26 @@
+{
+  "name": "AI-Agent-System",
+  "description": "Autonomous AI agents for processing issues and PRs",
+  "url": "https://github.com/VisualForgeMediaV2",
+  "hook_attributes": {
+    "active": true
+  },
+  "redirect_url": "https://vf-dev.visualforgemedia.com/auth/callback",
+  "webhook_url": "https://vf-dev.visualforgemedia.com/webhooks/github",
+  "webhook_secret": "4408646c037bc73d8811caf4a4215b202028e7fafb80b2ee3729120b35fd1b07",
+  "permissions": {
+    "issues": "write",
+    "pull_requests": "write",
+    "contents": "write",
+    "metadata": "read",
+    "actions": "write",
+    "checks": "write"
+  },
+  "events": [
+    "issues",
+    "issue_comment",
+    "pull_request",
+    "pull_request_review",
+    "push"
+  ]
+}

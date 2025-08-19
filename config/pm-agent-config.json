@@ -1,0 +1,12 @@
+{
+  "name": "pm-agent",
+  "type": "manager",
+  "role": "Project management and coordination",
+  "permissions": [
+    "override_assignment",
+    "escalate_issues",
+    "approve_high_priority"
+  ],
+  "workload_capacity": 10,
+  "cost_controls": true
+}

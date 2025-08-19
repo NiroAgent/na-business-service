@@ -1,0 +1,123 @@
+{
+  "test": "requirement_extraction",
+  "timestamp": "2025-08-18T13:23:02.816372",
+  "results": [
+    {
+      "name": "functional_requirements",
+      "success": true,
+      "extracted": {
+        "functional": [
+          {
+            "description": "allow users to upload files. it must be able to process payments.",
+            "priority": "high",
+            "category": "functional"
+          },
+          {
+            "description": "process payments.",
+            "priority": "low",
+            "category": "functional"
+          }
+        ],
+        "non_functional": [],
+        "user_stories": [],
+        "technical_constraints": [],
+        "business_objectives": [
+          "Deliver business value through technology"
+        ],
+        "acceptance_criteria": [
+          "System must allow users to upload files. it must be able to process payments.",
+          "System must process payments."
+        ],
+        "extracted_entities": []
+      }
+    },
+    {
+      "name": "performance_requirements",
+      "success": true,
+      "extracted": {
+        "functional": [
+          {
+            "description": "handle 5000 requests per second.",
+            "priority": "low",
+            "category": "functional"
+          }
+        ],
+        "non_functional": [
+          {
+            "description": "the api should respond within 100ms. the system should handle 5000 requests per second.",
+            "priority": "high",
+            "category": "non-functional"
+          },
+          {
+            "description": "5000",
+            "priority": "high",
+            "category": "non-functional"
+          }
+        ],
+        "user_stories": [],
+        "technical_constraints": [
+          "Performance: The API should respond within 100ms"
+        ],
+        "business_objectives": [
+          "Deliver business value through technology"
+        ],
+        "acceptance_criteria": [
+          "System must handle 5000 requests per second.",
+          "System must meet: the api should respond within 100ms. the system should handle 5000 requests per second.",
+          "System must meet: 5000"
+        ],
+        "extracted_entities": [
+          "api"
+        ]
+      }
+    },
+    {
+      "name": "user_stories",
+      "success": true,
+      "extracted": {
+        "functional": [],
+        "non_functional": [],
+        "user_stories": [
+          {
+            "role": "manager",
+            "feature": "to view reports",
+            "benefit": "I can make informed decisions."
+          }
+        ],
+        "technical_constraints": [],
+        "business_objectives": [
+          "Deliver business value through technology"
+        ],
+        "acceptance_criteria": [
+          "User can to view reports"
+        ],
+        "extracted_entities": [
+          "manager"
+        ]
+      }
+    },
+    {
+      "name": "security_requirements",
+      "success": true,
+      "extracted": {
+        "functional": [],
+        "non_functional": [
+          {
+            "description": "implement oauth2 authentication. all data must be encrypted at rest.",
+            "priority": "high",
+            "category": "non-functional"
+          }
+        ],
+        "user_stories": [],
+        "technical_constraints": [],
+        "business_objectives": [
+          "Deliver business value through technology"
+        ],
+        "acceptance_criteria": [
+          "System must meet: implement oauth2 authentication. all data must be encrypted at rest."
+        ],
+        "extracted_entities": []
+      }
+    }
+  ]
+}

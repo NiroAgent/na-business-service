@@ -1,0 +1,151 @@
+{
+  "agent_configuration": {
+    "total_agents": 50,
+    "deployment_platform": "spot_instances",
+    "cost_optimization": "95_percent_savings",
+    "distribution": {
+      "developer": {
+        "count": 20,
+        "specializations": [
+          "frontend_react",
+          "backend_node", 
+          "backend_python",
+          "database_optimization",
+          "api_development",
+          "mobile_development",
+          "web_performance",
+          "cloud_integration"
+        ],
+        "skills": [
+          "javascript", "typescript", "python", "react", "node.js", 
+          "postgresql", "mongodb", "aws", "docker", "kubernetes"
+        ]
+      },
+      "qa": {
+        "count": 10,
+        "specializations": [
+          "automated_testing",
+          "performance_testing", 
+          "security_testing",
+          "manual_testing",
+          "test_planning"
+        ],
+        "skills": [
+          "selenium", "cypress", "jest", "playwright", "postman",
+          "jmeter", "security_scanning", "test_automation"
+        ]
+      },
+      "devops": {
+        "count": 5,
+        "specializations": [
+          "ci_cd_pipelines",
+          "infrastructure_as_code",
+          "monitoring_alerting",
+          "deployment_automation",
+          "cloud_architecture"
+        ],
+        "skills": [
+          "github_actions", "terraform", "cloudformation", "docker",
+          "kubernetes", "aws", "monitoring", "logging"
+        ]
+      },
+      "manager": {
+        "count": 5,
+        "specializations": [
+          "project_coordination",
+          "sprint_planning",
+          "stakeholder_communication", 
+          "resource_allocation",
+          "timeline_management"
+        ],
+        "skills": [
+          "agile", "scrum", "kanban", "jira", "confluence",
+          "project_planning", "team_coordination"
+        ]
+      },
+      "architect": {
+        "count": 5,
+        "specializations": [
+          "system_design",
+          "technical_strategy",
+          "platform_architecture",
+          "integration_planning",
+          "technology_evaluation"
+        ],
+        "skills": [
+          "system_architecture", "microservices", "api_design",
+          "scalability", "performance", "security_architecture"
+        ]
+      },
+      "security": {
+        "count": 3,
+        "specializations": [
+          "vulnerability_assessment",
+          "security_code_review",
+          "compliance_auditing"
+        ],
+        "skills": [
+          "penetration_testing", "code_security", "aws_security",
+          "compliance", "threat_modeling", "security_scanning"
+        ]
+      },
+      "analytics": {
+        "count": 2,
+        "specializations": [
+          "performance_analytics",
+          "business_intelligence"
+        ],
+        "skills": [
+          "data_analysis", "metrics", "dashboards", "reporting",
+          "performance_monitoring", "business_metrics"
+        ]
+      }
+    }
+  },
+  "github_integration": {
+    "custom_fields": {
+      "assigned_agent": {
+        "type": "single_select",
+        "options": [
+          "developer_frontend", "developer_backend", "developer_fullstack",
+          "qa_automation", "qa_manual", "qa_performance", 
+          "devops_cicd", "devops_infrastructure", "devops_monitoring",
+          "manager_project", "manager_product", 
+          "architect_system", "architect_platform",
+          "security_assessment", "security_compliance",
+          "analytics_performance", "analytics_business"
+        ]
+      },
+      "agent_status": {
+        "type": "single_select", 
+        "options": [
+          "unassigned", "assigned", "in_progress", "under_review", 
+          "completed", "blocked", "escalated"
+        ]
+      },
+      "processing_started": {
+        "type": "date_time"
+      },
+      "estimated_completion": {
+        "type": "date_time"
+      },
+      "priority_level": {
+        "type": "single_select",
+        "options": ["P0_critical", "P1_high", "P2_medium", "P3_low", "P4_backlog"]
+      }
+    }
+  },
+  "spot_instance_deployment": {
+    "instance_type": "t3.medium",
+    "cost_per_hour": "$0.05",
+    "monthly_cost_estimate": "$8-15",
+    "savings_percentage": "95%",
+    "agent_capacity_per_instance": 10,
+    "required_instances": 5,
+    "auto_scaling": {
+      "min_instances": 2,
+      "max_instances": 8,
+      "scale_trigger": "queue_length > 20"
+    }
+  }
+}

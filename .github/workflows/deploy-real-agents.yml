@@ -1,0 +1,205 @@
+name: Deploy Real AI Agents to EC2
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'src/agents/**'
+      - 'infrastructure/cloudformation/**'
+      - 'infrastructure/docker/**'
+  workflow_dispatch:
+    inputs:
+      deploy_type:
+        description: 'Deployment type'
+        required: true
+        default: 'update'
+        type: choice
+        options:
+          - update
+          - full-redeploy
+          - rollback
+
+env:
+  AWS_REGION: us-east-1
+  INSTANCE_ID: i-0af59b7036f7b0b77
+
+jobs:
+  deploy-agents:
+    name: Deploy Real AI Agents
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+    
+    - name: Configure AWS credentials
+      uses: aws-actions/configure-aws-credentials@v2
+      with:
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws-region: ${{ env.AWS_REGION }}
+    
+    - name: Stop placeholder agents
+      run: |
+        aws ssm send-command \
+          --instance-ids ${{ env.INSTANCE_ID }} \
+          --document-name "AWS-RunShellScript" \
+          --parameters 'commands=["sudo pkill -f agent.py","tmux kill-server"]' \
+          --output json
+        sleep 5
+    
+    - name: Upload agent scripts to S3
+      run: |
+        # Create deployment package
+        mkdir -p deployment
+        cp src/agents/ai-qa-agent.py deployment/
+        cp src/agents/ai-developer-agent.py deployment/
+        cp src/agents/ai-operations-agent.py deployment/
+        cp src/agents/ai-devops-agent.py deployment/
+        cp src/agents/ai-security-agent.py deployment/
+        
+        # Create requirements file
+        cat > deployment/requirements.txt << EOF
+        boto3
+        requests
+        pygithub
+        pytest
+        playwright
+        pandas
+        numpy
+        asyncio
+        aiohttp
+        EOF
+        
+        # Create startup script
+        cat > deployment/start-agents.sh << 'EOF'
+        #!/bin/bash
+        export GITHUB_TOKEN=$1
+        
+        cd /opt/ai-agents/scripts
+        
+        # Start real AI agents
+        tmux new-session -d -s qa-agent "python3 ai-qa-agent.py --monitor --run-tests"
+        tmux new-session -d -s dev-agent "python3 ai-developer-agent.py --monitor --fix-bugs"
+        tmux new-session -d -s ops-agent "python3 ai-operations-agent.py --monitor"
+        tmux new-session -d -s devops-agent "python3 ai-devops-agent.py --monitor"
+        tmux new-session -d -s security-agent "python3 ai-security-agent.py --monitor"
+        
+        echo "Real AI agents started!"
+        tmux list-sessions
+        EOF
+        
+        chmod +x deployment/start-agents.sh
+        
+        # Upload to S3
+        aws s3 sync deployment/ s3://vf-dev-deployment/agents/ --delete
+    
+    - name: Deploy agents to EC2
+      run: |
+        # Download and install agents on EC2
+        COMMAND_ID=$(aws ssm send-command \
+          --instance-ids ${{ env.INSTANCE_ID }} \
+          --document-name "AWS-RunShellScript" \
+          --parameters 'commands=[
+            "sudo mkdir -p /opt/ai-agents/scripts",
+            "sudo aws s3 sync s3://vf-dev-deployment/agents/ /opt/ai-agents/scripts/",
+            "sudo pip3 install -r /opt/ai-agents/scripts/requirements.txt",
+            "sudo chown -R agent:agent /opt/ai-agents",
+            "sudo chmod +x /opt/ai-agents/scripts/*.py",
+            "sudo chmod +x /opt/ai-agents/scripts/*.sh"
+          ]' \
+          --query 'Command.CommandId' \
+          --output text)
+        
+        echo "Deployment command: $COMMAND_ID"
+        sleep 10
+        
+        # Check deployment status
+        aws ssm get-command-invocation \
+          --command-id $COMMAND_ID \
+          --instance-id ${{ env.INSTANCE_ID }} \
+          --query 'Status' \
+          --output text
+    
+    - name: Configure GitHub token
+      run: |
+        # Store GitHub token in Secrets Manager
+        aws secretsmanager put-secret-value \
+          --secret-id github-agent-token \
+          --secret-string "${{ secrets.GITHUB_TOKEN }}" || \
+        aws secretsmanager create-secret \
+          --name github-agent-token \
+          --secret-string "${{ secrets.GITHUB_TOKEN }}"
+    
+    - name: Start real agents
+      run: |
+        # Start the agents with GitHub token
+        START_CMD=$(aws ssm send-command \
+          --instance-ids ${{ env.INSTANCE_ID }} \
+          --document-name "AWS-RunShellScript" \
+          --parameters 'commands=[
+            "export GITHUB_TOKEN=$(aws secretsmanager get-secret-value --secret-id github-agent-token --query SecretString --output text)",
+            "sudo -u agent bash /opt/ai-agents/scripts/start-agents.sh $GITHUB_TOKEN"
+          ]' \
+          --query 'Command.CommandId' \
+          --output text)
+        
+        echo "Start command: $START_CMD"
+        sleep 10
+    
+    - name: Verify agents are running
+      run: |
+        # Check agent status
+        VERIFY_CMD=$(aws ssm send-command \
+          --instance-ids ${{ env.INSTANCE_ID }} \
+          --document-name "AWS-RunShellScript" \
+          --parameters 'commands=[
+            "ps aux | grep -E \"ai.*agent.py\" | grep -v grep",
+            "sudo -u agent tmux list-sessions"
+          ]' \
+          --query 'Command.CommandId' \
+          --output text)
+        
+        sleep 5
+        
+        # Get verification output
+        aws ssm get-command-invocation \
+          --command-id $VERIFY_CMD \
+          --instance-id ${{ env.INSTANCE_ID }} \
+          --query 'StandardOutputContent' \
+          --output text
+    
+    - name: Run initial tests
+      if: success()
+      run: |
+        # Trigger initial test run
+        aws ssm send-command \
+          --instance-ids ${{ env.INSTANCE_ID }} \
+          --document-name "AWS-RunShellScript" \
+          --parameters 'commands=[
+            "sudo -u agent tmux send-keys -t qa-agent \"run_all_tests\" Enter"
+          ]' \
+          --output json
+    
+    - name: Create deployment report
+      if: always()
+      run: |
+        # Generate deployment report
+        echo "## AI Agent Deployment Report" >> $GITHUB_STEP_SUMMARY
+        echo "" >> $GITHUB_STEP_SUMMARY
+        echo "**Date**: $(date)" >> $GITHUB_STEP_SUMMARY
+        echo "**Instance**: ${{ env.INSTANCE_ID }}" >> $GITHUB_STEP_SUMMARY
+        echo "**Status**: ${{ job.status }}" >> $GITHUB_STEP_SUMMARY
+        echo "" >> $GITHUB_STEP_SUMMARY
+        echo "### Deployed Agents:" >> $GITHUB_STEP_SUMMARY
+        echo "- AI QA Agent (Playwright testing)" >> $GITHUB_STEP_SUMMARY
+        echo "- AI Developer Agent (Bug fixing)" >> $GITHUB_STEP_SUMMARY
+        echo "- AI Operations Agent (Monitoring)" >> $GITHUB_STEP_SUMMARY
+        echo "- AI DevOps Agent (Infrastructure)" >> $GITHUB_STEP_SUMMARY
+        echo "- AI Security Agent (Security scanning)" >> $GITHUB_STEP_SUMMARY
+        echo "" >> $GITHUB_STEP_SUMMARY
+        echo "### Next Steps:" >> $GITHUB_STEP_SUMMARY
+        echo "1. Monitor agent logs via SSM" >> $GITHUB_STEP_SUMMARY
+        echo "2. Check test results in GitHub issues" >> $GITHUB_STEP_SUMMARY
+        echo "3. Review bug fixes in PRs" >> $GITHUB_STEP_SUMMARY

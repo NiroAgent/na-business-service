@@ -1,0 +1,237 @@
+name: Agent Assignment Workflow
+on:
+  issues:
+    types: [opened, edited, labeled]
+  issue_comment:
+    types: [created]
+  workflow_dispatch:
+    inputs:
+      issue_number:
+        description: 'Issue number to process'
+        required: true
+        type: string
+      force_reassign:
+        description: 'Force reassignment even if already assigned'
+        required: false
+        type: boolean
+        default: false
+
+env:
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  WEBHOOK_SECRET: ${{ secrets.WEBHOOK_SECRET }}
+
+jobs:
+  assign-agent:
+    runs-on: ubuntu-latest
+    name: Assign Agent to Issue
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      
+    - name: Setup Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.11'
+        
+    - name: Install dependencies
+      run: |
+        pip install requests PyGithub python-dotenv
+        
+    - name: Process Issue Assignment
+      id: assign
+      run: |
+        python3 << 'EOF'
+        import os
+        import json
+        import requests
+        from github import Github
+        from datetime import datetime, timedelta
+        import re
+        
+        # Initialize GitHub client
+        github_token = os.environ['GITHUB_TOKEN']
+        g = Github(github_token)
+        repo = g.get_repo("${{ github.repository }}")
+        
+        # Get issue details
+        if "${{ github.event_name }}" == "workflow_dispatch":
+            issue_number = int("${{ github.event.inputs.issue_number }}")
+            force_reassign = "${{ github.event.inputs.force_reassign }}" == "true"
+        else:
+            issue_number = ${{ github.event.issue.number }}
+            force_reassign = False
+            
+        issue = repo.get_issue(issue_number)
+        
+        print(f"🎯 Processing Issue #{issue_number}: {issue.title}")
+        
+        # Check if already assigned and not forcing reassignment
+        current_assignees = [user.login for user in issue.assignees]
+        if current_assignees and not force_reassign:
+            print(f"✅ Issue already assigned to: {', '.join(current_assignees)}")
+            exit(0)
+        
+        # Agent assignment logic based on issue content and labels
+        def get_best_agent(issue):
+            title = issue.title.lower()
+            body = issue.body.lower() if issue.body else ""
+            labels = [label.name.lower() for label in issue.labels]
+            
+            # PM Agent handles epic and coordination
+            if any(keyword in title or keyword in body for keyword in ["epic", "coordination", "management", "planning"]):
+                return "pm-agent", "Project management and coordination"
+                
+            # DevOps Agent handles deployment and infrastructure
+            if any(keyword in title or keyword in body for keyword in ["deploy", "infrastructure", "aws", "docker", "kubernetes"]):
+                return "devops-agent", "Infrastructure and deployment"
+                
+            # QA Agent handles testing
+            if any(keyword in title or keyword in body for keyword in ["test", "qa", "quality", "validation", "bug"]):
+                return "qa-agent", "Quality assurance and testing"
+                
+            # Security Agent handles security
+            if any(keyword in title or keyword in body for keyword in ["security", "auth", "vulnerability", "encryption"]):
+                return "security-agent", "Security and compliance"
+                
+            # Frontend Agent handles UI/UX
+            if any(keyword in title or keyword in body for keyword in ["frontend", "ui", "ux", "react", "dashboard"]):
+                return "frontend-agent", "Frontend development"
+                
+            # Backend Agent handles API and backend
+            if any(keyword in title or keyword in body for keyword in ["backend", "api", "database", "server"]):
+                return "backend-agent", "Backend development"
+                
+            # Integration Agent handles integrations
+            if any(keyword in title or keyword in body for keyword in ["integration", "webhook", "api", "third-party"]):
+                return "integration-agent", "System integration"
+                
+            # Default to PM for coordination
+            return "pm-agent", "General project management"
+        
+        # Get best agent assignment
+        assigned_agent, reason = get_best_agent(issue)
+        
+        # Calculate priority based on labels and keywords
+        priority = "P2-Medium"  # default
+        if "critical" in issue.title.lower() or "urgent" in issue.title.lower():
+            priority = "P0-Critical"
+        elif "high" in issue.title.lower() or any(label.name.lower() in ["high-priority", "important"] for label in issue.labels):
+            priority = "P1-High"
+        elif "low" in issue.title.lower() or any(label.name.lower() in ["low-priority", "nice-to-have"] for label in issue.labels):
+            priority = "P3-Low"
+        
+        # Estimate completion date based on priority and complexity
+        complexity_days = 1  # default
+        if "epic" in issue.title.lower():
+            complexity_days = 14
+        elif "feature" in issue.title.lower():
+            complexity_days = 5
+        elif "bug" in issue.title.lower():
+            complexity_days = 2
+        
+        estimated_completion = (datetime.now() + timedelta(days=complexity_days)).strftime('%Y-%m-%d')
+        processing_started = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+        
+        # Assign the issue
+        try:
+            # For now, we'll add a comment since custom fields require organization setup
+            # In production, this would use custom fields API
+            
+            comment_body = f"""🤖 **Automated Agent Assignment**
+        
+        **Assigned Agent**: {assigned_agent}
+        **Assignment Reason**: {reason}
+        **Priority Level**: {priority}
+        **Estimated Completion**: {estimated_completion}
+        **Processing Started**: {processing_started}
+        **Agent Status**: assigned
+        
+        ---
+        
+        **Next Steps for {assigned_agent}:**
+        1. Review issue requirements and acceptance criteria
+        2. Update status to "processing" when work begins
+        3. Add progress comments for transparency
+        4. Request PM review when ready
+        5. Update status to "completed" when finished
+        
+        **PM Oversight**: This assignment can be modified by PM if needed.
+        
+        *This assignment was made automatically based on issue content analysis.*"""
+        
+            issue.create_comment(comment_body)
+            
+            # Add labels for tracking
+            tracking_labels = [f"assigned:{assigned_agent}", f"priority:{priority}", "agent-assigned"]
+            existing_labels = [label.name for label in issue.labels]
+            new_labels = [label for label in tracking_labels if label not in existing_labels]
+            
+            if new_labels:
+                for label in new_labels:
+                    try:
+                        issue.add_to_labels(label)
+                    except:
+                        # Create label if it doesn't exist
+                        repo.create_label(label, "1f77b4", f"Auto-generated label for {label}")
+                        issue.add_to_labels(label)
+            
+            print(f"✅ Successfully assigned issue to {assigned_agent}")
+            print(f"📋 Priority: {priority}")
+            print(f"📅 Estimated completion: {estimated_completion}")
+            print(f"🏷️ Added tracking labels: {', '.join(new_labels)}")
+            
+            # Set GitHub Actions output
+            with open(os.environ['GITHUB_OUTPUT'], 'a') as f:
+                f.write(f"assigned_agent={assigned_agent}\n")
+                f.write(f"priority={priority}\n")
+                f.write(f"estimated_completion={estimated_completion}\n")
+                f.write(f"assignment_reason={reason}\n")
+        
+        except Exception as e:
+            print(f"❌ Error assigning issue: {e}")
+            exit(1)
+        
+        EOF
+        
+    - name: Notify Agent System
+      if: steps.assign.outcome == 'success'
+      run: |
+        # Notify the agent system about the new assignment
+        # This would integrate with your existing agent communication hub
+        echo "🔔 Notifying agent system about assignment..."
+        echo "Agent: ${{ steps.assign.outputs.assigned_agent }}"
+        echo "Priority: ${{ steps.assign.outputs.priority }}"
+        echo "Issue: #${{ github.event.issue.number || github.event.inputs.issue_number }}"
+        
+        # In production, this would call your agent webhook/API
+        # curl -X POST "$AGENT_WEBHOOK_URL" \
+        #   -H "Content-Type: application/json" \
+        #   -d '{
+        #     "event": "issue_assigned",
+        #     "agent": "${{ steps.assign.outputs.assigned_agent }}",
+        #     "issue_number": "${{ github.event.issue.number || github.event.inputs.issue_number }}",
+        #     "priority": "${{ steps.assign.outputs.priority }}",
+        #     "repository": "${{ github.repository }}"
+        #   }'
+        
+    - name: Update Dashboard
+      if: steps.assign.outcome == 'success'
+      run: |
+        echo "📊 Updating agent dashboard with new assignment..."
+        # This would integrate with your enhanced-ec2-dashboard.py
+        # to show real-time assignment updates
+        
+    - name: Summary
+      if: always()
+      run: |
+        echo "🎯 Agent Assignment Workflow Complete"
+        echo "Issue: #${{ github.event.issue.number || github.event.inputs.issue_number }}"
+        if [ "${{ steps.assign.outcome }}" == "success" ]; then
+          echo "✅ Status: Successfully assigned"
+          echo "🤖 Agent: ${{ steps.assign.outputs.assigned_agent }}"
+          echo "📋 Priority: ${{ steps.assign.outputs.priority }}"
+          echo "📅 Due: ${{ steps.assign.outputs.estimated_completion }}"
+        else
+          echo "❌ Status: Assignment failed"
+        fi

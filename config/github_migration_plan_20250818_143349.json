@@ -1,0 +1,139 @@
+{
+  "phase": "GitHub Issues Migration",
+  "timeline": "Immediate - 2 hours",
+  "prerequisites": [
+    "Complete critical dashboard fix",
+    "Verify GitHub agent functionality",
+    "Configure GitHub API authentication"
+  ],
+  "migration_tasks": [],
+  "github_issues_to_create": [
+    {
+      "title": "CRITICAL: Dashboard Tab Switching & Data Loading Fix",
+      "body": "## Task Description\nDashboard completely broken - tabs not clickable, no data loading\n\n## Sub-tasks\n1. **Fix Dashboard Tab Switching**\n   - File: `comprehensive-tabbed-dashboard.py`\n   - Effort: 1-2 hours\n   - Details: Debug and fix tab navigation - tabs not clickable, investigate JavaScript issues\n\n2. **Fix Data Loading Issues**\n   - File: `comprehensive-tabbed-dashboard.py`\n   - Effort: 1-2 hours\n   - Details: Debug data not loading in dashboard, check WebSocket connections and API endpoints\n\n3. **Implement Playwright Test Suite**\n   - File: `tests/dashboard_playwright_tests.py`\n   - Effort: 2-3 hours\n   - Details: Create comprehensive Playwright tests for tab switching, data loading, and UI interactions\n\n4. **Dashboard Health Monitoring**\n   - File: `dashboard_health_checker.py`\n   - Effort: 1 hour\n   - Details: Create automated health checks for dashboard functionality\n\n## Metadata\n- **Priority**: P0-CRITICAL-URGENT\n- **Estimated Effort**: 5-8 hours\n- **Coordination Type**: Unknown\n- **Created**: 2025-08-18T14:24:12.419366\n\n---\n*This issue was migrated from file-based task management to GitHub Issues workflow.*",
+      "labels": [
+        "ai-agent-task",
+        "sdlc",
+        "critical",
+        "frontend",
+        "dashboard-agent"
+      ],
+      "priority": "P0-CRITICAL-URGENT",
+      "assigned_agent": "GPT4-Dashboard-Agent",
+      "original_file": "CRITICAL_dashboard_fix_1755541452.json"
+    },
+    {
+      "title": "Complete AI Developer Agent Implementation",
+      "body": "## Task Description\nComplete Claude Opus AI Developer Agent with missing components\n\n## Sub-tasks\n1. **Complete TypeScript Express Generator**\n   - File: `ai-developer-agent.py`\n   - Effort: 2-3 hours\n   - Details: Finish TypeScriptExpressGenerator class methods (lines 2000+)\n\n2. **Add Docker/Kubernetes Generator**\n   - File: `ai-developer-agent.py`\n   - Effort: 2 hours\n   - Details: Implement DockerKubernetesGenerator class for containerization\n\n3. **Add React Frontend Generator**\n   - File: `ai-developer-agent.py`\n   - Effort: 3 hours\n   - Details: Implement ReactGenerator for frontend projects\n\n4. **Integration Testing**\n   - File: `test_ai_developer_agent.py`\n   - Effort: 1 hour\n   - Details: Test complete pipeline with AI Architect Agent\n\n## Deliverables\n- Complete ai-developer-agent.py (functional)\n- Integration with AI Architect Agent\n- Generated test projects for validation\n\n## Success Criteria\n- All generator classes implemented and functional\n- Successfully generates Python/FastAPI projects\n- Successfully generates TypeScript/Express projects\n- Integration tests pass with >95% success rate\n\n## Metadata\n- **Priority**: P0-CRITICAL\n- **Estimated Effort**: 8.0 hours\n- **Coordination Type**: multi_agent_parallel\n- **Created**: 2025-08-18T14:12:45.923133\n- **Dependencies**: Claude Opus AI Developer Agent (75% complete)\n\n---\n*This issue was migrated from file-based task management to GitHub Issues workflow.*",
+      "labels": [
+        "ai-agent-task",
+        "sdlc",
+        "critical",
+        "completion-agent"
+      ],
+      "priority": "P0-CRITICAL",
+      "assigned_agent": "GPT4-Completion-Agent",
+      "original_file": "GPT4-Completion-Agent_task_1755540765.json"
+    },
+    {
+      "title": "Production Deployment Infrastructure",
+      "body": "## Task Description\nCreate production-ready deployment infrastructure\n\n## Sub-tasks\n1. **Docker Configuration**\n   - File: `Dockerfile`\n   - Effort: 1 hour\n   - Details: Production Dockerfile for AI Developer Agent\n\n2. **Kubernetes Manifests**\n   - File: `k8s/`\n   - Effort: 2 hours\n   - Details: Kubernetes deployment, service, and ingress manifests\n\n3. **CI/CD Pipeline**\n   - File: `.github/workflows/`\n   - Effort: 2 hours\n   - Details: GitHub Actions for automated testing and deployment\n\n4. **Monitoring Setup**\n   - File: `monitoring/`\n   - Effort: 1.5 hours\n   - Details: Prometheus, Grafana, and logging configuration\n\n## Deliverables\n- Production Docker image\n- Kubernetes deployment manifests\n- CI/CD pipeline operational\n- Monitoring and alerting setup\n\n## Success Criteria\n- One-click deployment to production\n- Automated testing in CI/CD\n- Health monitoring operational\n- Scalable and resilient infrastructure\n\n## Metadata\n- **Priority**: P1-HIGH\n- **Estimated Effort**: 6.5 hours\n- **Coordination Type**: multi_agent_parallel\n- **Created**: 2025-08-18T14:12:45.943566\n- **Dependencies**: Claude Opus AI Developer Agent (75% complete)\n\n---\n*This issue was migrated from file-based task management to GitHub Issues workflow.*",
+      "labels": [
+        "ai-agent-task",
+        "sdlc",
+        "high-priority",
+        "devops",
+        "devops-agent"
+      ],
+      "priority": "P1-HIGH",
+      "assigned_agent": "GPT4-DevOps-Agent",
+      "original_file": "GPT4-DevOps-Agent_task_1755540765.json"
+    },
+    {
+      "title": "Complete Documentation Suite",
+      "body": "## Task Description\nCreate comprehensive documentation for AI Developer Agent\n\n## Sub-tasks\n1. **API Documentation**\n   - File: `docs/API_REFERENCE.md`\n   - Effort: 2 hours\n   - Details: Complete API reference for AI Developer Agent\n\n2. **User Guide**\n   - File: `docs/USER_GUIDE.md`\n   - Effort: 2 hours\n   - Details: Step-by-step guide for using the AI Developer Agent\n\n3. **Architecture Documentation**\n   - File: `docs/ARCHITECTURE.md`\n   - Effort: 1.5 hours\n   - Details: Technical architecture and design decisions\n\n4. **Integration Examples**\n   - File: `docs/EXAMPLES.md`\n   - Effort: 1.5 hours\n   - Details: Real-world integration examples and use cases\n\n## Deliverables\n- Complete API documentation\n- User guide with examples\n- Architecture documentation\n- Integration examples and tutorials\n\n## Success Criteria\n- Documentation covers all features\n- Examples are functional and tested\n- Clear setup and usage instructions\n- Architecture decisions documented\n\n## Metadata\n- **Priority**: P1-HIGH\n- **Estimated Effort**: 7.0 hours\n- **Coordination Type**: multi_agent_parallel\n- **Created**: 2025-08-18T14:12:45.935265\n- **Dependencies**: Claude Opus AI Developer Agent (75% complete)\n\n---\n*This issue was migrated from file-based task management to GitHub Issues workflow.*",
+      "labels": [
+        "ai-agent-task",
+        "sdlc",
+        "high-priority",
+        "frontend",
+        "documentation",
+        "documentation-agent"
+      ],
+      "priority": "P1-HIGH",
+      "assigned_agent": "GPT4-Documentation-Agent",
+      "original_file": "GPT4-Documentation-Agent_task_1755540765.json"
+    },
+    {
+      "title": "Security Analysis and Hardening",
+      "body": "## Task Description\nComprehensive security analysis and hardening\n\n## Sub-tasks\n1. **Security Scanning**\n   - File: `security_scan.py`\n   - Effort: 2 hours\n   - Details: Automated security scanning of generated code\n\n2. **Authentication/Authorization**\n   - File: `ai-developer-agent.py`\n   - Effort: 2 hours\n   - Details: Add security features to generated projects\n\n3. **Vulnerability Assessment**\n   - File: `security_assessment.md`\n   - Effort: 1.5 hours\n   - Details: Security assessment report and recommendations\n\n4. **Security Best Practices**\n   - File: `docs/SECURITY.md`\n   - Effort: 1 hour\n   - Details: Security guidelines and best practices\n\n## Deliverables\n- Automated security scanning\n- Security hardening implementation\n- Vulnerability assessment report\n- Security documentation and guidelines\n\n## Success Criteria\n- No critical security vulnerabilities\n- Authentication/authorization implemented\n- Security scanning automated\n- Security best practices documented\n\n## Metadata\n- **Priority**: P1-HIGH\n- **Estimated Effort**: 6.5 hours\n- **Coordination Type**: multi_agent_parallel\n- **Created**: 2025-08-18T14:12:45.953043\n- **Dependencies**: Claude Opus AI Developer Agent (75% complete)\n\n---\n*This issue was migrated from file-based task management to GitHub Issues workflow.*",
+      "labels": [
+        "ai-agent-task",
+        "sdlc",
+        "high-priority",
+        "security",
+        "security-agent"
+      ],
+      "priority": "P1-HIGH",
+      "assigned_agent": "GPT4-Security-Agent",
+      "original_file": "GPT4-Security-Agent_task_1755540765.json"
+    },
+    {
+      "title": "Comprehensive Testing Framework",
+      "body": "## Task Description\nCreate extensive test suite for AI Developer Agent\n\n## Sub-tasks\n1. **Unit Test Suite**\n   - File: `tests/test_code_generators.py`\n   - Effort: 3 hours\n   - Details: Unit tests for all code generator classes\n\n2. **Integration Test Suite**\n   - File: `tests/test_integration.py`\n   - Effort: 2 hours\n   - Details: End-to-end pipeline testing with real specifications\n\n3. **Load Testing**\n   - File: `tests/test_performance.py`\n   - Effort: 2 hours\n   - Details: Performance testing for large project generation\n\n4. **Test Automation**\n   - File: `run_tests.py`\n   - Effort: 1 hour\n   - Details: Automated test execution and reporting\n\n## Deliverables\n- Comprehensive test suite (>80% coverage)\n- Performance benchmarks\n- Automated test execution\n- Test reporting dashboard\n\n## Success Criteria\n- Test coverage >80%\n- All tests pass consistently\n- Performance benchmarks established\n- Continuous testing pipeline operational\n\n## Metadata\n- **Priority**: P0-CRITICAL\n- **Estimated Effort**: 8.0 hours\n- **Coordination Type**: multi_agent_parallel\n- **Created**: 2025-08-18T14:12:45.928200\n- **Dependencies**: Claude Opus AI Developer Agent (75% complete)\n\n---\n*This issue was migrated from file-based task management to GitHub Issues workflow.*",
+      "labels": [
+        "ai-agent-task",
+        "sdlc",
+        "critical",
+        "testing",
+        "frontend",
+        "testing-agent"
+      ],
+      "priority": "P0-CRITICAL",
+      "assigned_agent": "GPT4-Testing-Agent",
+      "original_file": "GPT4-Testing-Agent_task_1755540765.json"
+    },
+    {
+      "title": "Unknown Task",
+      "body": "## Task Description\nNo description\n\n## Metadata\n- **Priority**: HIGH\n- **Estimated Effort**: Unknown\n- **Coordination Type**: Unknown\n- **Created**: Unknown\n\n---\n*This issue was migrated from file-based task management to GitHub Issues workflow.*",
+      "labels": [
+        "ai-agent-task",
+        "sdlc"
+      ],
+      "priority": "HIGH",
+      "assigned_agent": "",
+      "original_file": "phase_assignment_1755540429.json"
+    },
+    {
+      "title": "Unknown Task",
+      "body": "## Task Description\nNo description\n\n## Metadata\n- **Priority**: HIGH\n- **Estimated Effort**: Unknown\n- **Coordination Type**: Unknown\n- **Created**: Unknown\n\n---\n*This issue was migrated from file-based task management to GitHub Issues workflow.*",
+      "labels": [
+        "ai-agent-task",
+        "sdlc"
+      ],
+      "priority": "HIGH",
+      "assigned_agent": "",
+      "original_file": "phase_assignment_1755540440.json"
+    },
+    {
+      "title": "Phase 4: AI QA & Testing Agent Implementation",
+      "body": "## Task Description\nCreate ai-qa-agent.py for code validation pipeline\n\n## Success Criteria\n- All generated code passes syntax validation\n- Security scans show no critical vulnerabilities\n- Performance meets specified requirements\n- Integration tests pass at >95% success rate\n- Documentation is complete and accurate\n\n## Metadata\n- **Priority**: P0-CRITICAL\n- **Estimated Effort**: Unknown\n- **Coordination Type**: Unknown\n- **Created**: 2025-08-18T14:07:57.362962\n- **Dependencies**: Claude Opus AI Developer Agent (Phase 3), AI Architect Agent specifications, Visual Forge AI System integration\n\n---\n*This issue was migrated from file-based task management to GitHub Issues workflow.*",
+      "labels": [
+        "ai-agent-task",
+        "sdlc",
+        "critical",
+        "testing"
+      ],
+      "priority": "P0-CRITICAL",
+      "assigned_agent": "ChatGPT-QA-Agent",
+      "original_file": "qa_agent_implementation_1755540477.json"
+    }
+  ],
+  "configuration_needed": [
+    "GitHub API token setup",
+    "Repository webhook configuration",
+    "Agent label system (ai-agent-task, backend, frontend, etc.)",
+    "Issue templates for different task types",
+    "Automatic assignment rules"
+  ]
+}

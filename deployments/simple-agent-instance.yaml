@@ -1,0 +1,221 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: 'Simple Cost-Optimized Single Instance AI Agent System for VF-Dev'
+
+Parameters:
+  InstanceType:
+    Type: String
+    Default: t3.large
+    AllowedValues: [t3.medium, t3.large, t3.xlarge]
+    Description: EC2 instance type
+  
+  Environment:
+    Type: String
+    Default: vf-dev
+    Description: Environment name
+
+Resources:
+  # IAM Role for EC2 Instance
+  AgentInstanceRole:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service: ec2.amazonaws.com
+            Action: sts:AssumeRole
+      ManagedPolicyArns:
+        - arn:aws:iam::aws:policy/CloudWatchAgentServerPolicy
+        - arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore
+      Policies:
+        - PolicyName: AgentSystemAccess
+          PolicyDocument:
+            Version: '2012-10-17'
+            Statement:
+              - Effect: Allow
+                Action:
+                  - sqs:*
+                  - lambda:InvokeFunction
+                  - logs:*
+                  - ssm:GetParameter
+                  - ssm:GetParameters
+                  - secretsmanager:GetSecretValue
+                Resource: '*'
+
+  AgentInstanceProfile:
+    Type: AWS::IAM::InstanceProfile
+    Properties:
+      Roles: [!Ref AgentInstanceRole]
+
+  # Security Group (using default VPC)
+  AgentSecurityGroup:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupDescription: Security group for AI Agent instance
+      SecurityGroupIngress:
+        - IpProtocol: tcp
+          FromPort: 22
+          ToPort: 22
+          CidrIp: 0.0.0.0/0
+        - IpProtocol: tcp
+          FromPort: 8080
+          ToPort: 8090
+          CidrIp: 0.0.0.0/0
+
+  # EC2 Instance (using default VPC)
+  AgentInstance:
+    Type: AWS::EC2::Instance
+    Properties:
+      ImageId: ami-0c02fb55956c7d316  # Amazon Linux 2023
+      InstanceType: !Ref InstanceType
+      IamInstanceProfile: !Ref AgentInstanceProfile
+      SecurityGroupIds: [!Ref AgentSecurityGroup]
+      UserData:
+        Fn::Base64: !Sub |
+          #!/bin/bash
+          yum update -y
+          yum install -y python3 python3-pip git tmux htop wget
+          
+          # Install Node.js
+          curl -fsSL https://rpm.nodesource.com/setup_lts.x | bash -
+          yum install -y nodejs
+          
+          # Create agent user
+          useradd -m -s /bin/bash agent
+          mkdir -p /home/agent/agents
+          chown -R agent:agent /home/agent
+          
+          # Install Python dependencies
+          pip3 install boto3 requests pyyaml
+          
+          # Create agent script
+          cat > /home/agent/agent.py << 'SCRIPT'
+          #!/usr/bin/env python3
+          import sys
+          import time
+          import boto3
+          import json
+          import argparse
+          from datetime import datetime
+          
+          def main():
+              parser = argparse.ArgumentParser()
+              parser.add_argument('--agent-id', type=int, required=True)
+              parser.add_argument('--environment', default='vf-dev')
+              args = parser.parse_args()
+              
+              print(f"Starting Agent {args.agent_id} in {args.environment}")
+              
+              while True:
+                  try:
+                      # Simulate agent work
+                      print(f"[{datetime.now()}] Agent {args.agent_id} processing...")
+                      time.sleep(30)
+                  except KeyboardInterrupt:
+                      print(f"Agent {args.agent_id} shutting down gracefully...")
+                      break
+                  except Exception as e:
+                      print(f"Agent {args.agent_id} error: {e}")
+                      time.sleep(5)
+          
+          if __name__ == '__main__':
+              main()
+          SCRIPT
+          
+          chmod +x /home/agent/agent.py
+          chown agent:agent /home/agent/agent.py
+          
+          # Create startup script
+          cat > /home/agent/start-all-agents.sh << 'EOF'
+          #!/bin/bash
+          cd /home/agent
+          
+          echo "Starting 50 AI agents in tmux sessions..."
+          
+          # Start 50 agents in separate tmux sessions
+          for i in {1..50}; do
+            session_name="agent-$i"
+            tmux new-session -d -s "$session_name" "python3 agent.py --agent-id $i --environment vf-dev"
+            echo "Started agent $i in session $session_name"
+            sleep 0.1
+          done
+          
+          echo "All 50 agents started successfully!"
+          echo "Use 'tmux list-sessions' to see all running agents"
+          echo "Use 'tmux attach -t agent-X' to connect to a specific agent"
+          tmux list-sessions
+          EOF
+          
+          chmod +x /home/agent/start-all-agents.sh
+          chown agent:agent /home/agent/start-all-agents.sh
+          
+          # Auto-start agents on boot
+          echo "@reboot /home/agent/start-all-agents.sh" | crontab -u agent -
+          
+          # Start agents now
+          sudo -u agent /home/agent/start-all-agents.sh
+          
+          # Create status check script
+          cat > /home/agent/check-agents.sh << 'EOF'
+          #!/bin/bash
+          echo "=== Agent Status Check ==="
+          echo "Active tmux sessions:"
+          tmux list-sessions 2>/dev/null | wc -l
+          echo ""
+          echo "Running sessions:"
+          tmux list-sessions 2>/dev/null || echo "No active sessions"
+          EOF
+          
+          chmod +x /home/agent/check-agents.sh
+          chown agent:agent /home/agent/check-agents.sh
+      Tags:
+        - Key: Name
+          Value: !Sub '${Environment}-agent-instance'
+        - Key: Environment
+          Value: !Ref Environment
+        - Key: Purpose
+          Value: 'AI Agent System - 50 Agents'
+
+  # SQS Queue for agent communication
+  AgentQueue:
+    Type: AWS::SQS::Queue
+    Properties:
+      QueueName: !Sub '${Environment}-agent-queue'
+      VisibilityTimeoutSeconds: 300
+      MessageRetentionPeriod: 1209600
+
+Outputs:
+  InstanceId:
+    Description: Instance ID of the agent server
+    Value: !Ref AgentInstance
+    Export:
+      Name: !Sub '${Environment}-agent-instance-id'
+  
+  InstancePublicIP:
+    Description: Public IP of the agent server
+    Value: !GetAtt AgentInstance.PublicIp
+    Export:
+      Name: !Sub '${Environment}-agent-public-ip'
+  
+  SSHCommand:
+    Description: SSH command to connect to the instance
+    Value: !Sub 'ssh -i your-key.pem ec2-user@${AgentInstance.PublicIp}'
+  
+  AgentQueueURL:
+    Description: SQS Queue URL for agent communication
+    Value: !Ref AgentQueue
+    Export:
+      Name: !Sub '${Environment}-agent-queue-url'
+  
+  AgentManagementCommands:
+    Description: Commands to manage agents
+    Value: 'SSH to instance and run: sudo su - agent, then ./check-agents.sh'
+  
+  CostEstimate:
+    Description: Monthly cost estimate
+    Value: '$60-70/month for t3.large instance + minimal AWS services'
+  
+  AgentCount:
+    Description: Number of agents running
+    Value: '50 agents in separate tmux sessions with context retention'

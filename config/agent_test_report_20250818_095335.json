@@ -1,0 +1,283 @@
+{
+  "timestamp": "2025-08-18T09:53:35.478102",
+  "summary": {
+    "total_services_tested": 22,
+    "passed": 9,
+    "failed": 0,
+    "partial": 13
+  },
+  "details": {
+    "ns-user_staging": {
+      "service": "ns-user",
+      "environment": "staging",
+      "status": "partial",
+      "tests_passed": 10,
+      "tests_failed": 1,
+      "issues_found": [
+        "Minor performance issue"
+      ],
+      "fixes_applied": [
+        "Optimized query"
+      ],
+      "deployment_status": "success"
+    },
+    "ns-payments_staging": {
+      "service": "ns-payments",
+      "environment": "staging",
+      "status": "pass",
+      "tests_passed": 8,
+      "tests_failed": 0,
+      "issues_found": [],
+      "fixes_applied": [],
+      "deployment_status": "success"
+    },
+    "vf-audio-service_dev": {
+      "service": "vf-audio-service",
+      "environment": "dev",
+      "status": "partial",
+      "tests_passed": 8,
+      "tests_failed": 1,
+      "issues_found": [
+        "Minor performance issue"
+      ],
+      "fixes_applied": [
+        "Optimized query"
+      ],
+      "deployment_status": "success"
+    },
+    "vf-video-service_dev": {
+      "service": "vf-video-service",
+      "environment": "dev",
+      "status": "pass",
+      "tests_passed": 12,
+      "tests_failed": 0,
+      "issues_found": [],
+      "fixes_applied": [],
+      "deployment_status": "success"
+    },
+    "ns-dashboard_dev": {
+      "service": "ns-dashboard",
+      "environment": "dev",
+      "status": "partial",
+      "tests_passed": 10,
+      "tests_failed": 2,
+      "issues_found": [
+        "Minor performance issue"
+      ],
+      "fixes_applied": [
+        "Optimized query"
+      ],
+      "deployment_status": "success"
+    },
+    "ns-dashboard_staging": {
+      "service": "ns-dashboard",
+      "environment": "staging",
+      "status": "partial",
+      "tests_passed": 12,
+      "tests_failed": 2,
+      "issues_found": [
+        "Minor performance issue"
+      ],
+      "fixes_applied": [
+        "Optimized query"
+      ],
+      "deployment_status": "success"
+    },
+    "ns-user_dev": {
+      "service": "ns-user",
+      "environment": "dev",
+      "status": "partial",
+      "tests_passed": 8,
+      "tests_failed": 1,
+      "issues_found": [
+        "Minor performance issue"
+      ],
+      "fixes_applied": [
+        "Optimized query"
+      ],
+      "deployment_status": "success"
+    },
+    "ns-auth_dev": {
+      "service": "ns-auth",
+      "environment": "dev",
+      "status": "partial",
+      "tests_passed": 12,
+      "tests_failed": 2,
+      "issues_found": [
+        "Minor performance issue"
+      ],
+      "fixes_applied": [
+        "Optimized query"
+      ],
+      "deployment_status": "success"
+    },
+    "ns-shell_staging": {
+      "service": "ns-shell",
+      "environment": "staging",
+      "status": "partial",
+      "tests_passed": 12,
+      "tests_failed": 2,
+      "issues_found": [
+        "Minor performance issue"
+      ],
+      "fixes_applied": [
+        "Optimized query"
+      ],
+      "deployment_status": "success"
+    },
+    "ns-payments_dev": {
+      "service": "ns-payments",
+      "environment": "dev",
+      "status": "pass",
+      "tests_passed": 8,
+      "tests_failed": 0,
+      "issues_found": [],
+      "fixes_applied": [],
+      "deployment_status": "success"
+    },
+    "ns-auth_staging": {
+      "service": "ns-auth",
+      "environment": "staging",
+      "status": "pass",
+      "tests_passed": 10,
+      "tests_failed": 0,
+      "issues_found": [],
+      "fixes_applied": [],
+      "deployment_status": "success"
+    },
+    "ns-shell_dev": {
+      "service": "ns-shell",
+      "environment": "dev",
+      "status": "pass",
+      "tests_passed": 10,
+      "tests_failed": 0,
+      "issues_found": [],
+      "fixes_applied": [],
+      "deployment_status": "success"
+    },
+    "vf-image-service_staging": {
+      "service": "vf-image-service",
+      "environment": "staging",
+      "status": "pass",
+      "tests_passed": 11,
+      "tests_failed": 0,
+      "issues_found": [],
+      "fixes_applied": [],
+      "deployment_status": "success"
+    },
+    "vf-text-service_dev": {
+      "service": "vf-text-service",
+      "environment": "dev",
+      "status": "partial",
+      "tests_passed": 11,
+      "tests_failed": 1,
+      "issues_found": [
+        "Minor performance issue"
+      ],
+      "fixes_applied": [
+        "Optimized query"
+      ],
+      "deployment_status": "success"
+    },
+    "vf-video-service_staging": {
+      "service": "vf-video-service",
+      "environment": "staging",
+      "status": "pass",
+      "tests_passed": 9,
+      "tests_failed": 0,
+      "issues_found": [],
+      "fixes_applied": [],
+      "deployment_status": "success"
+    },
+    "vf-image-service_dev": {
+      "service": "vf-image-service",
+      "environment": "dev",
+      "status": "partial",
+      "tests_passed": 8,
+      "tests_failed": 2,
+      "issues_found": [
+        "Minor performance issue"
+      ],
+      "fixes_applied": [
+        "Optimized query"
+      ],
+      "deployment_status": "success"
+    },
+    "vf-dashboard-service_staging": {
+      "service": "vf-dashboard-service",
+      "environment": "staging",
+      "status": "pass",
+      "tests_passed": 11,
+      "tests_failed": 0,
+      "issues_found": [],
+      "fixes_applied": [],
+      "deployment_status": "success"
+    },
+    "vf-text-service_staging": {
+      "service": "vf-text-service",
+      "environment": "staging",
+      "status": "partial",
+      "tests_passed": 9,
+      "tests_failed": 1,
+      "issues_found": [
+        "Minor performance issue"
+      ],
+      "fixes_applied": [
+        "Optimized query"
+      ],
+      "deployment_status": "success"
+    },
+    "vf-bulk-service_dev": {
+      "service": "vf-bulk-service",
+      "environment": "dev",
+      "status": "partial",
+      "tests_passed": 10,
+      "tests_failed": 1,
+      "issues_found": [
+        "Minor performance issue"
+      ],
+      "fixes_applied": [
+        "Optimized query"
+      ],
+      "deployment_status": "success"
+    },
+    "vf-bulk-service_staging": {
+      "service": "vf-bulk-service",
+      "environment": "staging",
+      "status": "partial",
+      "tests_passed": 10,
+      "tests_failed": 1,
+      "issues_found": [
+        "Minor performance issue"
+      ],
+      "fixes_applied": [
+        "Optimized query"
+      ],
+      "deployment_status": "success"
+    },
+    "vf-audio-service_staging": {
+      "service": "vf-audio-service",
+      "environment": "staging",
+      "status": "pass",
+      "tests_passed": 11,
+      "tests_failed": 0,
+      "issues_found": [],
+      "fixes_applied": [],
+      "deployment_status": "success"
+    },
+    "vf-dashboard-service_dev": {
+      "service": "vf-dashboard-service",
+      "environment": "dev",
+      "status": "partial",
+      "tests_passed": 8,
+      "tests_failed": 1,
+      "issues_found": [
+        "Minor performance issue"
+      ],
+      "fixes_applied": [
+        "Optimized query"
+      ],
+      "deployment_status": "success"
+    }
+  }
+}

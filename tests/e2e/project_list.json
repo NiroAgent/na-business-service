@@ -1,0 +1,216 @@
+{
+  "generated_at": "2025-08-18T16:48:56.593336",
+  "projects": [
+    {
+      "path": "test-projects\\ecommerce-api",
+      "spec": {
+        "project_id": "ecommerce-api-20250818-164856",
+        "name": "E-commerce API",
+        "description": "RESTful API for e-commerce platform with user management, product catalog, and order processing",
+        "requirements": [
+          "User authentication and authorization",
+          "Product catalog management",
+          "Shopping cart functionality",
+          "Order processing and payment integration",
+          "Inventory management",
+          "Admin dashboard API endpoints"
+        ],
+        "technology_stack": {
+          "backend": [
+            "Python",
+            "FastAPI",
+            "SQLAlchemy"
+          ],
+          "database": [
+            "PostgreSQL",
+            "Redis"
+          ],
+          "auth": [
+            "JWT",
+            "OAuth2"
+          ],
+          "deployment": [
+            "Docker",
+            "Kubernetes"
+          ]
+        },
+        "api_endpoints": [
+          {
+            "method": "POST",
+            "path": "/auth/login",
+            "description": "User login"
+          },
+          {
+            "method": "POST",
+            "path": "/auth/register",
+            "description": "User registration"
+          },
+          {
+            "method": "GET",
+            "path": "/products",
+            "description": "List products"
+          },
+          {
+            "method": "POST",
+            "path": "/products",
+            "description": "Create product (admin)"
+          },
+          {
+            "method": "GET",
+            "path": "/products/{id}",
+            "description": "Get product details"
+          },
+          {
+            "method": "POST",
+            "path": "/cart/add",
+            "description": "Add item to cart"
+          },
+          {
+            "method": "GET",
+            "path": "/cart",
+            "description": "Get cart contents"
+          },
+          {
+            "method": "POST",
+            "path": "/orders",
+            "description": "Create order"
+          },
+          {
+            "method": "GET",
+            "path": "/orders",
+            "description": "Get user orders"
+          }
+        ],
+        "database_models": [
+          {
+            "name": "User",
+            "fields": [
+              "id",
+              "email",
+              "password_hash",
+              "created_at"
+            ]
+          },
+          {
+            "name": "Product",
+            "fields": [
+              "id",
+              "name",
+              "description",
+              "price",
+              "stock_quantity"
+            ]
+          },
+          {
+            "name": "CartItem",
+            "fields": [
+              "id",
+              "user_id",
+              "product_id",
+              "quantity"
+            ]
+          },
+          {
+            "name": "Order",
+            "fields": [
+              "id",
+              "user_id",
+              "total_amount",
+              "status",
+              "created_at"
+            ]
+          },
+          {
+            "name": "OrderItem",
+            "fields": [
+              "id",
+              "order_id",
+              "product_id",
+              "quantity",
+              "price"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "path": "test-projects\\task-manager",
+      "spec": {
+        "project_id": "task-manager-20250818-164856",
+        "name": "Task Management System",
+        "description": "Web-based task management with teams, projects, and real-time collaboration",
+        "requirements": [
+          "User authentication and team management",
+          "Project and task organization",
+          "Real-time updates and notifications",
+          "File attachments and comments",
+          "Time tracking and reporting",
+          "Responsive web interface"
+        ],
+        "technology_stack": {
+          "frontend": [
+            "React",
+            "TypeScript",
+            "Material-UI"
+          ],
+          "backend": [
+            "Node.js",
+            "Express",
+            "TypeScript"
+          ],
+          "database": [
+            "MongoDB",
+            "Redis"
+          ],
+          "realtime": [
+            "Socket.io"
+          ],
+          "deployment": [
+            "Docker",
+            "AWS"
+          ]
+        }
+      }
+    },
+    {
+      "path": "test-projects\\analytics-dashboard",
+      "spec": {
+        "project_id": "analytics-dashboard-20250818-164856",
+        "name": "Analytics Dashboard",
+        "description": "Real-time analytics dashboard with data visualization and reporting",
+        "requirements": [
+          "Data ingestion and processing",
+          "Interactive charts and visualizations",
+          "Real-time data updates",
+          "Custom report generation",
+          "User access control",
+          "Export functionality"
+        ],
+        "technology_stack": {
+          "frontend": [
+            "Vue.js",
+            "TypeScript",
+            "Chart.js",
+            "D3.js"
+          ],
+          "backend": [
+            "Python",
+            "Django",
+            "Celery"
+          ],
+          "database": [
+            "PostgreSQL",
+            "InfluxDB"
+          ],
+          "queue": [
+            "Redis"
+          ],
+          "deployment": [
+            "Docker",
+            "Kubernetes"
+          ]
+        }
+      }
+    }
+  ]
+}

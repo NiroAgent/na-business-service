@@ -1,0 +1,202 @@
+name: Deploy VF Live Dashboard
+
+on:
+  push:
+    branches: 
+      - development
+      - dev
+      - 'release/**'
+      - 'release/*'
+      - main
+    paths:
+      - 'dashboard/**'
+      - 'infrastructure/**'
+      - '.github/workflows/deploy-dashboard.yml'
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: 'Target Environment'
+        required: true
+        default: 'dev'
+        type: choice
+        options:
+        - dev
+        - staging
+        - production
+
+env:
+  AWS_REGION: us-east-1
+  ECR_REPOSITORY: vf-live-dashboard
+  
+jobs:
+  deploy:
+    name: Deploy Dashboard to ${{ steps.env.outputs.environment }}
+    runs-on: ubuntu-latest
+    environment: ${{ steps.env.outputs.environment }}
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Determine target environment
+      id: env
+      run: |
+        if [[ "${{ github.event_name }}" == "workflow_dispatch" ]]; then
+          ENV="${{ github.event.inputs.environment }}"
+        else
+          # Determine environment based on branch
+          BRANCH="${{ github.ref_name }}"
+          case $BRANCH in
+            development|dev)
+              ENV="dev"
+              ;;
+            release/*|release**)
+              ENV="staging"
+              ;;
+            main)
+              ENV="production"
+              ;;
+            *)
+              ENV="dev"  # Default fallback
+              ;;
+          esac
+        fi
+        
+        echo "ENVIRONMENT=$ENV" >> $GITHUB_ENV
+        echo "environment=$ENV" >> $GITHUB_OUTPUT
+        echo "🎯 Deploying to environment: $ENV (from branch: ${{ github.ref_name }})"
+        
+    - name: Set environment variables
+      run: |
+        ENV="${{ env.ENVIRONMENT }}"
+        case $ENV in
+          dev)
+            echo "AWS_ACCOUNT_ID=319040880702" >> $GITHUB_ENV
+            echo "DOMAIN_NAME=dev.visualforge.com" >> $GITHUB_ENV
+            ;;
+          staging)
+            echo "AWS_ACCOUNT_ID=275057778147" >> $GITHUB_ENV
+            echo "DOMAIN_NAME=staging.visualforge.com" >> $GITHUB_ENV
+            ;;
+          production)
+            echo "AWS_ACCOUNT_ID=229742714212" >> $GITHUB_ENV
+            echo "DOMAIN_NAME=visualforge.com" >> $GITHUB_ENV
+            ;;
+        esac
+        
+    - name: Configure AWS credentials
+      uses: aws-actions/configure-aws-credentials@v4
+      with:
+        role-to-assume: arn:aws:iam::${{ env.AWS_ACCOUNT_ID }}:role/GitHubActionsRole
+        aws-region: ${{ env.AWS_REGION }}
+        
+    - name: Login to Amazon ECR
+      id: login-ecr
+      uses: aws-actions/amazon-ecr-login@v2
+      
+    - name: Build and push Docker image
+      env:
+        ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+        IMAGE_TAG: ${{ github.sha }}
+      run: |
+        # Build Docker image
+        docker build -f dashboard/Dockerfile -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG ./dashboard
+        docker tag $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG $ECR_REGISTRY/$ECR_REPOSITORY:latest
+        
+        # Push to ECR
+        docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
+        docker push $ECR_REGISTRY/$ECR_REPOSITORY:latest
+        
+        echo "IMAGE_URI=$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG" >> $GITHUB_ENV
+        
+    - name: Deploy CloudFormation infrastructure
+      run: |
+        # Deploy ECR repository first
+        aws cloudformation deploy \
+          --template-file infrastructure/cloudformation/ecr-repository.yml \
+          --stack-name vf-dashboard-ecr-${{ env.ENVIRONMENT }} \
+          --parameter-overrides \
+            Environment=${{ env.ENVIRONMENT }} \
+            RepositoryName=${{ env.ECR_REPOSITORY }} \
+          --capabilities CAPABILITY_IAM \
+          --region ${{ env.AWS_REGION }}
+          
+        # Deploy EKS cluster infrastructure
+        aws cloudformation deploy \
+          --template-file infrastructure/cloudformation/eks-cluster.yml \
+          --stack-name vf-dashboard-eks-${{ env.ENVIRONMENT }} \
+          --parameter-overrides \
+            Environment=${{ env.ENVIRONMENT }} \
+            ClusterName=vf-dashboard-${{ env.ENVIRONMENT }} \
+          --capabilities CAPABILITY_IAM \
+          --region ${{ env.AWS_REGION }}
+          
+        # Deploy ALB and ingress infrastructure
+        aws cloudformation deploy \
+          --template-file infrastructure/cloudformation/alb-ingress.yml \
+          --stack-name vf-dashboard-alb-${{ env.ENVIRONMENT }} \
+          --parameter-overrides \
+            Environment=${{ env.ENVIRONMENT }} \
+            DomainName=${{ env.DOMAIN_NAME }} \
+            ClusterName=vf-dashboard-${{ env.ENVIRONMENT }} \
+          --capabilities CAPABILITY_IAM \
+          --region ${{ env.AWS_REGION }}
+          
+    - name: Update kubeconfig
+      run: |
+        aws eks update-kubeconfig --region ${{ env.AWS_REGION }} --name vf-dashboard-${{ env.ENVIRONMENT }}
+        
+    - name: Deploy to Kubernetes
+      env:
+        IMAGE_URI: ${{ env.IMAGE_URI }}
+      run: |
+        # Replace image URI in deployment manifest
+        envsubst < dashboard/k8s-deployment.yaml > deployment-manifest.yaml
+        
+        # Apply Kubernetes manifests
+        kubectl apply -f deployment-manifest.yaml
+        
+        # Wait for deployment to be ready
+        kubectl rollout status deployment/vf-live-dashboard -n vf-dev --timeout=300s
+        
+        # Verify deployment
+        kubectl get pods -n vf-dev -l app=vf-live-dashboard
+        
+    - name: Update Route53 DNS
+      run: |
+        # Get ALB DNS name
+        ALB_DNS=$(aws elbv2 describe-load-balancers \
+          --query "LoadBalancers[?contains(LoadBalancerName, 'vf-dashboard-${{ env.ENVIRONMENT }}')].DNSName" \
+          --output text)
+          
+        # Update Route53 record
+        aws cloudformation deploy \
+          --template-file infrastructure/cloudformation/route53-record.yml \
+          --stack-name vf-dashboard-dns-${{ env.ENVIRONMENT }} \
+          --parameter-overrides \
+            Environment=${{ env.ENVIRONMENT }} \
+            DomainName=${{ env.DOMAIN_NAME }} \
+            ALBDNSName=$ALB_DNS \
+          --capabilities CAPABILITY_IAM \
+          --region ${{ env.AWS_REGION }}
+          
+    - name: Post-deployment verification
+      run: |
+        echo "🚀 Dashboard deployed successfully!"
+        echo "🌐 URL: https://${{ env.DOMAIN_NAME }}/dashboard"
+        echo "🏗️ Environment: ${{ env.ENVIRONMENT }}"
+        echo "🐳 Image: ${{ env.IMAGE_URI }}"
+        
+        # Health check
+        timeout 60 bash -c 'until curl -f https://${{ env.DOMAIN_NAME }}/dashboard/health; do sleep 5; done'
+        echo "✅ Health check passed!"
+        
+    - name: Notify deployment status
+      if: always()
+      run: |
+        if [ "${{ job.status }}" == "success" ]; then
+          echo "✅ Deployment successful to ${{ env.ENVIRONMENT }}"
+          echo "🌐 Dashboard available at: https://${{ env.DOMAIN_NAME }}/dashboard"
+        else
+          echo "❌ Deployment failed to ${{ env.ENVIRONMENT }}"
+        fi

@@ -1,0 +1,24 @@
+
+service: ns-services
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+  region: us-east-1
+  
+functions:
+  core:
+    name: ns-core
+    handler: src/core/handler.main
+    
+  user:
+    name: ns-user
+    handler: src/user/handler.main
+    
+  dashboard:
+    name: ns-dashboard
+    handler: src/dashboard/handler.main
+    
+  payments:
+    name: ns-payments
+    handler: src/payments/handler.main

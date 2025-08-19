@@ -1,0 +1,92 @@
+FROM python:3.11-slim
+
+# Install system dependencies
+RUN apt-get update && apt-get install -y \
+    git \
+    tmux \
+    htop \
+    curl \
+    nodejs \
+    npm \
+    chromium \
+    && rm -rf /var/lib/apt/lists/*
+
+WORKDIR /app
+
+# Copy real AI agent scripts from src/agents
+COPY src/agents/ai-qa-agent.py /app/
+COPY src/agents/ai-developer-agent.py /app/
+COPY src/agents/ai-operations-agent.py /app/
+COPY src/agents/ai-devops-agent.py /app/
+COPY src/agents/ai-security-agent.py /app/
+
+# Install Python dependencies
+RUN pip install --no-cache-dir \
+    boto3 \
+    requests \
+    pygithub \
+    pytest \
+    playwright \
+    pandas \
+    numpy \
+    asyncio \
+    aiohttp
+
+# Install Playwright browsers
+RUN npx playwright install-deps
+RUN npx playwright install
+
+# Create directories
+RUN mkdir -p /app/logs /app/config /app/reports
+
+# Create startup script for real agents
+RUN echo '#!/bin/bash' > start-real-agents.sh && \
+    echo '' >> start-real-agents.sh && \
+    echo '# Get GitHub token from environment or AWS Secrets' >> start-real-agents.sh && \
+    echo 'if [ -z "$GITHUB_TOKEN" ]; then' >> start-real-agents.sh && \
+    echo '  export GITHUB_TOKEN=$(aws secretsmanager get-secret-value --secret-id github-agent-token --query SecretString --output text 2>/dev/null)' >> start-real-agents.sh && \
+    echo 'fi' >> start-real-agents.sh && \
+    echo '' >> start-real-agents.sh && \
+    echo 'echo "Starting Real AI Agents for Testing and Bug Fixing..."' >> start-real-agents.sh && \
+    echo '' >> start-real-agents.sh && \
+    echo '# Start QA Agent - Runs Playwright tests' >> start-real-agents.sh && \
+    echo 'tmux new-session -d -s qa-agent "python /app/ai-qa-agent.py --monitor --run-tests"' >> start-real-agents.sh && \
+    echo 'echo "Started QA Agent"' >> start-real-agents.sh && \
+    echo '' >> start-real-agents.sh && \
+    echo '# Start Developer Agent - Fixes bugs' >> start-real-agents.sh && \
+    echo 'tmux new-session -d -s dev-agent "python /app/ai-developer-agent.py --monitor --fix-bugs"' >> start-real-agents.sh && \
+    echo 'echo "Started Developer Agent"' >> start-real-agents.sh && \
+    echo '' >> start-real-agents.sh && \
+    echo '# Start Operations Agent - Monitors everything' >> start-real-agents.sh && \
+    echo 'tmux new-session -d -s ops-agent "python /app/ai-operations-agent.py --monitor"' >> start-real-agents.sh && \
+    echo 'echo "Started Operations Agent"' >> start-real-agents.sh && \
+    echo '' >> start-real-agents.sh && \
+    echo '# Start DevOps Agent - Infrastructure' >> start-real-agents.sh && \
+    echo 'tmux new-session -d -s devops-agent "python /app/ai-devops-agent.py --monitor"' >> start-real-agents.sh && \
+    echo 'echo "Started DevOps Agent"' >> start-real-agents.sh && \
+    echo '' >> start-real-agents.sh && \
+    echo '# Start Security Agent - Security scanning' >> start-real-agents.sh && \
+    echo 'tmux new-session -d -s security-agent "python /app/ai-security-agent.py --monitor"' >> start-real-agents.sh && \
+    echo 'echo "Started Security Agent"' >> start-real-agents.sh && \
+    echo '' >> start-real-agents.sh && \
+    echo 'echo "All Real AI Agents Started!"' >> start-real-agents.sh && \
+    echo 'tmux list-sessions' >> start-real-agents.sh && \
+    echo '' >> start-real-agents.sh && \
+    echo '# Keep container running and show logs' >> start-real-agents.sh && \
+    echo 'tail -f /app/logs/*.log' >> start-real-agents.sh && \
+    chmod +x start-real-agents.sh
+
+# Create health check script
+RUN echo '#!/bin/bash' > health-check.sh && \
+    echo 'tmux list-sessions | grep -q "qa-agent" && echo "QA Agent: Running" || echo "QA Agent: Not Running"' >> health-check.sh && \
+    echo 'tmux list-sessions | grep -q "dev-agent" && echo "Dev Agent: Running" || echo "Dev Agent: Not Running"' >> health-check.sh && \
+    echo 'tmux list-sessions | grep -q "ops-agent" && echo "Ops Agent: Running" || echo "Ops Agent: Not Running"' >> health-check.sh && \
+    chmod +x health-check.sh
+
+EXPOSE 8080
+
+# Health check
+HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
+  CMD ./health-check.sh || exit 1
+
+CMD ["./start-real-agents.sh"]

@@ -1,0 +1,840 @@
+{
+  "spec_id": "arch-20250818-140125-675cd1",
+  "issue_id": "test-001",
+  "title": "Create user authentication system with OAuth2",
+  "created_at": "2025-08-18T14:01:25.855699",
+  "requirements": [
+    {
+      "type": "performance",
+      "category": "metric",
+      "description": "requirement: authentication should complete within 200ms.",
+      "priority": "high"
+    },
+    {
+      "type": "security",
+      "category": "requirement",
+      "description": "requirement: must comply with owasp standards.",
+      "priority": "high"
+    },
+    {
+      "type": "integration",
+      "category": "external_system",
+      "description": "our existing postgresql database.",
+      "priority": "medium"
+    }
+  ],
+  "architecture": {
+    "pattern": "microservices",
+    "components": [
+      {
+        "name": "API Gateway",
+        "type": "Infrastructure",
+        "technologies": [
+          "Kong",
+          "nginx"
+        ],
+        "responsibilities": [
+          "Routing",
+          "Rate limiting",
+          "Authentication"
+        ]
+      },
+      {
+        "name": "Service Discovery",
+        "type": "Infrastructure",
+        "technologies": [
+          "Consul",
+          "Eureka"
+        ],
+        "responsibilities": [
+          "Service registration",
+          "Health checking"
+        ]
+      },
+      {
+        "name": "User Service",
+        "type": "Service",
+        "technologies": [
+          "Node.js",
+          "Express",
+          "TypeScript",
+          "Docker",
+          "RabbitMQ"
+        ],
+        "responsibilities": [
+          "User management",
+          "Authentication"
+        ]
+      },
+      {
+        "name": "Business Logic Service",
+        "type": "Service",
+        "technologies": [
+          "Node.js",
+          "Express",
+          "TypeScript",
+          "Docker",
+          "RabbitMQ"
+        ],
+        "responsibilities": [
+          "Core business logic"
+        ]
+      },
+      {
+        "name": "Notification Service",
+        "type": "Service",
+        "technologies": [
+          "Node.js"
+        ],
+        "responsibilities": [
+          "Email",
+          "SMS",
+          "Push notifications"
+        ]
+      },
+      {
+        "name": "Message Broker",
+        "type": "Infrastructure",
+        "technologies": [
+          "RabbitMQ",
+          "Kafka"
+        ],
+        "responsibilities": [
+          "Async communication",
+          "Event streaming"
+        ]
+      },
+      {
+        "name": "Frontend",
+        "type": "UI",
+        "technologies": [
+          "React",
+          "TypeScript",
+          "Tailwind CSS",
+          "Vite"
+        ],
+        "responsibilities": [
+          "User interface",
+          "User experience"
+        ]
+      },
+      {
+        "name": "Database",
+        "type": "Data",
+        "technologies": [
+          "PostgreSQL",
+          "Redis"
+        ],
+        "responsibilities": [
+          "Data persistence",
+          "Queries"
+        ]
+      },
+      {
+        "name": "Cache",
+        "type": "Data",
+        "technologies": [
+          "Redis"
+        ],
+        "responsibilities": [
+          "Session storage",
+          "Query caching"
+        ]
+      },
+      {
+        "name": "CDN",
+        "type": "Infrastructure",
+        "technologies": [
+          "CloudFlare"
+        ],
+        "responsibilities": [
+          "Static asset delivery",
+          "Edge caching"
+        ]
+      }
+    ],
+    "connections": [
+      {
+        "from": "Frontend",
+        "to": "API Gateway",
+        "type": "HTTPS",
+        "protocol": "REST/GraphQL"
+      },
+      {
+        "from": "API Gateway",
+        "to": "User Service",
+        "type": "HTTP",
+        "protocol": "REST"
+      },
+      {
+        "from": "API Gateway",
+        "to": "Business Logic Service",
+        "type": "HTTP",
+        "protocol": "REST"
+      },
+      {
+        "from": "Business Logic Service",
+        "to": "Database",
+        "type": "TCP",
+        "protocol": "SQL"
+      },
+      {
+        "from": "Business Logic Service",
+        "to": "Message Broker",
+        "type": "AMQP",
+        "protocol": "Async"
+      },
+      {
+        "from": "Message Broker",
+        "to": "Notification Service",
+        "type": "AMQP",
+        "protocol": "Async"
+      },
+      {
+        "from": "All Services",
+        "to": "Cache",
+        "type": "TCP",
+        "protocol": "Redis Protocol"
+      }
+    ],
+    "security_layers": [
+      {
+        "layer": "Network",
+        "measures": [
+          "Firewall",
+          "VPC",
+          "Security Groups"
+        ]
+      },
+      {
+        "layer": "Application",
+        "measures": [
+          "JWT Authentication",
+          "RBAC",
+          "Input Validation"
+        ]
+      },
+      {
+        "layer": "Data",
+        "measures": [
+          "Encryption at rest",
+          "Encryption in transit",
+          "Backup"
+        ]
+      },
+      {
+        "layer": "Monitoring",
+        "measures": [
+          "Intrusion Detection",
+          "Audit Logging",
+          "Alerting"
+        ]
+      }
+    ],
+    "scalability_approach": {
+      "horizontal_scaling": true,
+      "auto_scaling": true,
+      "load_balancing": "Application Load Balancer",
+      "scaling_triggers": [
+        "CPU > 70%",
+        "Memory > 80%",
+        "Request Rate > 1000/min"
+      ]
+    },
+    "data_flow": [
+      {
+        "step": "1",
+        "description": "User interacts with Frontend"
+      },
+      {
+        "step": "2",
+        "description": "Frontend sends API request"
+      },
+      {
+        "step": "3",
+        "description": "API Gateway validates and routes request"
+      },
+      {
+        "step": "4",
+        "description": "Service processes business logic"
+      },
+      {
+        "step": "5",
+        "description": "Database query/update performed"
+      },
+      {
+        "step": "6",
+        "description": "Response returned through gateway"
+      },
+      {
+        "step": "7",
+        "description": "Frontend updates UI with response"
+      }
+    ]
+  },
+  "api_design": {
+    "proto_file": "syntax = \"proto3\";\n\npackage api;\n\nimport \"google/protobuf/timestamp.proto\";\nimport \"google/protobuf/empty.proto\";\n\n\nmessage User {\n    string id = 1;\n    google.protobuf.Timestamp created_at = 2;\n    google.protobuf.Timestamp updated_at = 3;\n}\n\nmessage UserRequest {\n    string id = 1;\n}\n\nmessage UserListRequest {\n    int32 limit = 1;\n    int32 offset = 2;\n}\n\nmessage UserListResponse {\n    repeated User items = 1;\n}\n\nservice UserService {\n    rpc Get(UserRequest) returns (User);\n    rpc List(UserListRequest) returns (UserListResponse);\n    rpc Create(User) returns (User);\n    rpc Update(User) returns (User);\n    rpc Delete(UserRequest) returns (google.protobuf.Empty);\n}\n\nmessage Data {\n    string id = 1;\n    google.protobuf.Timestamp created_at = 2;\n    google.protobuf.Timestamp updated_at = 3;\n}\n\nmessage DataRequest {\n    string id = 1;\n}\n\nmessage DataListRequest {\n    int32 limit = 1;\n    int32 offset = 2;\n}\n\nmessage DataListResponse {\n    repeated Data items = 1;\n}\n\nservice DataService {\n    rpc Get(DataRequest) returns (Data);\n    rpc List(DataListRequest) returns (DataListResponse);\n    rpc Create(Data) returns (Data);\n    rpc Update(Data) returns (Data);\n    rpc Delete(DataRequest) returns (google.protobuf.Empty);\n}\n\nmessage Resource {\n    string id = 1;\n    google.protobuf.Timestamp created_at = 2;\n    google.protobuf.Timestamp updated_at = 3;\n}\n\nmessage ResourceRequest {\n    string id = 1;\n}\n\nmessage ResourceListRequest {\n    int32 limit = 1;\n    int32 offset = 2;\n}\n\nmessage ResourceListResponse {\n    repeated Resource items = 1;\n}\n\nservice ResourceService {\n    rpc Get(ResourceRequest) returns (Resource);\n    rpc List(ResourceListRequest) returns (ResourceListResponse);\n    rpc Create(Resource) returns (Resource);\n    rpc Update(Resource) returns (Resource);\n    rpc Delete(ResourceRequest) returns (google.protobuf.Empty);\n}\n",
+    "services": [
+      "UserService",
+      "DataService",
+      "ResourceService"
+    ]
+  },
+  "database_design": {
+    "type": "relational",
+    "engine": "PostgreSQL",
+    "tables": [
+      {
+        "name": "users",
+        "fields": [
+          {
+            "name": "id",
+            "type": "UUID",
+            "constraints": [
+              "PRIMARY KEY",
+              "DEFAULT gen_random_uuid()"
+            ]
+          },
+          {
+            "name": "created_at",
+            "type": "TIMESTAMP",
+            "constraints": [
+              "NOT NULL",
+              "DEFAULT CURRENT_TIMESTAMP"
+            ]
+          },
+          {
+            "name": "updated_at",
+            "type": "TIMESTAMP",
+            "constraints": [
+              "NOT NULL",
+              "DEFAULT CURRENT_TIMESTAMP"
+            ]
+          },
+          {
+            "name": "email",
+            "type": "VARCHAR(255)",
+            "constraints": [
+              "UNIQUE",
+              "NOT NULL"
+            ]
+          },
+          {
+            "name": "username",
+            "type": "VARCHAR(100)",
+            "constraints": [
+              "UNIQUE",
+              "NOT NULL"
+            ]
+          },
+          {
+            "name": "password_hash",
+            "type": "VARCHAR(255)",
+            "constraints": [
+              "NOT NULL"
+            ]
+          },
+          {
+            "name": "is_active",
+            "type": "BOOLEAN",
+            "constraints": [
+              "DEFAULT true"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "datas",
+        "fields": [
+          {
+            "name": "id",
+            "type": "UUID",
+            "constraints": [
+              "PRIMARY KEY",
+              "DEFAULT gen_random_uuid()"
+            ]
+          },
+          {
+            "name": "created_at",
+            "type": "TIMESTAMP",
+            "constraints": [
+              "NOT NULL",
+              "DEFAULT CURRENT_TIMESTAMP"
+            ]
+          },
+          {
+            "name": "updated_at",
+            "type": "TIMESTAMP",
+            "constraints": [
+              "NOT NULL",
+              "DEFAULT CURRENT_TIMESTAMP"
+            ]
+          },
+          {
+            "name": "name",
+            "type": "VARCHAR(255)",
+            "constraints": [
+              "NOT NULL"
+            ]
+          },
+          {
+            "name": "description",
+            "type": "TEXT",
+            "constraints": []
+          },
+          {
+            "name": "status",
+            "type": "VARCHAR(50)",
+            "constraints": [
+              "DEFAULT 'active'"
+            ]
+          },
+          {
+            "name": "user_id",
+            "type": "UUID",
+            "constraints": [
+              "REFERENCES users(id)",
+              "ON DELETE CASCADE"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "resources",
+        "fields": [
+          {
+            "name": "id",
+            "type": "UUID",
+            "constraints": [
+              "PRIMARY KEY",
+              "DEFAULT gen_random_uuid()"
+            ]
+          },
+          {
+            "name": "created_at",
+            "type": "TIMESTAMP",
+            "constraints": [
+              "NOT NULL",
+              "DEFAULT CURRENT_TIMESTAMP"
+            ]
+          },
+          {
+            "name": "updated_at",
+            "type": "TIMESTAMP",
+            "constraints": [
+              "NOT NULL",
+              "DEFAULT CURRENT_TIMESTAMP"
+            ]
+          },
+          {
+            "name": "name",
+            "type": "VARCHAR(255)",
+            "constraints": [
+              "NOT NULL"
+            ]
+          },
+          {
+            "name": "description",
+            "type": "TEXT",
+            "constraints": []
+          },
+          {
+            "name": "status",
+            "type": "VARCHAR(50)",
+            "constraints": [
+              "DEFAULT 'active'"
+            ]
+          },
+          {
+            "name": "user_id",
+            "type": "UUID",
+            "constraints": [
+              "REFERENCES users(id)",
+              "ON DELETE CASCADE"
+            ]
+          }
+        ]
+      }
+    ],
+    "relationships": [
+      {
+        "type": "one_to_many",
+        "from": "users",
+        "to": "datas",
+        "foreign_key": "user_id",
+        "on_delete": "CASCADE"
+      },
+      {
+        "type": "one_to_many",
+        "from": "users",
+        "to": "resources",
+        "foreign_key": "user_id",
+        "on_delete": "CASCADE"
+      }
+    ],
+    "indexes": [
+      {
+        "table": "users",
+        "columns": [
+          "email"
+        ],
+        "type": "BTREE"
+      },
+      {
+        "table": "users",
+        "columns": [
+          "username"
+        ],
+        "type": "BTREE"
+      }
+    ],
+    "migrations": [
+      "CREATE TABLE users (\n    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),\n    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,\n    updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,\n    email VARCHAR(255) UNIQUE NOT NULL,\n    username VARCHAR(100) UNIQUE NOT NULL,\n    password_hash VARCHAR(255) NOT NULL,\n    is_active BOOLEAN DEFAULT true\n);",
+      "CREATE TABLE datas (\n    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),\n    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,\n    updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,\n    name VARCHAR(255) NOT NULL,\n    description TEXT,\n    status VARCHAR(50) DEFAULT 'active',\n    user_id UUID REFERENCES users(id) ON DELETE CASCADE\n);",
+      "CREATE TABLE resources (\n    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),\n    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,\n    updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,\n    name VARCHAR(255) NOT NULL,\n    description TEXT,\n    status VARCHAR(50) DEFAULT 'active',\n    user_id UUID REFERENCES users(id) ON DELETE CASCADE\n);"
+    ],
+    "backup_strategy": "Daily automated backups with point-in-time recovery"
+  },
+  "technology_stack": {
+    "frontend": [
+      "React",
+      "TypeScript",
+      "Tailwind CSS",
+      "Vite"
+    ],
+    "backend": [
+      "Node.js",
+      "Express",
+      "TypeScript",
+      "Docker",
+      "RabbitMQ"
+    ],
+    "database": [
+      "PostgreSQL",
+      "Redis"
+    ],
+    "infrastructure": [
+      "Docker",
+      "Docker Compose",
+      "Nginx",
+      "AWS EC2"
+    ],
+    "monitoring": [
+      "Prometheus",
+      "Grafana",
+      "Sentry"
+    ],
+    "testing": [
+      "Jest",
+      "Cypress",
+      "Postman",
+      "K6"
+    ],
+    "cicd": [
+      "GitHub Actions",
+      "Docker Hub",
+      "ArgoCD"
+    ]
+  },
+  "deployment_strategy": {
+    "environments": [
+      {
+        "name": "development",
+        "infrastructure": "Local Docker Compose",
+        "deployment": "Manual",
+        "monitoring": "Basic logging"
+      },
+      {
+        "name": "staging",
+        "infrastructure": "Kubernetes (single node)",
+        "deployment": "GitOps with ArgoCD",
+        "monitoring": "Prometheus + Grafana"
+      },
+      {
+        "name": "production",
+        "infrastructure": "Kubernetes (multi-node)",
+        "deployment": "GitOps with ArgoCD",
+        "monitoring": "Full observability stack"
+      }
+    ],
+    "containerization": {
+      "enabled": true,
+      "base_images": {
+        "frontend": "node:18-alpine",
+        "backend": "node:18-alpine"
+      },
+      "registry": "Docker Hub / ECR",
+      "scanning": "Trivy for vulnerability scanning"
+    },
+    "orchestration": {
+      "platform": "Docker Swarm",
+      "ingress": "NGINX Ingress Controller",
+      "service_mesh": "Istio",
+      "autoscaling": {
+        "enabled": false,
+        "metrics": [
+          "CPU",
+          "Memory",
+          "Request Rate"
+        ],
+        "min_replicas": 2,
+        "max_replicas": 10
+      }
+    },
+    "ci_cd": {
+      "provider": "GitHub Actions",
+      "stages": [
+        {
+          "name": "lint",
+          "tools": [
+            "ESLint",
+            "Prettier"
+          ]
+        },
+        {
+          "name": "test",
+          "tools": [
+            "Jest",
+            "Pytest"
+          ]
+        },
+        {
+          "name": "build",
+          "tools": [
+            "Docker",
+            "Webpack"
+          ]
+        },
+        {
+          "name": "security",
+          "tools": [
+            "Snyk",
+            "OWASP ZAP"
+          ]
+        },
+        {
+          "name": "deploy",
+          "tools": [
+            "ArgoCD",
+            "Helm"
+          ]
+        }
+      ],
+      "branch_strategy": "GitFlow",
+      "release_strategy": "Semantic Versioning"
+    },
+    "monitoring": {
+      "metrics": "Prometheus",
+      "logs": "Loki",
+      "traces": "Jaeger",
+      "alerts": "AlertManager + PagerDuty",
+      "dashboards": "Grafana"
+    },
+    "security": {
+      "secrets_management": "Kubernetes Secrets + Sealed Secrets",
+      "network_policies": "Calico",
+      "rbac": "Kubernetes RBAC",
+      "scanning": "Regular vulnerability scanning",
+      "compliance": "Best practices"
+    },
+    "disaster_recovery": {
+      "backup_frequency": "Daily",
+      "backup_retention": "30 days",
+      "rto": "4 hours",
+      "rpo": "1 hour",
+      "failover": "Manual failover"
+    }
+  },
+  "implementation_roadmap": [
+    {
+      "phase": 1,
+      "name": "Project Setup & Foundation",
+      "tasks": [
+        "Initialize repository and version control",
+        "Set up development environment",
+        "Configure linting and code formatting",
+        "Set up basic CI/CD pipeline",
+        "Create project documentation structure"
+      ],
+      "deliverables": [
+        "Development environment",
+        "CI/CD pipeline",
+        "Project structure"
+      ],
+      "duration": "2-3 days",
+      "dependencies": []
+    },
+    {
+      "phase": 2,
+      "name": "Infrastructure & DevOps",
+      "tasks": [
+        "Set up containerization (Docker)",
+        "Configure local development with Docker Compose",
+        "Configure deployment scripts",
+        "Implement infrastructure as code (Terraform)",
+        "Set up monitoring and logging"
+      ],
+      "deliverables": [
+        "Docker images",
+        "Deployment configuration",
+        "Monitoring setup"
+      ],
+      "duration": "3-4 days",
+      "dependencies": [
+        "Phase 1"
+      ]
+    },
+    {
+      "phase": 3,
+      "name": "Backend Development",
+      "tasks": [
+        "Implement database schema and migrations",
+        "Create data models and ORM setup",
+        "Develop API endpoints",
+        "Implement business logic",
+        "Add authentication and authorization",
+        "Write unit and integration tests"
+      ],
+      "deliverables": [
+        "API endpoints",
+        "Database",
+        "Authentication system"
+      ],
+      "duration": "10-14 days",
+      "dependencies": [
+        "Phase 2"
+      ]
+    },
+    {
+      "phase": 4,
+      "name": "Microservices Infrastructure",
+      "tasks": [
+        "Set up service discovery",
+        "Implement API gateway",
+        "Configure service mesh",
+        "Set up message broker",
+        "Implement distributed tracing"
+      ],
+      "deliverables": [
+        "Service mesh",
+        "API gateway",
+        "Message broker"
+      ],
+      "duration": "4-5 days",
+      "dependencies": [
+        "Phase 2"
+      ]
+    },
+    {
+      "phase": 5,
+      "name": "Frontend Development",
+      "tasks": [
+        "Set up frontend framework and tooling",
+        "Implement UI components",
+        "Create state management",
+        "Integrate with backend API",
+        "Implement routing and navigation",
+        "Add form validation and error handling",
+        "Write component tests"
+      ],
+      "deliverables": [
+        "User interface",
+        "Frontend application",
+        "Component library"
+      ],
+      "duration": "10-14 days",
+      "dependencies": [
+        "Phase 3 (API endpoints)"
+      ]
+    },
+    {
+      "phase": 6,
+      "name": "Integration & Testing",
+      "tasks": [
+        "End-to-end integration testing",
+        "Performance testing and optimization",
+        "Security testing and hardening",
+        "User acceptance testing",
+        "Bug fixes and refinements",
+        "Load testing"
+      ],
+      "deliverables": [
+        "Test reports",
+        "Performance metrics",
+        "Security audit"
+      ],
+      "duration": "3-5 days",
+      "dependencies": [
+        "Phase 4"
+      ]
+    },
+    {
+      "phase": 7,
+      "name": "Documentation & Training",
+      "tasks": [
+        "Write API documentation",
+        "Create user guides",
+        "Document deployment procedures",
+        "Prepare runbooks",
+        "Create architecture diagrams"
+      ],
+      "deliverables": [
+        "API docs",
+        "User guides",
+        "Technical documentation"
+      ],
+      "duration": "2-3 days",
+      "dependencies": [
+        "Phase 5"
+      ]
+    },
+    {
+      "phase": 8,
+      "name": "Deployment & Go-Live",
+      "tasks": [
+        "Deploy to staging environment",
+        "Conduct final testing",
+        "Deploy to production",
+        "Monitor initial performance",
+        "Implement rollback plan if needed"
+      ],
+      "deliverables": [
+        "Production deployment",
+        "Monitoring dashboards",
+        "Go-live checklist"
+      ],
+      "duration": "2-3 days",
+      "dependencies": [
+        "Phase 6"
+      ]
+    }
+  ],
+  "complexity_score": 7,
+  "estimated_effort": "6-8 weeks",
+  "dependencies": [
+    "Auth0",
+    "Docker Hub",
+    "npm packages",
+    "Firebase Auth"
+  ],
+  "risks": [
+    {
+      "type": "complexity",
+      "description": "Microservices add operational complexity",
+      "mitigation": "Implement proper service mesh and observability",
+      "severity": "medium"
+    },
+    {
+      "type": "performance",
+      "description": "High performance requirements may not be met",
+      "mitigation": "Implement caching, CDN, and load testing",
+      "severity": "high"
+    },
+    {
+      "type": "security",
+      "description": "Authentication and authorization vulnerabilities",
+      "mitigation": "Implement security best practices and regular audits",
+      "severity": "high"
+    }
+  ]
+}

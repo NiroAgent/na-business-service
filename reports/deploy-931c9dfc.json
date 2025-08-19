@@ -1,0 +1,32 @@
+{
+  "deployment_id": "deploy-931c9dfc",
+  "project_id": "test-api-001",
+  "status": "success",
+  "target": "staging",
+  "version": "1.0.0",
+  "timestamp": "2025-08-18T17:45:47.412267",
+  "duration": 0.001003,
+  "endpoints": [
+    "http://test-api.staging.example.com",
+    "http://test-api-service.default"
+  ],
+  "logs": [
+    "Generating Docker configuration...",
+    "Dockerfile created at generated_projects\\test-api\\Dockerfile",
+    "Generating CI/CD pipeline...",
+    "CI/CD pipeline created at generated_projects\\test-api\\.github\\workflows\\ci-cd.yml",
+    "Generating Kubernetes manifests...",
+    "Kubernetes manifests created",
+    "Setting up monitoring configuration...",
+    "Monitoring configuration created",
+    "Generating deployment documentation...",
+    "Deployment documentation created"
+  ],
+  "metrics": {
+    "docker_config": true,
+    "ci_cd_pipeline": true,
+    "k8s_manifests": true,
+    "monitoring": true,
+    "documentation": true
+  }
+}

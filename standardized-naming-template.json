@@ -1,0 +1,731 @@
+{
+  "AWSTemplateFormatVersion": "2010-09-09",
+  "Description": "Standardized resource naming - no environment prefixes",
+  "Resources": {
+    "VfCore": {
+      "Type": "AWS::Lambda::Function",
+      "Properties": {
+        "FunctionName": "vf-core",
+        "Runtime": "nodejs18.x",
+        "Handler": "index.handler",
+        "Role": {
+          "Fn::Sub": "arn:aws:iam::${AWS::AccountId}:role/lambda-execution-role"
+        },
+        "Tags": [
+          {
+            "Key": "Organization",
+            "Value": "VF"
+          },
+          {
+            "Key": "Environment",
+            "Value": "development"
+          },
+          {
+            "Key": "ManagedBy",
+            "Value": "CloudFormation"
+          }
+        ]
+      }
+    },
+    "VfDashboard": {
+      "Type": "AWS::Lambda::Function",
+      "Properties": {
+        "FunctionName": "vf-dashboard",
+        "Runtime": "nodejs18.x",
+        "Handler": "index.handler",
+        "Role": {
+          "Fn::Sub": "arn:aws:iam::${AWS::AccountId}:role/lambda-execution-role"
+        },
+        "Tags": [
+          {
+            "Key": "Organization",
+            "Value": "VF"
+          },
+          {
+            "Key": "Environment",
+            "Value": "development"
+          },
+          {
+            "Key": "ManagedBy",
+            "Value": "CloudFormation"
+          }
+        ]
+      }
+    },
+    "VfAuth": {
+      "Type": "AWS::Lambda::Function",
+      "Properties": {
+        "FunctionName": "vf-auth",
+        "Runtime": "nodejs18.x",
+        "Handler": "index.handler",
+        "Role": {
+          "Fn::Sub": "arn:aws:iam::${AWS::AccountId}:role/lambda-execution-role"
+        },
+        "Tags": [
+          {
+            "Key": "Organization",
+            "Value": "VF"
+          },
+          {
+            "Key": "Environment",
+            "Value": "development"
+          },
+          {
+            "Key": "ManagedBy",
+            "Value": "CloudFormation"
+          }
+        ]
+      }
+    },
+    "VfImage": {
+      "Type": "AWS::Lambda::Function",
+      "Properties": {
+        "FunctionName": "vf-image",
+        "Runtime": "nodejs18.x",
+        "Handler": "index.handler",
+        "Role": {
+          "Fn::Sub": "arn:aws:iam::${AWS::AccountId}:role/lambda-execution-role"
+        },
+        "Tags": [
+          {
+            "Key": "Organization",
+            "Value": "VF"
+          },
+          {
+            "Key": "Environment",
+            "Value": "development"
+          },
+          {
+            "Key": "ManagedBy",
+            "Value": "CloudFormation"
+          }
+        ]
+      }
+    },
+    "VfVideo": {
+      "Type": "AWS::Lambda::Function",
+      "Properties": {
+        "FunctionName": "vf-video",
+        "Runtime": "nodejs18.x",
+        "Handler": "index.handler",
+        "Role": {
+          "Fn::Sub": "arn:aws:iam::${AWS::AccountId}:role/lambda-execution-role"
+        },
+        "Tags": [
+          {
+            "Key": "Organization",
+            "Value": "VF"
+          },
+          {
+            "Key": "Environment",
+            "Value": "development"
+          },
+          {
+            "Key": "ManagedBy",
+            "Value": "CloudFormation"
+          }
+        ]
+      }
+    },
+    "VfAudio": {
+      "Type": "AWS::Lambda::Function",
+      "Properties": {
+        "FunctionName": "vf-audio",
+        "Runtime": "nodejs18.x",
+        "Handler": "index.handler",
+        "Role": {
+          "Fn::Sub": "arn:aws:iam::${AWS::AccountId}:role/lambda-execution-role"
+        },
+        "Tags": [
+          {
+            "Key": "Organization",
+            "Value": "VF"
+          },
+          {
+            "Key": "Environment",
+            "Value": "development"
+          },
+          {
+            "Key": "ManagedBy",
+            "Value": "CloudFormation"
+          }
+        ]
+      }
+    },
+    "VfText": {
+      "Type": "AWS::Lambda::Function",
+      "Properties": {
+        "FunctionName": "vf-text",
+        "Runtime": "nodejs18.x",
+        "Handler": "index.handler",
+        "Role": {
+          "Fn::Sub": "arn:aws:iam::${AWS::AccountId}:role/lambda-execution-role"
+        },
+        "Tags": [
+          {
+            "Key": "Organization",
+            "Value": "VF"
+          },
+          {
+            "Key": "Environment",
+            "Value": "development"
+          },
+          {
+            "Key": "ManagedBy",
+            "Value": "CloudFormation"
+          }
+        ]
+      }
+    },
+    "VfBulk": {
+      "Type": "AWS::Lambda::Function",
+      "Properties": {
+        "FunctionName": "vf-bulk",
+        "Runtime": "nodejs18.x",
+        "Handler": "index.handler",
+        "Role": {
+          "Fn::Sub": "arn:aws:iam::${AWS::AccountId}:role/lambda-execution-role"
+        },
+        "Tags": [
+          {
+            "Key": "Organization",
+            "Value": "VF"
+          },
+          {
+            "Key": "Environment",
+            "Value": "development"
+          },
+          {
+            "Key": "ManagedBy",
+            "Value": "CloudFormation"
+          }
+        ]
+      }
+    },
+    "VfBudgetsApi": {
+      "Type": "AWS::Lambda::Function",
+      "Properties": {
+        "FunctionName": "vf-budgets-api",
+        "Runtime": "nodejs18.x",
+        "Handler": "index.handler",
+        "Role": {
+          "Fn::Sub": "arn:aws:iam::${AWS::AccountId}:role/lambda-execution-role"
+        },
+        "Tags": [
+          {
+            "Key": "Organization",
+            "Value": "VF"
+          },
+          {
+            "Key": "Environment",
+            "Value": "development"
+          },
+          {
+            "Key": "ManagedBy",
+            "Value": "CloudFormation"
+          }
+        ]
+      }
+    },
+    "VfCostsApi": {
+      "Type": "AWS::Lambda::Function",
+      "Properties": {
+        "FunctionName": "vf-costs-api",
+        "Runtime": "nodejs18.x",
+        "Handler": "index.handler",
+        "Role": {
+          "Fn::Sub": "arn:aws:iam::${AWS::AccountId}:role/lambda-execution-role"
+        },
+        "Tags": [
+          {
+            "Key": "Organization",
+            "Value": "VF"
+          },
+          {
+            "Key": "Environment",
+            "Value": "development"
+          },
+          {
+            "Key": "ManagedBy",
+            "Value": "CloudFormation"
+          }
+        ]
+      }
+    },
+    "VfPaymentsApi": {
+      "Type": "AWS::Lambda::Function",
+      "Properties": {
+        "FunctionName": "vf-payments-api",
+        "Runtime": "nodejs18.x",
+        "Handler": "index.handler",
+        "Role": {
+          "Fn::Sub": "arn:aws:iam::${AWS::AccountId}:role/lambda-execution-role"
+        },
+        "Tags": [
+          {
+            "Key": "Organization",
+            "Value": "VF"
+          },
+          {
+            "Key": "Environment",
+            "Value": "development"
+          },
+          {
+            "Key": "ManagedBy",
+            "Value": "CloudFormation"
+          }
+        ]
+      }
+    },
+    "VfUserApi": {
+      "Type": "AWS::Lambda::Function",
+      "Properties": {
+        "FunctionName": "vf-user-api",
+        "Runtime": "nodejs18.x",
+        "Handler": "index.handler",
+        "Role": {
+          "Fn::Sub": "arn:aws:iam::${AWS::AccountId}:role/lambda-execution-role"
+        },
+        "Tags": [
+          {
+            "Key": "Organization",
+            "Value": "VF"
+          },
+          {
+            "Key": "Environment",
+            "Value": "development"
+          },
+          {
+            "Key": "ManagedBy",
+            "Value": "CloudFormation"
+          }
+        ]
+      }
+    },
+    "VfDashboardApi": {
+      "Type": "AWS::Lambda::Function",
+      "Properties": {
+        "FunctionName": "vf-dashboard-api",
+        "Runtime": "nodejs18.x",
+        "Handler": "index.handler",
+        "Role": {
+          "Fn::Sub": "arn:aws:iam::${AWS::AccountId}:role/lambda-execution-role"
+        },
+        "Tags": [
+          {
+            "Key": "Organization",
+            "Value": "VF"
+          },
+          {
+            "Key": "Environment",
+            "Value": "development"
+          },
+          {
+            "Key": "ManagedBy",
+            "Value": "CloudFormation"
+          }
+        ]
+      }
+    },
+    "VfTestJwks": {
+      "Type": "AWS::Lambda::Function",
+      "Properties": {
+        "FunctionName": "vf-test-jwks",
+        "Runtime": "nodejs18.x",
+        "Handler": "index.handler",
+        "Role": {
+          "Fn::Sub": "arn:aws:iam::${AWS::AccountId}:role/lambda-execution-role"
+        },
+        "Tags": [
+          {
+            "Key": "Organization",
+            "Value": "VF"
+          },
+          {
+            "Key": "Environment",
+            "Value": "development"
+          },
+          {
+            "Key": "ManagedBy",
+            "Value": "CloudFormation"
+          }
+        ]
+      }
+    },
+    "VfInitDb": {
+      "Type": "AWS::Lambda::Function",
+      "Properties": {
+        "FunctionName": "vf-init-db",
+        "Runtime": "nodejs18.x",
+        "Handler": "index.handler",
+        "Role": {
+          "Fn::Sub": "arn:aws:iam::${AWS::AccountId}:role/lambda-execution-role"
+        },
+        "Tags": [
+          {
+            "Key": "Organization",
+            "Value": "VF"
+          },
+          {
+            "Key": "Environment",
+            "Value": "development"
+          },
+          {
+            "Key": "ManagedBy",
+            "Value": "CloudFormation"
+          }
+        ]
+      }
+    },
+    "VfCreateTables": {
+      "Type": "AWS::Lambda::Function",
+      "Properties": {
+        "FunctionName": "vf-create-tables",
+        "Runtime": "nodejs18.x",
+        "Handler": "index.handler",
+        "Role": {
+          "Fn::Sub": "arn:aws:iam::${AWS::AccountId}:role/lambda-execution-role"
+        },
+        "Tags": [
+          {
+            "Key": "Organization",
+            "Value": "VF"
+          },
+          {
+            "Key": "Environment",
+            "Value": "development"
+          },
+          {
+            "Key": "ManagedBy",
+            "Value": "CloudFormation"
+          }
+        ]
+      }
+    },
+    "VfDebugDb": {
+      "Type": "AWS::Lambda::Function",
+      "Properties": {
+        "FunctionName": "vf-debug-db",
+        "Runtime": "nodejs18.x",
+        "Handler": "index.handler",
+        "Role": {
+          "Fn::Sub": "arn:aws:iam::${AWS::AccountId}:role/lambda-execution-role"
+        },
+        "Tags": [
+          {
+            "Key": "Organization",
+            "Value": "VF"
+          },
+          {
+            "Key": "Environment",
+            "Value": "development"
+          },
+          {
+            "Key": "ManagedBy",
+            "Value": "CloudFormation"
+          }
+        ]
+      }
+    },
+    "VfUpdateUser": {
+      "Type": "AWS::Lambda::Function",
+      "Properties": {
+        "FunctionName": "vf-update-user",
+        "Runtime": "nodejs18.x",
+        "Handler": "index.handler",
+        "Role": {
+          "Fn::Sub": "arn:aws:iam::${AWS::AccountId}:role/lambda-execution-role"
+        },
+        "Tags": [
+          {
+            "Key": "Organization",
+            "Value": "VF"
+          },
+          {
+            "Key": "Environment",
+            "Value": "development"
+          },
+          {
+            "Key": "ManagedBy",
+            "Value": "CloudFormation"
+          }
+        ]
+      }
+    },
+    "NsCore": {
+      "Type": "AWS::Lambda::Function",
+      "Properties": {
+        "FunctionName": "ns-core",
+        "Runtime": "nodejs18.x",
+        "Handler": "index.handler",
+        "Role": {
+          "Fn::Sub": "arn:aws:iam::${AWS::AccountId}:role/lambda-execution-role"
+        },
+        "Tags": [
+          {
+            "Key": "Organization",
+            "Value": "NS"
+          },
+          {
+            "Key": "Environment",
+            "Value": "development"
+          },
+          {
+            "Key": "ManagedBy",
+            "Value": "CloudFormation"
+          }
+        ]
+      }
+    },
+    "NsUser": {
+      "Type": "AWS::Lambda::Function",
+      "Properties": {
+        "FunctionName": "ns-user",
+        "Runtime": "nodejs18.x",
+        "Handler": "index.handler",
+        "Role": {
+          "Fn::Sub": "arn:aws:iam::${AWS::AccountId}:role/lambda-execution-role"
+        },
+        "Tags": [
+          {
+            "Key": "Organization",
+            "Value": "NS"
+          },
+          {
+            "Key": "Environment",
+            "Value": "development"
+          },
+          {
+            "Key": "ManagedBy",
+            "Value": "CloudFormation"
+          }
+        ]
+      }
+    },
+    "NsDashboard": {
+      "Type": "AWS::Lambda::Function",
+      "Properties": {
+        "FunctionName": "ns-dashboard",
+        "Runtime": "nodejs18.x",
+        "Handler": "index.handler",
+        "Role": {
+          "Fn::Sub": "arn:aws:iam::${AWS::AccountId}:role/lambda-execution-role"
+        },
+        "Tags": [
+          {
+            "Key": "Organization",
+            "Value": "NS"
+          },
+          {
+            "Key": "Environment",
+            "Value": "development"
+          },
+          {
+            "Key": "ManagedBy",
+            "Value": "CloudFormation"
+          }
+        ]
+      }
+    },
+    "NsDashboardApi": {
+      "Type": "AWS::Lambda::Function",
+      "Properties": {
+        "FunctionName": "ns-dashboard-api",
+        "Runtime": "nodejs18.x",
+        "Handler": "index.handler",
+        "Role": {
+          "Fn::Sub": "arn:aws:iam::${AWS::AccountId}:role/lambda-execution-role"
+        },
+        "Tags": [
+          {
+            "Key": "Organization",
+            "Value": "NS"
+          },
+          {
+            "Key": "Environment",
+            "Value": "development"
+          },
+          {
+            "Key": "ManagedBy",
+            "Value": "CloudFormation"
+          }
+        ]
+      }
+    },
+    "NsPayments": {
+      "Type": "AWS::Lambda::Function",
+      "Properties": {
+        "FunctionName": "ns-payments",
+        "Runtime": "nodejs18.x",
+        "Handler": "index.handler",
+        "Role": {
+          "Fn::Sub": "arn:aws:iam::${AWS::AccountId}:role/lambda-execution-role"
+        },
+        "Tags": [
+          {
+            "Key": "Organization",
+            "Value": "NS"
+          },
+          {
+            "Key": "Environment",
+            "Value": "development"
+          },
+          {
+            "Key": "ManagedBy",
+            "Value": "CloudFormation"
+          }
+        ]
+      }
+    },
+    "NsPaymentsApi": {
+      "Type": "AWS::Lambda::Function",
+      "Properties": {
+        "FunctionName": "ns-payments-api",
+        "Runtime": "nodejs18.x",
+        "Handler": "index.handler",
+        "Role": {
+          "Fn::Sub": "arn:aws:iam::${AWS::AccountId}:role/lambda-execution-role"
+        },
+        "Tags": [
+          {
+            "Key": "Organization",
+            "Value": "NS"
+          },
+          {
+            "Key": "Environment",
+            "Value": "development"
+          },
+          {
+            "Key": "ManagedBy",
+            "Value": "CloudFormation"
+          }
+        ]
+      }
+    },
+    "NsUserApi": {
+      "Type": "AWS::Lambda::Function",
+      "Properties": {
+        "FunctionName": "ns-user-api",
+        "Runtime": "nodejs18.x",
+        "Handler": "index.handler",
+        "Role": {
+          "Fn::Sub": "arn:aws:iam::${AWS::AccountId}:role/lambda-execution-role"
+        },
+        "Tags": [
+          {
+            "Key": "Organization",
+            "Value": "NS"
+          },
+          {
+            "Key": "Environment",
+            "Value": "development"
+          },
+          {
+            "Key": "ManagedBy",
+            "Value": "CloudFormation"
+          }
+        ]
+      }
+    },
+    "NsAuth": {
+      "Type": "AWS::Lambda::Function",
+      "Properties": {
+        "FunctionName": "ns-auth",
+        "Runtime": "nodejs18.x",
+        "Handler": "index.handler",
+        "Role": {
+          "Fn::Sub": "arn:aws:iam::${AWS::AccountId}:role/lambda-execution-role"
+        },
+        "Tags": [
+          {
+            "Key": "Organization",
+            "Value": "NS"
+          },
+          {
+            "Key": "Environment",
+            "Value": "development"
+          },
+          {
+            "Key": "ManagedBy",
+            "Value": "CloudFormation"
+          }
+        ]
+      }
+    },
+    "NsCoreV2": {
+      "Type": "AWS::Lambda::Function",
+      "Properties": {
+        "FunctionName": "ns-core-v2",
+        "Runtime": "nodejs18.x",
+        "Handler": "index.handler",
+        "Role": {
+          "Fn::Sub": "arn:aws:iam::${AWS::AccountId}:role/lambda-execution-role"
+        },
+        "Tags": [
+          {
+            "Key": "Organization",
+            "Value": "NS"
+          },
+          {
+            "Key": "Environment",
+            "Value": "development"
+          },
+          {
+            "Key": "ManagedBy",
+            "Value": "CloudFormation"
+          }
+        ]
+      }
+    },
+    "NaCreateTestUsers": {
+      "Type": "AWS::Lambda::Function",
+      "Properties": {
+        "FunctionName": "na-create-test-users",
+        "Runtime": "nodejs18.x",
+        "Handler": "index.handler",
+        "Role": {
+          "Fn::Sub": "arn:aws:iam::${AWS::AccountId}:role/lambda-execution-role"
+        },
+        "Tags": [
+          {
+            "Key": "Organization",
+            "Value": "NA"
+          },
+          {
+            "Key": "Environment",
+            "Value": "development"
+          },
+          {
+            "Key": "ManagedBy",
+            "Value": "CloudFormation"
+          }
+        ]
+      }
+    },
+    "NaCheckoutSession": {
+      "Type": "AWS::Lambda::Function",
+      "Properties": {
+        "FunctionName": "na-checkout-session",
+        "Runtime": "nodejs18.x",
+        "Handler": "index.handler",
+        "Role": {
+          "Fn::Sub": "arn:aws:iam::${AWS::AccountId}:role/lambda-execution-role"
+        },
+        "Tags": [
+          {
+            "Key": "Organization",
+            "Value": "NA"
+          },
+          {
+            "Key": "Environment",
+            "Value": "development"
+          },
+          {
+            "Key": "ManagedBy",
+            "Value": "CloudFormation"
+          }
+        ]
+      }
+    }
+  }
+}

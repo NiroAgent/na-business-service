@@ -1,0 +1,44 @@
+{
+  "audit_timestamp": "2025-08-18T18:10:06.957201",
+  "total_agents": 4,
+  "agents_found": 4,
+  "compliant_agents": 4,
+  "compliance_percentage": 100.0,
+  "policy_status": "ENFORCED",
+  "detailed_results": [
+    {
+      "agent": "ai-architect-agent.py",
+      "compliant": true,
+      "policy_found": true,
+      "violations": [
+        "Prohibited pattern found: manual scaling"
+      ],
+      "recommendations": []
+    },
+    {
+      "agent": "ai-developer-agent.py",
+      "compliant": true,
+      "policy_found": true,
+      "violations": [],
+      "recommendations": []
+    },
+    {
+      "agent": "ai-qa-agent.py",
+      "compliant": true,
+      "policy_found": true,
+      "violations": [
+        "Insufficient serverless patterns"
+      ],
+      "recommendations": []
+    },
+    {
+      "agent": "ai-devops-agent.py",
+      "compliant": true,
+      "policy_found": true,
+      "violations": [
+        "Insufficient serverless patterns"
+      ],
+      "recommendations": []
+    }
+  ]
+}
