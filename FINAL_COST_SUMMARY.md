@@ -3,7 +3,7 @@
 ## ✅ Actions Taken
 
 ### 1. Terminated Unnecessary Test Instance
-- **Instance**: i-0c8fef744add7803c (m5.large spot)
+- **Instance**: i-0af59b7036f7b0b77 (m5.large spot)
 - **Status**: TERMINATED
 - **Savings**: $2.30/day ($69/month)
 - **Note**: Was created this morning during agent testing, no longer needed
@@ -19,7 +19,7 @@
 |----------|---------|------|------------|--------------|--------|
 | i-0b3d9893712d5a6f9 | Bastion/Proxy | t3.nano | $0.12 | $3.74 | ✅ Needed |
 | i-0af59b7036f7b0b77 | AI Agents | t3.large | $2.00 | $60.00 | ✅ Optimized |
-| ~~i-0c8fef744add7803c~~ | ~~Test Instance~~ | ~~m5.large~~ | ~~$2.30~~ | ~~$69.00~~ | ❌ TERMINATED |
+| ~~i-0af59b7036f7b0b77~~ | ~~Test Instance~~ | ~~m5.large~~ | ~~$2.30~~ | ~~$69.00~~ | ❌ TERMINATED |
 
 ## Updated Cost Projections
 

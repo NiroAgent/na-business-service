@@ -1,6 +1,6 @@
 #!/bin/bash
 
-INSTANCE_ID="i-0c8fef744add7803c"
+INSTANCE_ID="i-0af59b7036f7b0b77"
 
 echo "====================================="
 echo "INVESTIGATING MYSTERY m5.large INSTANCE"

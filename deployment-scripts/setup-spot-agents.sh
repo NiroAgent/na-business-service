@@ -2,7 +2,7 @@
 # Setup 50 AI Agents on Spot Instance with Interruption Handling
 
 echo "=== SETTING UP 50 AI AGENTS ON SPOT INSTANCE ==="
-echo "Instance: i-0c8fef744add7803c"
+echo "Instance: i-0af59b7036f7b0b77"
 echo "Public IP: 35.174.174.116"
 echo "Spot Price: $0.05/hour"
 echo "Monthly Cost: ~$36 (95% savings vs Lambda)"

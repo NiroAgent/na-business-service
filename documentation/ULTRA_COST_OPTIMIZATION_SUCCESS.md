@@ -16,7 +16,7 @@ We have successfully implemented the **most cost-effective** AI agent deployment
 ## 🚀 Spot Instance Deployment - LIVE SYSTEM
 
 ### Infrastructure Details
-- **Instance ID**: `i-0c8fef744add7803c`
+- **Instance ID**: `i-0af59b7036f7b0b77`
 - **Public IP**: `35.174.174.116`
 - **Instance Type**: `m5.large`
 - **Spot Price**: `$0.05/hour`

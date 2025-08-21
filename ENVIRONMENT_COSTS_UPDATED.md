@@ -7,7 +7,7 @@
 |----------|---------|------|-------------|------------|--------------|
 | i-0b3d9893712d5a6f9 | Bastion/HTTPS Proxy | t3.nano | $0.0052 | $0.12 | $3.74 |
 | i-0af59b7036f7b0b77 | VF-Dev AI Agents | t3.large | $0.0832 | $2.00 | $60.00 |
-| i-0c8fef744add7803c | **Container Host** | m5.large | $0.096 | $2.30 | $69.12 |
+| i-0af59b7036f7b0b77 | **Container Host** | m5.large | $0.096 | $2.30 | $69.12 |
 
 ### RDS Database
 | Database | Type | Estimated Monthly |

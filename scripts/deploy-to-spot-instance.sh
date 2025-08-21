@@ -2,7 +2,7 @@
 # Deploy setup script to spot instance and start 50 agents
 
 INSTANCE_IP="35.174.174.116"
-INSTANCE_ID="i-0c8fef744add7803c"
+INSTANCE_ID="i-0af59b7036f7b0b77"
 SPOT_REQUEST_ID="sir-fty76qrm"
 
 echo "================================================"
